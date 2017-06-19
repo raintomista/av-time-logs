@@ -1,0 +1,92 @@
+body{
+	background-color: #d9d9d9;
+}
+.pusher{
+	width: calc(100% - 260px);
+	height: 100vh;
+	
+}
+
+#content{
+	padding: 20px 18px;
+}
+
+.ui.sidebar.menu .item.link{
+	font-family: 'Comfortaa', cursive;
+	letter-spacing: 0.3px;
+	font-size: 17px;
+	font-weight: bolder;
+	color: #65666b;
+	border-left: 4px solid transparent;
+	padding: 15px 30px;
+}
+
+.ui.inverted.menu .item.link:hover{
+	border-left: 4px solid #aa67da;
+	color: #aa67da !important;
+}
+
+.ui.inverted.menu .active.item.link{
+	border-left: 4px solid #aa67da;
+	background-color: transparent;
+	color: #aa67da !important;
+}
+
+.ui.inverted.menu .active.item.link:hover{
+	border-left: 4px solid #67dacb;
+	color: #67dacb !important;
+}
+
+.ui.inverted.top.menu{
+	background-color: #111111;
+	border-radius: 0px;
+}
+
+.ui.inverted.top.menu .right.item{
+	padding: 0px;
+}
+
+.ui.vertical.menu .item > i.left.aligned.icon {
+  float: left;
+  margin: 0 0.5em 0 0;
+}
+
+.ui.left.vertical.inverted.labeled.visible.sidebar.menu{
+	background-color: #2a2830;
+}
+
+.ui.button{
+	border-radius: 20px;
+}
+
+.ui.icon.button{
+	background-color: #dc354e;
+}
+
+/*Time*/
+
+#time{
+	font-family: 'Lato', sans-serif;
+	font-weight: 900;
+	font-size: 30px;
+}
+
+#date{
+	font-family: 'Lato', sans-serif;
+	font-size: 	20px;
+	margin-left: 10px;
+}
+
+.nav-icon{
+	margin-right: 15px;
+	font-size: 	22px;
+	line-height: 20px;
+	display: inline-block;
+    vertical-align: middle;
+}
+
+.nav-label{
+	line-height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
