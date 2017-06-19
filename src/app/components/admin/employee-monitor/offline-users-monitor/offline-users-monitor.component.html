@@ -1,0 +1,22 @@
+<table class="ui celled table" id="offline-users">
+  <thead>
+    <tr>
+      <th>
+        Offline Users
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="offlineUsers?.length < 1">
+      <td>
+        No Offline Users 
+      </td>
+    </tr>
+    <tr *ngFor="let user of offlineUsers">
+      <td>
+        <img class="ui avatar image" src="{{user.imgUrl}}">
+        {{user.name}}
+      </td>
+    </tr>
+  </tbody>
+</table>

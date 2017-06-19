@@ -12,4 +12,19 @@ export class UserService{
 		return this.http.get('https://av-timelogs-api.herokuapp.com/users/all')
 			.map((res:Response) => res.json());
 	}
+
+	getOfflineUsers(){
+		return this.http.get('https://av-timelogs-api.herokuapp.com/users/status/0')
+			.map((res:Response) => res.json());
+	}
+
+	getOnlineUsers(){
+		return this.http.get('https://av-timelogs-api.herokuapp.com/users/status/1')
+			.map((res:Response) => res.json());
+	}
+
+	getUsersOnBreak(){
+		return this.http.get('https://av-timelogs-api.herokuapp.com/users/status/2')
+			.map((res:Response) => res.json());
+	}
 }

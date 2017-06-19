@@ -12,11 +12,14 @@ import { TimelogsComponent } from './components/timelogs/timelogs.component';
 import { NetworkComponent } from './components/network/network.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { ViewUserComponent } from './components/view-user/view-user.component';
-import { LoginMonitorComponent } from './components/login-monitor/login-monitor.component';
+import { EmployeeMonitorComponent } from './components/admin/employee-monitor/employee-monitor.component';
+import { OnlineUsersMonitorComponent } from './components/admin/employee-monitor/online-users-monitor/online-users-monitor.component';
+import { OfflineUsersMonitorComponent } from './components/admin/employee-monitor/offline-users-monitor/offline-users-monitor.component';
 
 
 const appRoutes: Routes = [
-	{ path: '', component: LoginMonitorComponent},
+	{ path: '', component: EmployeeMonitorComponent},  
+	{ path: 'admin', component: EmployeeMonitorComponent},
 	{ path: 'timelogs', component: TimelogsComponent},
 	{ path: 'network', component: NetworkComponent},
 	{ path: 'add-user', component: AddUserComponent},
@@ -33,7 +36,9 @@ const appRoutes: Routes = [
     NetworkComponent,
     AddUserComponent,
     ViewUserComponent,
-    LoginMonitorComponent
+    EmployeeMonitorComponent,
+    OnlineUsersMonitorComponent,
+    OfflineUsersMonitorComponent
   ],
   imports: [
     BrowserModule,
