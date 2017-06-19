@@ -11,11 +11,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { TimelogsComponent } from './components/timelogs/timelogs.component';
 import { NetworkComponent } from './components/network/network.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
-import { ViewUserComponent } from './components/view-user/view-user.component';
+import { ViewUserComponent } from './components/admin/view-all-users/view-all-users.component';
 import { EmployeeMonitorComponent } from './components/admin/employee-monitor/employee-monitor.component';
 import { OnlineUsersMonitorComponent } from './components/admin/employee-monitor/online-users-monitor/online-users-monitor.component';
 import { OfflineUsersMonitorComponent } from './components/admin/employee-monitor/offline-users-monitor/offline-users-monitor.component';
 import { UsersOnBreakMonitorComponent } from './components/admin/employee-monitor/users-on-break-monitor/users-on-break-monitor.component';
+import { ViewAllUsersTableComponent } from './components/admin/view-all-users/view-all-users-table/view-all-users-table.component';
 
 
 const appRoutes: Routes = [
@@ -23,7 +24,7 @@ const appRoutes: Routes = [
 	{ path: 'timelogs', component: TimelogsComponent},
 	{ path: 'network', component: NetworkComponent},
 	{ path: 'add-user', component: AddUserComponent},
-	{ path: 'view-users', component: ViewUserComponent}
+	{ path: 'view-all-users', component: ViewUserComponent}
 ];
 
 @NgModule({
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     EmployeeMonitorComponent,
     OnlineUsersMonitorComponent,
     OfflineUsersMonitorComponent,
-    UsersOnBreakMonitorComponent
+    UsersOnBreakMonitorComponent,
+    ViewAllUsersTableComponent
   ],
   imports: [
     BrowserModule,

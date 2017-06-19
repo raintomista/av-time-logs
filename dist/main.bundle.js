@@ -84,11 +84,12 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_timelogs_timelogs_component__ = __webpack_require__("../../../../../src/app/components/timelogs/timelogs.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_network_network_component__ = __webpack_require__("../../../../../src/app/components/network/network.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_add_user_add_user_component__ = __webpack_require__("../../../../../src/app/components/add-user/add-user.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_view_user_view_user_component__ = __webpack_require__("../../../../../src/app/components/view-user/view-user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_admin_view_all_users_view_all_users_component__ = __webpack_require__("../../../../../src/app/components/admin/view-all-users/view-all-users.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_admin_employee_monitor_employee_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/employee-monitor.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_admin_employee_monitor_online_users_monitor_online_users_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/online-users-monitor/online-users-monitor.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_admin_employee_monitor_offline_users_monitor_offline_users_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/offline-users-monitor/offline-users-monitor.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_admin_employee_monitor_users_on_break_monitor_users_on_break_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/users-on-break-monitor/users-on-break-monitor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_admin_view_all_users_view_all_users_table_view_all_users_table_component__ = __webpack_require__("../../../../../src/app/components/admin/view-all-users/view-all-users-table/view-all-users-table.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -112,13 +113,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var appRoutes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_12__components_admin_employee_monitor_employee_monitor_component__["a" /* EmployeeMonitorComponent */] },
-    { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_12__components_admin_employee_monitor_employee_monitor_component__["a" /* EmployeeMonitorComponent */] },
     { path: 'timelogs', component: __WEBPACK_IMPORTED_MODULE_8__components_timelogs_timelogs_component__["a" /* TimelogsComponent */] },
     { path: 'network', component: __WEBPACK_IMPORTED_MODULE_9__components_network_network_component__["a" /* NetworkComponent */] },
     { path: 'add-user', component: __WEBPACK_IMPORTED_MODULE_10__components_add_user_add_user_component__["a" /* AddUserComponent */] },
-    { path: 'view-users', component: __WEBPACK_IMPORTED_MODULE_11__components_view_user_view_user_component__["a" /* ViewUserComponent */] }
+    { path: 'view-all-users', component: __WEBPACK_IMPORTED_MODULE_11__components_admin_view_all_users_view_all_users_component__["a" /* ViewUserComponent */] }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -135,11 +136,12 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_8__components_timelogs_timelogs_component__["a" /* TimelogsComponent */],
             __WEBPACK_IMPORTED_MODULE_9__components_network_network_component__["a" /* NetworkComponent */],
             __WEBPACK_IMPORTED_MODULE_10__components_add_user_add_user_component__["a" /* AddUserComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__components_view_user_view_user_component__["a" /* ViewUserComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__components_admin_view_all_users_view_all_users_component__["a" /* ViewUserComponent */],
             __WEBPACK_IMPORTED_MODULE_12__components_admin_employee_monitor_employee_monitor_component__["a" /* EmployeeMonitorComponent */],
             __WEBPACK_IMPORTED_MODULE_13__components_admin_employee_monitor_online_users_monitor_online_users_monitor_component__["a" /* OnlineUsersMonitorComponent */],
             __WEBPACK_IMPORTED_MODULE_14__components_admin_employee_monitor_offline_users_monitor_offline_users_monitor_component__["a" /* OfflineUsersMonitorComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__components_admin_employee_monitor_users_on_break_monitor_users_on_break_monitor_component__["a" /* UsersOnBreakMonitorComponent */]
+            __WEBPACK_IMPORTED_MODULE_15__components_admin_employee_monitor_users_on_break_monitor_users_on_break_monitor_component__["a" /* UsersOnBreakMonitorComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__components_admin_view_all_users_view_all_users_table_view_all_users_table_component__["a" /* ViewAllUsersTableComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -493,6 +495,142 @@ var _a;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/admin/view-all-users/view-all-users-table/view-all-users-table.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".ui.table#time-logs{\r\n\tbackground-color: transparent;\r\n\tborder-color: #2ec4b6;\r\n\tborder-width: 2.5px;\r\n\tborder-radius: 20px;\r\n}\r\n\r\n.ui.table#time-logs thead{\r\n\tbackground-color: #2ec4b6;\r\n}\r\n.ui.table#time-logs thead tr th{\r\n\tbackground-color: #2ec4b6;\r\n\tcolor: white;\r\n\tfont-family: 'Comfortaa', cursive;\r\n\tfont-size: 1.07142857rem;\r\n\tletter-spacing: 0.3px;\r\n\tpadding: 14px 20px;\r\n\r\n}\r\n\r\n.ui.table#time-logs thead tr th:first-child{\r\n\tborder-radius: 17px 0px 0px 0px;\r\n}\r\n\r\n.ui.table#time-logs thead tr th:last-child{\r\n\tborder-radius: 0px 17px 0px 0px;\r\n}\r\n\r\n.ui.table#time-logs thead tr:first-child>th:only-child{\r\n\tborder-radius: 16px 16px 0px 0px;\r\n}\r\n\r\n.ui.table#time-logs tbody tr td{\r\n\tborder-color: #2ec4b6;\r\n\tborder-width: 2.5px;\r\n}\r\n\r\n.ui.table#time-logs td{\r\n\tcolor: #38383b;\r\n\tpadding: 14px 20px;\r\n\tfont-family: 'Comfortaa', cursive;\r\n\tfont-size: 1.07142857rem;\r\n\tfont-weight: 600;\r\n}\r\n\r\n.ui.table#time-logs tbody:last-child > td{\r\n\tpadding: 0px;\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/admin/view-all-users/view-all-users-table/view-all-users-table.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<table class=\"ui celled table\" id=\"time-logs\">\n  <thead>\n    <tr>\n      <th class=\"center aligned\">Full Name</th>\n      <th class=\"center aligned\">Username</th>\n      <th class=\"center aligned\">Contact #</th>\n      <th class=\"center aligned\">Email Address</th>\n      <th class=\"center aligned\">Status</th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n  <tr *ngIf=\"users?.length < 1\">\n    <td class=\"center aligned\" colspan=\"5\">No Users</td>\n  </tr>\n  \n  <tr *ngFor=\"let user of users\">\n    <td>\n      <img class=\"ui avatar image\" src=\"{{user.imgUrl}}\">\n      {{user.name}}\n    </td>\n    <td class=\"center aligned\">{{user.username}}</td>\n    <td class=\"center aligned\">{{\"0\" + user.contactNumber}}</td>\n    <td class=\"center aligned\">{{user.email}}</td>\n    <td class=\"center aligned\">\n      <span *ngIf=\"user.status === 0\">Offline</span>\n      <span *ngIf=\"user.status === 1\">Online</span>  \n      <span *ngIf=\"user.status === 2\">On Break</span>              \n    </td>\n    <td class=\"center aligned\">\n      <div class=\"ui icon button\" data-tooltip=\"Remove\" data-inverted=\"\">\n        <i class=\"remove icon\" (click)=\"test(user)\"></i>\n      </div>\n    </td>\n  </tr>\n  </tbody>\n</table>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/admin/view-all-users/view-all-users-table/view-all-users-table.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewAllUsersTableComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ViewAllUsersTableComponent = (function () {
+    function ViewAllUsersTableComponent(userService) {
+        var _this = this;
+        this.userService = userService;
+        this.userService.getUsers().subscribe(function (users) {
+            _this.users = users.data;
+        });
+    }
+    ViewAllUsersTableComponent.prototype.ngOnInit = function () {
+    };
+    return ViewAllUsersTableComponent;
+}());
+ViewAllUsersTableComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+        selector: 'view-all-users-table',
+        template: __webpack_require__("../../../../../src/app/components/admin/view-all-users/view-all-users-table/view-all-users-table.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/admin/view-all-users/view-all-users-table/view-all-users-table.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]) === "function" && _a || Object])
+], ViewAllUsersTableComponent);
+
+var _a;
+//# sourceMappingURL=view-all-users-table.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/admin/view-all-users/view-all-users.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\r\n.ui.search.icon.button{\r\n\tbackground-color: #aa67da;\r\n\tcolor: white;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/admin/view-all-users/view-all-users.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"ui grid container\" id=\"content\">\n  <div class=\"ui row\">\n    <div class=\"ui six wide column\">\n      <span id=\"time\">1:17:48PM</span>\n      <span id=\"date\">Thu, 8 June 2017</span>\n    </div>\n  </div>\n  <div class=\"ui row\">\n    <div class=\"ui four wide column\">\n      <div class=\"ui form\">\n        <div class=\"field\">\n          <input type=\"text\" name=\"view-by-date\" placeholder=\"Search\">\n        </div>\n      </div>\n    </div>\n    <div class=\"ui three wide column\">\n      <div class=\"ui search icon button\"><i class=\"search icon\"></i></div>\n    </div>\n  </div>\n  <div class=\"ui  stackable row\">\n    <div class=\"column\">\n        <view-all-users-table></view-all-users-table>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/admin/view-all-users/view-all-users.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewUserComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ViewUserComponent = (function () {
+    function ViewUserComponent(userService) {
+        this.userService = userService;
+    }
+    ViewUserComponent.prototype.ngOnInit = function () {
+    };
+    return ViewUserComponent;
+}());
+ViewUserComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+        selector: 'app-view-user',
+        template: __webpack_require__("../../../../../src/app/components/admin/view-all-users/view-all-users.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/admin/view-all-users/view-all-users.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]) === "function" && _a || Object])
+], ViewUserComponent);
+
+var _a;
+//# sourceMappingURL=view-all-users.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/navbar/navbar.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -679,7 +817,7 @@ ServersComponent = __decorate([
 /***/ "../../../../../src/app/components/sidebar/sidebar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"item\">\r\n  <img src=\"../../assets/images/av_landscape_white.png\" alt=\"\">\r\n</div>\r\n<div class=\"filler item\"></div>\r\n<a class=\"item link\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{ exact: true }\" routerLink=\"/admin\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe069;\"></span>\r\n  <span class=\"nav-label\">Home</span>\r\n</a>\r\n<a class=\"item link\" routerLinkActive=\"active\" routerLink=\"/timelogs\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe081;\"></span>\r\n  <span class=\"nav-label\">Time Logs</span>\r\n</a>\r\n<a class=\"item link\" routerLinkActive=\"active\" routerLink=\"/network\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe037;\"></span>\r\n  <span class=\"nav-label\">Network</span>\r\n</a>\r\n<a class=\"item link\" id=\"add-user\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe002;\"></span>\r\n  <span class=\"nav-label\">Add User</span>\r\n</a>\r\n<a class=\"item link\" routerLinkActive=\"active\" routerLink=\"/view-users\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe001;\"></span>\r\n  <span class=\"nav-label\">View Users</span>\r\n</a>\r\n"
+module.exports = "<div class=\"item\">\r\n  <img src=\"../../assets/images/av_landscape_white.png\" alt=\"\">\r\n</div>\r\n<div class=\"filler item\"></div>\r\n<a class=\"item link\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{ exact: true }\" routerLink=\"\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe069;\"></span>\r\n  <span class=\"nav-label\">Home</span>\r\n</a>\r\n<a class=\"item link\" routerLinkActive=\"active\" routerLink=\"/timelogs\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe081;\"></span>\r\n  <span class=\"nav-label\">Time Logs</span>\r\n</a>\r\n<a class=\"item link\" routerLinkActive=\"active\" routerLink=\"/network\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe037;\"></span>\r\n  <span class=\"nav-label\">Network</span>\r\n</a>\r\n<a class=\"item link\" id=\"add-user\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe002;\"></span>\r\n  <span class=\"nav-label\">Add User</span>\r\n</a>\r\n<a class=\"item link\" routerLinkActive=\"active\" routerLink=\"/view-all-users\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe001;\"></span>\r\n  <span class=\"nav-label\">View Users</span>\r\n</a>\r\n"
 
 /***/ }),
 
@@ -779,77 +917,6 @@ TimelogsComponent = __decorate([
 
 var _a;
 //# sourceMappingURL=timelogs.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/view-user/view-user.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".ui.table#time-logs{\r\n\tbackground-color: transparent;\r\n\tborder-color: #2ec4b6;\r\n\tborder-width: 2.5px;\r\n\tborder-radius: 20px;\r\n}\r\n\r\n.ui.table#time-logs thead{\r\n\tbackground-color: #2ec4b6;\r\n}\r\n.ui.table#time-logs thead tr th{\r\n\tbackground-color: #2ec4b6;\r\n\tcolor: white;\r\n\tfont-family: 'Comfortaa', cursive;\r\n\tfont-size: 1.07142857rem;\r\n\tletter-spacing: 0.3px;\r\n\tpadding: 14px 20px;\r\n\r\n}\r\n\r\n.ui.table#time-logs thead tr th:first-child{\r\n\tborder-radius: 17px 0px 0px 0px;\r\n}\r\n\r\n.ui.table#time-logs thead tr th:last-child{\r\n\tborder-radius: 0px 17px 0px 0px;\r\n}\r\n\r\n.ui.table#time-logs thead tr:first-child>th:only-child{\r\n\tborder-radius: 16px 16px 0px 0px;\r\n}\r\n\r\n.ui.table#time-logs tbody tr td{\r\n\tborder-color: #2ec4b6;\r\n\tborder-width: 2.5px;\r\n}\r\n\r\n.ui.table#time-logs td{\r\n\tcolor: #38383b;\r\n\tpadding: 14px 20px;\r\n\tfont-family: 'Comfortaa', cursive;\r\n\tfont-size: 1.07142857rem;\r\n\tfont-weight: 600;\r\n}\r\n\r\n.ui.table#time-logs tbody:last-child > td{\r\n\tpadding: 0px;\r\n}\r\n\r\n.ui.search.icon.button{\r\n\tbackground-color: #aa67da;\r\n\tcolor: white;\r\n}", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/view-user/view-user.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"ui grid container\" id=\"content\">\n  <div class=\"ui row\">\n    <div class=\"ui six wide column\">\n      <span id=\"time\">1:17:48PM</span>\n      <span id=\"date\">Thu, 8 June 2017</span>\n    </div>\n  </div>\n  <div class=\"ui row\">\n    <div class=\"ui four wide column\">\n      <div class=\"ui form\">\n        <div class=\"field\">\n          <input type=\"text\" name=\"view-by-date\" placeholder=\"Search\">\n        </div>\n      </div>\n    </div>\n    <div class=\"ui three wide column\">\n      <div class=\"ui search icon button\"><i class=\"search icon\"></i></div>\n    </div>\n  </div>\n  <div class=\"ui  stackable row\">\n    <div class=\"column\">\n      <table class=\"ui celled table\" id=\"time-logs\">\n        <thead>\n          <tr>\n            <th class=\"center aligned\">Full Name</th>\n            <th class=\"center aligned\">Username</th>\n            <th class=\"center aligned\">Contact #</th>\n            <th class=\"center aligned\">Email Address</th>\n            <th class=\"center aligned\">Status</th>\n            <th></th>\n          </tr>\n        </thead>\n        <tbody>\n    \t\t<tr *ngFor=\"let user of users\">\n      \t\t<td>\n      \t\t  <img class=\"ui avatar image\" src=\"{{user.imgUrl}}\">\n      \t\t  {{user.name}}\n      \t\t</td>\n      \t\t<td class=\"center aligned\">{{user.username}}</td>\n      \t\t<td class=\"center aligned\">{{\"0\" + user.contactNumber}}</td>\n      \t\t<td class=\"center aligned\">{{user.email}}</td>\n      \t\t<td class=\"center aligned\">\n            <span *ngIf=\"user.status === 0\">Offline</span>\n            <span *ngIf=\"user.status === 1\">Online</span>  \n            <span *ngIf=\"user.status === 2\">On Break</span>              \n          </td>\n      \t\t<td class=\"center aligned\">\n      \t\t  <div class=\"ui icon button\" data-tooltip=\"Remove\" data-inverted=\"\">\n      \t\t    <i class=\"remove icon\" (click)=\"test(user)\"></i>\n      \t\t  </div>\n      \t\t</td>\n    \t\t</tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>"
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/view-user/view-user.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewUserComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ViewUserComponent = (function () {
-    function ViewUserComponent(userService) {
-        var _this = this;
-        this.userService = userService;
-        this.userService.getUsers().subscribe(function (users) {
-            _this.users = users.data;
-            // console.log(this.users);
-        });
-    }
-    ViewUserComponent.prototype.ngOnInit = function () {
-    };
-    return ViewUserComponent;
-}());
-ViewUserComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
-        selector: 'app-view-user',
-        template: __webpack_require__("../../../../../src/app/components/view-user/view-user.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/view-user/view-user.component.css")],
-        providers: [__WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]) === "function" && _a || Object])
-], ViewUserComponent);
-
-var _a;
-//# sourceMappingURL=view-user.component.js.map
 
 /***/ }),
 
