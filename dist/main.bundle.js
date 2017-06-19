@@ -88,6 +88,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_admin_employee_monitor_employee_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/employee-monitor.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_admin_employee_monitor_online_users_monitor_online_users_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/online-users-monitor/online-users-monitor.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_admin_employee_monitor_offline_users_monitor_offline_users_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/offline-users-monitor/offline-users-monitor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_admin_employee_monitor_users_on_break_monitor_users_on_break_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/users-on-break-monitor/users-on-break-monitor.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -95,6 +96,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -136,7 +138,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_11__components_view_user_view_user_component__["a" /* ViewUserComponent */],
             __WEBPACK_IMPORTED_MODULE_12__components_admin_employee_monitor_employee_monitor_component__["a" /* EmployeeMonitorComponent */],
             __WEBPACK_IMPORTED_MODULE_13__components_admin_employee_monitor_online_users_monitor_online_users_monitor_component__["a" /* OnlineUsersMonitorComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_admin_employee_monitor_offline_users_monitor_offline_users_monitor_component__["a" /* OfflineUsersMonitorComponent */]
+            __WEBPACK_IMPORTED_MODULE_14__components_admin_employee_monitor_offline_users_monitor_offline_users_monitor_component__["a" /* OfflineUsersMonitorComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__components_admin_employee_monitor_users_on_break_monitor_users_on_break_monitor_component__["a" /* UsersOnBreakMonitorComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -221,7 +224,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* Users on Break */\r\n\r\n.ui.table#users-break{\r\n\tbackground-color: transparent;\r\n\tborder-color: #00d277;\r\n\tborder-width: 2.5px;\r\n\tborder-radius: 20px;\r\n}\r\n\r\n.ui.table#users-break thead{\r\n\tbackground-color: #00d277;\r\n\tborder-radius: 17px 17px 0px 0px;\r\n\r\n}\r\n.ui.table#users-break thead tr th{\r\n\tbackground-color: #00d277;\r\n\tcolor: white;\r\n\tfont-family: 'Comfortaa', cursive;\r\n\tfont-size: 1.07142857rem;\r\n\tletter-spacing: 0.3px;\r\n\tpadding: 14px 20px;\r\n}\r\n\r\n.ui.table#users-break thead tr:first-child>th:only-child{\r\n\tborder-radius: 16px 16px 0px 0px;\r\n}\r\n\r\n.ui.table#users-break tbody tr td{\r\n\tborder-color: #00d277;\r\n\tborder-width: 2.5px;\r\n}\r\n\r\n.ui.table#users-break td{\r\n\tcolor: #38383b;\r\n\tpadding: 14px 20px;\r\n\tfont-family: 'Comfortaa', cursive;\r\n\tfont-size: 1.07142857rem;\r\n\tfont-weight: 600;\r\n}\r\n\r\n\r\n.ui.table#users-break tbody:last-child > td{\r\n\tpadding: 0px;\r\n}", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -234,7 +237,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin/employee-monitor/employee-monitor.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui grid container\" id=\"content\">\n  <div class=\"ui row\">\n    <div class=\"ui column\">\n      <span id=\"time\">1:17:48PM</span>\n      <span id=\"date\">Thu, 8 June 2017</span>\n    </div>\n  </div>\n  <div class=\"ui three column stackable row\">\n    <!-- Online Users -->\n    <div class=\"column\">\n      <online-users-monitor></online-users-monitor>\n    </div>\n\n    <!-- Users on Break -->\n    <div class=\"column\">\n      <table class=\"ui celled table\" id=\"users-break\">\n        <thead>\n          <tr>\n            <th>\n              Users on Break\n            </th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr><td>\n            <img class=\"ui avatar image\" src=\"../../assets/images/wireframe.png\">\n            Abad, Bads\n          </td></tr>\n          <tr><td>\n            <img class=\"ui avatar image\" src=\"../../assets/images/wireframe.png\">\n            Andalajao, Nix\n          </td></tr>\n          <tr><td>\n            <img class=\"ui avatar image\" src=\"../../assets/images/wireframe.png\">\n            Atienza, Paolo\n          </td></tr>\n          <tr><td>\n            <img class=\"ui avatar image\" src=\"../../assets/images/wireframe.png\">\n            Guiterrez, Angel\n          </td></tr>\n          <tr><td>\n            <img class=\"ui avatar image\" src=\"../../assets/images/wireframe.png\">\n            Miclat, Mitch\n          </td></tr>\n          <tr><td>\n            <img class=\"ui avatar image\" src=\"../../assets/images/wireframe.png\">\n            Morit, Andre\n          </td></tr>\n        </tbody>\n      </table>\n    </div>\n\n    <!-- Offline Users -->\n    <div class=\"column\">\n      <offline-users-monitor></offline-users-monitor>\n    </div>  \n  </div>\n</div>"
+module.exports = "<div class=\"ui grid container\" id=\"content\">\n  <div class=\"ui row\">\n    <div class=\"ui column\">\n      <span id=\"time\">1:17:48PM</span>\n      <span id=\"date\">Thu, 8 June 2017</span>\n    </div>\n  </div>\n  <div class=\"ui three column stackable row\">\n    <!-- Online Users -->\n    <div class=\"column\">\n      <online-users-monitor></online-users-monitor>\n    </div>\n\n    <!-- Users on Break -->\n    <div class=\"column\">\n      <users-on-break-monitor></users-on-break-monitor>\n    </div>\n\n    <!-- Offline Users -->\n    <div class=\"column\">\n      <offline-users-monitor></offline-users-monitor>\n    </div>  \n  </div>\n</div>"
 
 /***/ }),
 
@@ -262,7 +265,6 @@ var EmployeeMonitorComponent = (function () {
         this.userService = userService;
         this.userService.getUsers().subscribe(function (users) {
             _this.users = users.data;
-            // console.log(this.users);
         });
     }
     EmployeeMonitorComponent.prototype.ngOnInit = function () {
@@ -419,6 +421,75 @@ OnlineUsersMonitorComponent = __decorate([
 
 var _a;
 //# sourceMappingURL=online-users-monitor.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/admin/employee-monitor/users-on-break-monitor/users-on-break-monitor.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "/* Users on Break */\r\n\r\n.ui.table#users-break{\r\n\tbackground-color: transparent;\r\n\tborder-color: #00d277;\r\n\tborder-width: 2.5px;\r\n\tborder-radius: 20px;\r\n}\r\n\r\n.ui.table#users-break thead{\r\n\tbackground-color: #00d277;\r\n\tborder-radius: 17px 17px 0px 0px;\r\n\r\n}\r\n.ui.table#users-break thead tr th{\r\n\tbackground-color: #00d277;\r\n\tcolor: white;\r\n\tfont-family: 'Comfortaa', cursive;\r\n\tfont-size: 1.07142857rem;\r\n\tletter-spacing: 0.3px;\r\n\tpadding: 14px 20px;\r\n}\r\n\r\n.ui.table#users-break thead tr:first-child>th:only-child{\r\n\tborder-radius: 16px 16px 0px 0px;\r\n}\r\n\r\n.ui.table#users-break tbody tr td{\r\n\tborder-color: #00d277;\r\n\tborder-width: 2.5px;\r\n}\r\n\r\n.ui.table#users-break td{\r\n\tcolor: #38383b;\r\n\tpadding: 14px 20px;\r\n\tfont-family: 'Comfortaa', cursive;\r\n\tfont-size: 1.07142857rem;\r\n\tfont-weight: 600;\r\n}\r\n\r\n\r\n.ui.table#users-break tbody:last-child > td{\r\n\tpadding: 0px;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/admin/employee-monitor/users-on-break-monitor/users-on-break-monitor.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<table class=\"ui celled table\" id=\"users-break\">\n  <thead>\n    <tr>\n      <th>\n        Users On Break\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngIf=\"usersOnBreak?.length < 1\">\n      <td>\n        No Users On Break\n      </td>\n    </tr>\n    <tr *ngFor=\"let user of usersOnBreak\">\n      <td>\n        <img class=\"ui avatar image\" src=\"{{user.imgUrl}}\">\n        {{user.name}}\n      </td>\n    </tr>\n  </tbody>\n</table>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/admin/employee-monitor/users-on-break-monitor/users-on-break-monitor.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsersOnBreakMonitorComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var UsersOnBreakMonitorComponent = (function () {
+    function UsersOnBreakMonitorComponent(userService) {
+        var _this = this;
+        this.userService = userService;
+        this.userService.getUsersOnBreak().subscribe(function (users) {
+            _this.usersOnBreak = users.data;
+        });
+    }
+    UsersOnBreakMonitorComponent.prototype.ngOnInit = function () {
+    };
+    return UsersOnBreakMonitorComponent;
+}());
+UsersOnBreakMonitorComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+        selector: 'users-on-break-monitor',
+        template: __webpack_require__("../../../../../src/app/components/admin/employee-monitor/users-on-break-monitor/users-on-break-monitor.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/admin/employee-monitor/users-on-break-monitor/users-on-break-monitor.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]) === "function" && _a || Object])
+], UsersOnBreakMonitorComponent);
+
+var _a;
+//# sourceMappingURL=users-on-break-monitor.component.js.map
 
 /***/ }),
 
