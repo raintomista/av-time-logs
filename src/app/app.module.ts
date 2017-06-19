@@ -20,7 +20,6 @@ import { UsersOnBreakMonitorComponent } from './components/admin/employee-monito
 
 const appRoutes: Routes = [
 	{ path: '', component: EmployeeMonitorComponent},  
-	{ path: 'admin', component: EmployeeMonitorComponent},
 	{ path: 'timelogs', component: TimelogsComponent},
 	{ path: 'network', component: NetworkComponent},
 	{ path: 'add-user', component: AddUserComponent},
