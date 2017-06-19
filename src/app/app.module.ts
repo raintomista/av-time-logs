@@ -15,6 +15,7 @@ import { ViewUserComponent } from './components/view-user/view-user.component';
 import { EmployeeMonitorComponent } from './components/admin/employee-monitor/employee-monitor.component';
 import { OnlineUsersMonitorComponent } from './components/admin/employee-monitor/online-users-monitor/online-users-monitor.component';
 import { OfflineUsersMonitorComponent } from './components/admin/employee-monitor/offline-users-monitor/offline-users-monitor.component';
+import { UsersOnBreakMonitorComponent } from './components/admin/employee-monitor/users-on-break-monitor/users-on-break-monitor.component';
 
 
 const appRoutes: Routes = [
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     ViewUserComponent,
     EmployeeMonitorComponent,
     OnlineUsersMonitorComponent,
-    OfflineUsersMonitorComponent
+    OfflineUsersMonitorComponent,
+    UsersOnBreakMonitorComponent
   ],
   imports: [
     BrowserModule,

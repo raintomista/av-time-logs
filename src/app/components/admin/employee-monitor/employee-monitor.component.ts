@@ -15,7 +15,6 @@ export class EmployeeMonitorComponent implements OnInit {
   constructor(private userService: UserService) { 
     this.userService.getUsers().subscribe(users =>{
       this.users = users.data;
-      // console.log(this.users);
     });  
   }
 
