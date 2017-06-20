@@ -1,3 +1,4 @@
+import { ResourceService } from './services/resource.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -22,11 +23,11 @@ import { TimelogsTableComponent } from './components/admin/timelogs/timelogs-tab
 
 
 const appRoutes: Routes = [
-	{ path: '', component: EmployeeMonitorComponent},  
-	{ path: 'timelogs', component: TimelogsComponent},
-	{ path: 'network', component: NetworkComponent},
-	{ path: 'add-user', component: AddUserComponent},
-	{ path: 'view-all-users', component: ViewUserComponent}
+  { path: '', component: EmployeeMonitorComponent },
+  { path: 'timelogs', component: TimelogsComponent },
+  { path: 'network', component: NetworkComponent },
+  { path: 'add-user', component: AddUserComponent },
+  { path: 'view-all-users', component: ViewUserComponent }
 ];
 
 @NgModule({
@@ -51,7 +52,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule
   ],
-  providers: [],
+  providers: [ResourceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

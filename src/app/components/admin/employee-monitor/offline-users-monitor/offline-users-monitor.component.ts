@@ -5,7 +5,8 @@ import { UserService } from '../../../../services/user.service';
 @Component({
   selector: 'offline-users-monitor',
   templateUrl: './offline-users-monitor.component.html',
-  styleUrls: ['./offline-users-monitor.component.css']
+  styleUrls: ['./offline-users-monitor.component.css'],
+  providers: [UserService]
 })
 export class OfflineUsersMonitorComponent implements OnInit {
   offlineUsers: Object[];
