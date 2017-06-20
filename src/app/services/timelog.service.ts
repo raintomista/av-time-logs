@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 
@@ -9,11 +9,8 @@ export class TimelogService{
 		console.log("dadada");
 	}
 
-
 	getTimelogs(){
 		return this.http.get('https://av-timelogs-api.herokuapp.com/timelogs/all')
-			.map(res => {
-				res.json();
-			});
+			.map((res:Response) => res.json());
 	}
 }

@@ -10,11 +10,10 @@ import { TimelogService } from '../../services/timelog.service';
 
 })
 export class TimelogsComponent implements OnInit {
-  timelog: Timelog[];
+  timelog: Object[];
   constructor(private timelogService: TimelogService) { 
     this.timelogService.getTimelogs().subscribe(timelogs =>{
-      console.log(timelogs);
-      console.log("tagina");
+      this.timelog = timelogs;
     });  
   }
 
@@ -23,9 +22,3 @@ export class TimelogsComponent implements OnInit {
 
 }
 
-interface Timelog{
-  id: string,
-  username: string, 
-  timeIn: Date,
-  timeOut: Date
-}

@@ -1,0 +1,28 @@
+<table class="ui celled table" id="time-logs">
+  <thead>
+    <tr>
+      <th>Online Users</th>
+      <th class="center aligned">Date</th>
+      <th class="center aligned">Time In</th>
+      <th class="center aligned">Time Out</th>
+      <th class="center aligned">Late Hours</th>
+      <th class="center aligned">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let timelog of timelogs">
+      <td>
+        <img class="ui avatar image" src="{{timelog.imgUrl}}">
+        {{timelog.username}}
+      </td>
+      <td class="center aligned">{{timelog.timeIn | date}}</td>
+      <td class="center aligned">{{timelog.timeIn | date:'hh:mm:ss a'}}</td>
+      <td class="center aligned">
+        <span *ngIf="timelog.timeOut == null">--</span>        
+        <span *ngIf="timelog.timeOut != null">{{timelog.timeOut | date:'hh:mm:ss a'}}</span>
+      </td>
+      <td class="center aligned">--</td>
+      <td class="center aligned">00:00:00</td>
+    </tr>
+  </tbody>
+</table>
