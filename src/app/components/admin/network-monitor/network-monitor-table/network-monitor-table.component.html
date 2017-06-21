@@ -8,103 +8,19 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td class="center aligned">112.209.229.153.pldt.net</td>
-      <td class="center aligned">112.209.229.153</td>
-      <td class="center aligned">Whitelisted</td>
+    <tr *ngFor="let network of networks">
+      <td class="center aligned">{{network.hostname}}</td>
+      <td class="center aligned">{{network.description}}</td>
       <td class="center aligned">
-        <div class="ui massive icon button" data-tooltip="Set as blacklisted" data-inverted="">
+        <span *ngIf="network.status == 1">Whitelisted</span>
+        <span *ngIf="network.status == 0">Blacklisted</span>
+      </td>
+      <td class="center aligned">
+        <div class="ui massive icon button" *ngIf="network.status == 1" data-tooltip="Set as blacklisted" data-inverted="">
           <i class="toggle on icon"></i>
         </div>
-      </td>
-    </tr>
-    <tr>
-      <td class="center aligned">112.209.229.153.pldt.net</td>
-      <td class="center aligned">112.209.229.153</td>
-      <td class="center aligned">Whitelisted</td>
-      <td class="center aligned">
-        <div class="ui massive icon button" data-tooltip="Set as blacklisted" data-inverted="">
-          <i class="toggle on icon"></i>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td class="center aligned">112.209.229.153.pldt.net</td>
-      <td class="center aligned">112.209.229.153</td>
-      <td class="center aligned">Blacklisted</td>
-      <td class="center aligned">
-        <div class="ui massive icon button" data-tooltip="Set as whitelisted" data-inverted="">
+        <div class="ui massive icon button" *ngIf="network.status == 0" data-tooltip="Set as whitelisted" data-inverted="">
           <i class="toggle off icon"></i>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td class="center aligned">121.58.237.218</td>
-      <td class="center aligned">121.58.237.218</td>
-      <td class="center aligned">Blacklisted</td>
-      <td class="center aligned">
-        <div class="ui massive icon button" data-tooltip="Set as whitelisted" data-inverted="">
-          <i class="toggle off icon"></i>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td class="center aligned">112.209.151.52.pldt.net</td>
-      <td class="center aligned">112.209.151.52</td>
-      <td class="center aligned">Whitelisted</td>
-      <td class="center aligned">
-        <div class="ui massive icon button" data-tooltip="Set as blacklisted" data-inverted="">
-          <i class="toggle on icon"></i>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td class="center aligned">112.209.229.153.pldt.net</td>
-      <td class="center aligned">112.209.229.153</td>
-      <td class="center aligned">Whitelisted</td>
-      <td class="center aligned">
-        <div class="ui massive icon button" data-tooltip="Set as blacklisted" data-inverted="">
-          <i class="toggle on icon"></i>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td class="center aligned">112.209.229.153.pldt.net</td>
-      <td class="center aligned">112.209.229.153</td>
-      <td class="center aligned">Whitelisted</td>
-      <td class="center aligned">
-        <div class="ui massive icon button" data-tooltip="Set as blacklisted" data-inverted="">
-          <i class="toggle on icon"></i>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td class="center aligned">112.209.229.153.pldt.net</td>
-      <td class="center aligned">112.209.229.153</td>
-      <td class="center aligned">Blacklisted</td>
-      <td class="center aligned">
-        <div class="ui massive icon button" data-tooltip="Set as whitelisted" data-inverted="">
-          <i class="toggle off icon"></i>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td class="center aligned">121.58.237.218</td>
-      <td class="center aligned">121.58.237.218</td>
-      <td class="center aligned">Blacklisted</td>
-      <td class="center aligned">
-        <div class="ui massive icon button" data-tooltip="Set as whitelisted" data-inverted="">
-          <i class="toggle off icon"></i>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td class="center aligned">112.209.151.52.pldt.net</td>
-      <td class="center aligned">112.209.151.52</td>
-      <td class="center aligned">Whitelisted</td>
-      <td class="center aligned">
-        <div class="ui massive icon button" data-tooltip="Set as blacklisted" data-inverted="">
-          <i class="toggle on icon"></i>
         </div>
       </td>
     </tr>

@@ -32,7 +32,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent,
     SidebarComponent,
     ServersComponent,
