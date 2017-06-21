@@ -1,0 +1,46 @@
+<div class="ui grid container" id="content">
+  <div class="ui row">
+    <div class="ui six wide column">
+      <span id="time">1:17:48PM</span>
+      <span id="date">Thu, 8 June 2017</span>
+    </div>
+  </div>
+  <div class="ui row">
+    <div class="ui six wide column">
+      <div class="ui segments">
+        <div class="ui segment" id="header-segment">
+          <h4>Current Network</h4>
+        </div>
+        <div class="ui secondary segment">
+          <div class="ui grid">
+            <div class="ui one column row">
+              <div class="ui column">
+                <div class="ui divided selection list">
+                  <a class="item" id="hostname">
+                    <div class="ui horizontal label" >Host Name</div>
+                    112.209.229.153.pldt.net
+                  </a>
+                  <a class="item" id="ip-address">
+                    <div class="ui purple horizontal label">IP Address</div>
+                    112.209.229.153
+                  </a>
+                  <a class="item ui form" id="description">
+                    <div class="field">
+                        <input type="text" name="first-name" placeholder="Description">
+                      </div>
+                  </a>
+                </div>
+              </div>
+              <div class="ui center aligned column">
+                <div class="ui button">Save to Database</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui ten wide column">
+      <network-monitor-table></network-monitor-table>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { Routes, RouterModule } from '@angular/router';
 // import { TimelogsComponent } from './components/timelogs/timelogs.component';
-import { NetworkComponent } from './components/network/network.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { ViewUserComponent } from './components/admin/view-all-users/view-all-users.component';
 import { EmployeeMonitorComponent } from './components/admin/employee-monitor/employee-monitor.component';
@@ -20,12 +19,14 @@ import { UsersOnBreakMonitorComponent } from './components/admin/employee-monito
 import { ViewAllUsersTableComponent } from './components/admin/view-all-users/view-all-users-table/view-all-users-table.component';
 import { TimelogsComponent } from './components/admin/timelogs/timelogs.component';
 import { TimelogsTableComponent } from './components/admin/timelogs/timelogs-table/timelogs-table.component';
+import { NetworkMonitorComponent } from './components/admin/network-monitor/network-monitor.component';
+import { NetworkMonitorTableComponent } from './components/admin/network-monitor/network-monitor-table/network-monitor-table.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: EmployeeMonitorComponent },
   { path: 'timelogs', component: TimelogsComponent },
-  { path: 'network', component: NetworkComponent },
+  { path: 'network', component: NetworkMonitorComponent },
   { path: 'add-user', component: AddUserComponent },
   { path: 'view-all-users', component: ViewUserComponent }
 ];
@@ -37,7 +38,6 @@ const appRoutes: Routes = [
     ServersComponent,
     NavbarComponent,
     TimelogsComponent,
-    NetworkComponent,
     AddUserComponent,
     ViewUserComponent,
     EmployeeMonitorComponent,
@@ -45,7 +45,9 @@ const appRoutes: Routes = [
     OfflineUsersMonitorComponent,
     UsersOnBreakMonitorComponent,
     ViewAllUsersTableComponent,
-    TimelogsTableComponent
+    TimelogsTableComponent,
+    NetworkMonitorComponent,
+    NetworkMonitorTableComponent
   ],
   imports: [
     BrowserModule,
