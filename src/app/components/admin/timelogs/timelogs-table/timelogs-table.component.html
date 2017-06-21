@@ -12,8 +12,8 @@
   <tbody>
     <tr *ngFor="let timelog of timelogs">
       <td>
-        <img class="ui avatar image" src="{{timelog.imgUrl}}">
-        {{timelog.username}}
+        <img class="ui avatar image" src="{{timelog._user.imgUrl}}">
+        {{timelog._user.name}}
       </td>
       <td class="center aligned">{{timelog.timeIn | date}}</td>
       <td class="center aligned">{{timelog.timeIn | date:'hh:mm:ss a'}}</td>
@@ -21,8 +21,14 @@
         <span *ngIf="timelog.timeOut == null">--</span>        
         <span *ngIf="timelog.timeOut != null">{{timelog.timeOut | date:'hh:mm:ss a'}}</span>
       </td>
-      <td class="center aligned">--</td>
-      <td class="center aligned">00:00:00</td>
+      <td class="center aligned" [ngClass]="{'warning': timelog.lateHrs != null}">
+        <span *ngIf="timelog.lateHrs == null">--</span>        
+        <span *ngIf="timelog.lateHrs != null">{{timelog.lateHrs}}</span>
+      </td>
+      <td class="center aligned">
+        <span *ngIf="timelog.totalHrs == null">00:00:00</span>        
+        <span *ngIf="timelog.totalHrs != null">{{timelog.totalHrs}}</span>
+      </td>
     </tr>
   </tbody>
 </table>
