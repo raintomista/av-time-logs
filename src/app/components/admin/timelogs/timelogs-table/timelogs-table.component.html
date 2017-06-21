@@ -10,6 +10,9 @@
     </tr>
   </thead>
   <tbody>
+    <tr *ngIf="timelogs?.length < 1">
+      <td class="center aligned" colspan="6">No Timelogs for the Day</td>
+    </tr>
     <tr *ngFor="let timelog of timelogs">
       <td>
         <img class="ui avatar image" src="{{timelog._user.imgUrl}}">
