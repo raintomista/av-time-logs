@@ -2,6 +2,7 @@ import { ResourceService } from './services/resource.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -23,6 +24,8 @@ import { NetworkMonitorComponent } from './components/admin/network-monitor/netw
 import { NetworkMonitorTableComponent } from './components/admin/network-monitor/network-monitor-table/network-monitor-table.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LoaderComponent } from './components/_loader/loader.component';
+import { AlertComponent } from './components/_alert/alert.component';
 
 
 const appRoutes: Routes = [
@@ -54,12 +57,16 @@ const appRoutes: Routes = [
     NetworkMonitorComponent,
     NetworkMonitorTableComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoaderComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ResourceService],
   bootstrap: [AppComponent]
