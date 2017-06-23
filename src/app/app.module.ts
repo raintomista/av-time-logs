@@ -21,14 +21,19 @@ import { TimelogsComponent } from './components/admin/timelogs/timelogs.componen
 import { TimelogsTableComponent } from './components/admin/timelogs/timelogs-table/timelogs-table.component';
 import { NetworkMonitorComponent } from './components/admin/network-monitor/network-monitor.component';
 import { NetworkMonitorTableComponent } from './components/admin/network-monitor/network-monitor-table/network-monitor-table.component';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 const appRoutes: Routes = [
-  { path: '', component: EmployeeMonitorComponent },
-  { path: 'timelogs', component: TimelogsComponent },
-  { path: 'network', component: NetworkMonitorComponent },
-  { path: 'add-user', component: AddUserComponent },
-  { path: 'view-all-users', component: ViewUserComponent }
+  { path: 'login', component: LoginComponent },
+  { path: '', component: DashboardComponent, 
+    children: [ { path: '', component: EmployeeMonitorComponent },
+                { path: 'timelogs', component: TimelogsComponent },
+                { path: 'network', component: NetworkMonitorComponent },
+                { path: 'add-user', component: AddUserComponent },
+                { path: 'view-all-users', component: ViewUserComponent } ]
+  }
 ];
 
 @NgModule({
@@ -47,7 +52,9 @@ const appRoutes: Routes = [
     ViewAllUsersTableComponent,
     TimelogsTableComponent,
     NetworkMonitorComponent,
-    NetworkMonitorTableComponent
+    NetworkMonitorTableComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

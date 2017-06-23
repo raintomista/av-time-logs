@@ -1,0 +1,8 @@
+.pusher{
+    margin-left: 260px;
+	width: calc(100% - 260px);
+}
+
+.content{
+    padding: 24px 18px;
+}
