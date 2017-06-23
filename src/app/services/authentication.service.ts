@@ -14,6 +14,7 @@ export class AuthenticationService {
                 let user = response.json().data;
                 if(user && user.token){
                     localStorage.setItem('currentUser', JSON.stringify(user));
+                    localStorage.setItem('x-access-token', user.token);
                 }
                 return user;
             });

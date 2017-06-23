@@ -1,3 +1,4 @@
+import { AuthGuard } from './../../mean-angular2-registration-login-example/client/app/_guards/auth.guard';
 import { ResourceService } from './services/resource.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -27,15 +28,14 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoaderComponent } from './components/_loader/loader.component';
 import { AlertComponent } from './components/_alert/alert.component';
 
-
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', component: DashboardComponent, 
-    children: [ { path: '', component: EmployeeMonitorComponent },
-                { path: 'timelogs', component: TimelogsComponent },
-                { path: 'network', component: NetworkMonitorComponent },
-                { path: 'add-user', component: AddUserComponent },
-                { path: 'view-all-users', component: ViewUserComponent } ]
+  { path: '', component: DashboardComponent,
+    children: [ { path: '', component: EmployeeMonitorComponent, canActivate: [AuthGuard]},
+                { path: 'timelogs', component: TimelogsComponent, canActivate: [AuthGuard]},
+                { path: 'network', component: NetworkMonitorComponent, canActivate: [AuthGuard]},
+                { path: 'add-user', component: AddUserComponent, canActivate: [AuthGuard]},
+                { path: 'view-all-users', component: ViewUserComponent, canActivate: [AuthGuard]} ]
   }
 ];
 
@@ -68,7 +68,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ResourceService],
+  providers: [ResourceService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

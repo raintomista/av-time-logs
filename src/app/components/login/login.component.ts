@@ -8,25 +8,33 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [AuthenticationService, AlertService]
+  providers: [AuthenticationService, AlertService],
 })
 export class LoginComponent implements OnInit {
   model: any = {};
   loading = false;
+  returnUrl: string;  
   
   constructor(
     private authenticationService: AuthenticationService,
-    private route: Router,
+    private route: ActivatedRoute,
+    private router: Router,
     private alertService: AlertService) { }
 
   ngOnInit() {
+    // reset login status
+      this.authenticationService.logout();
+
+      // get return url from route parameters or default to '/'
+      this.returnUrl = this.route.snapshot.queryParams['returnUrl'].substring(1) || '/';
   }
 
   login(){
     this.loading = true;
     this.authenticationService.login(this.model.username, this.model.password).subscribe(
       data => {
-        this.route.navigate(['']);
+        console.log(this.returnUrl);
+        this.router.navigate([this.returnUrl]);
       },
       error => {
         this.alertService.error("Invalid username/password.");
