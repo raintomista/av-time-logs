@@ -6,7 +6,6 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MomentModule} from 'angular2-moment/moment.module';
 
-
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ServersComponent } from './components/servers/servers.component';
@@ -79,7 +78,7 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    MomentModule
+    MomentModule,
   ],
   providers: [ResourceService, AuthGuard],
   bootstrap: [AppComponent]

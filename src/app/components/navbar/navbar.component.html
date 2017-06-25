@@ -2,13 +2,15 @@
   <div class="ui container">
     <div class="right item">
       <div class="ui dropdown item">
-        <img class="ui avatar image" src="../../assets/images/wireframe.png"> Admin
+        <img class="ui avatar image" src="{{user.imgUrl}}">
+        <span id="current-user">{{user.name}}</span>
         <i class="dropdown icon"></i>
         <div class="menu">
-          <a class="item">Settings</a>
-          <a class="item">Logout</a>
+          <a class="item" (click)="settings()">Settings</a>
+          <a class="item" (click)="logOut()">Logout</a>
         </div>
       </div>
     </div>
   </div>
 </div>
+

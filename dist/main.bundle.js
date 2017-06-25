@@ -249,7 +249,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* ReactiveFormsModule */],
-            __WEBPACK_IMPORTED_MODULE_6_angular2_moment_moment_module__["MomentModule"]
+            __WEBPACK_IMPORTED_MODULE_6_angular2_moment_moment_module__["MomentModule"],
         ],
         providers: [__WEBPACK_IMPORTED_MODULE_1__services_resource_service__["a" /* ResourceService */], __WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
@@ -1377,7 +1377,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "#current-user{\r\n    margin-left: 5px;\r\n    font-weight: 600;\r\n}", ""]);
 
 // exports
 
@@ -1390,7 +1390,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui inverted top borderless menu\">\n  <div class=\"ui container\">\n    <div class=\"right item\">\n      <div class=\"ui dropdown item\">\n        <img class=\"ui avatar image\" src=\"../../assets/images/wireframe.png\"> Admin\n        <i class=\"dropdown icon\"></i>\n        <div class=\"menu\">\n          <a class=\"item\">Settings</a>\n          <a class=\"item\">Logout</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"ui inverted top borderless menu\">\n  <div class=\"ui container\">\n    <div class=\"right item\">\n      <div class=\"ui dropdown item\">\n        <img class=\"ui avatar image\" src=\"{{user.imgUrl}}\">\n        <span id=\"current-user\">{{user.name}}</span>\n        <i class=\"dropdown icon\"></i>\n        <div class=\"menu\">\n          <a class=\"item\" (click)=\"settings()\">Settings</a>\n          <a class=\"item\" (click)=\"logOut()\">Logout</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -1398,7 +1398,8 @@ module.exports = "<div class=\"ui inverted top borderless menu\">\n  <div class=
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_authentication_service__ = __webpack_require__("../../../../../src/app/services/authentication.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavbarComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1410,22 +1411,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var NavbarComponent = (function () {
-    function NavbarComponent() {
+    function NavbarComponent(authenticationService) {
+        this.authenticationService = authenticationService;
+        this.user = {};
+        this.user = JSON.parse(window.localStorage.getItem('currentUser'));
     }
     NavbarComponent.prototype.ngOnInit = function () {
+    };
+    NavbarComponent.prototype.ngAfterViewInit = function () {
+        $('.ui.dropdown').dropdown();
+    };
+    NavbarComponent.prototype.logOut = function () {
+        this.authenticationService.logout();
+    };
+    NavbarComponent.prototype.settings = function () {
     };
     return NavbarComponent;
 }());
 NavbarComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
         selector: 'navbar',
         template: __webpack_require__("../../../../../src/app/components/navbar/navbar.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/navbar/navbar.component.css")]
+        styles: [__webpack_require__("../../../../../src/app/components/navbar/navbar.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_0__services_authentication_service__["a" /* AuthenticationService */]]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__services_authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_authentication_service__["a" /* AuthenticationService */]) === "function" && _a || Object])
 ], NavbarComponent);
 
+var _a;
 //# sourceMappingURL=navbar.component.js.map
 
 /***/ }),
@@ -1813,9 +1828,10 @@ var _a;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_config__ = __webpack_require__("../../../../../src/app/app.config.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_config__ = __webpack_require__("../../../../../src/app/app.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1829,13 +1845,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AuthenticationService = (function () {
-    function AuthenticationService(http) {
+    function AuthenticationService(http, router) {
         this.http = http;
+        this.router = router;
     }
     AuthenticationService.prototype.login = function (username, password) {
         console.log({ username: username, password: password });
-        return this.http.post(__WEBPACK_IMPORTED_MODULE_0__app_config__["a" /* appConfig */].apiURL + "/user/login", { data: { username: username, password: password } })
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_1__app_config__["a" /* appConfig */].apiURL + "/user/login", { data: { username: username, password: password } })
             .map(function (response) {
             var user = response.json().data;
             if (user && user.token) {
@@ -1846,16 +1864,17 @@ var AuthenticationService = (function () {
         });
     };
     AuthenticationService.prototype.logout = function () {
+        this.router.navigate(['/login']);
         localStorage.removeItem('currentUser');
     };
     return AuthenticationService;
 }());
 AuthenticationService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === "function" && _a || Object])
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* Router */]) === "function" && _b || Object])
 ], AuthenticationService);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=authentication.service.js.map
 
 /***/ }),

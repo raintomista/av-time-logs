@@ -1,4 +1,4 @@
-webpackJsonp([3],{
+webpackJsonp([4],{
 
 /***/ "../../../../angular2-moment/add.pipe.js":
 /***/ (function(module, exports, __webpack_require__) {
