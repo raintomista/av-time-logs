@@ -5,29 +5,34 @@ import {TimerObservable} from "rxjs/observable/TimerObservable";
 @Component({
   selector: 'clock',
   template: `
-    <span id="time">{{time}}</span>
-    <span id="date">{{date}}</span>`,
+    <div class="ui grid container" id="content">
+      <div class="ui row">
+        <div class="ui column">
+            <span id="time"><time>{{clock | amDateFormat: 'hh:mm:ss A'}}</time></span>
+            <span id="date"><time>{{clock | amDateFormat: 'ddd, D MMM YY'}}</time></span>
+            
+        </div>
+      </div>
+    </div>`,
   styleUrls: ['./clock.component.css'],
 })
 export class ClockComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
-  private time: any;
-  private date: any;
+  private clock: any;
   constructor() {
-    this.time = new Date();
+    this.clock = new Date();
   }
 
   ngOnInit() {
     let timer = TimerObservable.create(0, 1000);
     this.subscription = timer.subscribe(t => {
-      this.time = this.updateClock();
+      this.clock = new Date();
     });
 
-    this.date = new Date().toDateString();
   }
 
   ngOnDestroy(){
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 
   updateClock() {
@@ -52,6 +57,10 @@ export class ClockComponent implements OnInit, OnDestroy {
     // Compose the string for display
     let currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
     return currentTimeString;
+  }
+
+  getDate(){
+    return new Date().toDateString();
   }
 }
 
