@@ -9,11 +9,12 @@ import { TimelogService } from '../../../../services/timelog.service';
 
 })
 export class TimelogsTableComponent implements OnInit {
-  timelogs: Object[];
+  users: Object[];
 
   constructor(private timelogService: TimelogService) {
-    this.timelogService.getTimelogs().subscribe(timelogs =>{
-      this.timelogs = timelogs.data;
+    this.timelogService.getTimelogs().subscribe(users =>{
+      this.users = users.data;
+      console.log(this.users);
       
     });  
    }
