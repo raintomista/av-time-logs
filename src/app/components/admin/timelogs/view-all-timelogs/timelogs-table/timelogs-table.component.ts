@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TimelogService } from '../../../../services/timelog.service';
+import { TimelogService } from '../../../../../services/timelog.service';
 
 @Component({
   selector: 'admin-timelogs-table',

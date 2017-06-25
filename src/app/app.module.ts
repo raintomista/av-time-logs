@@ -20,8 +20,8 @@ import { OnlineUsersMonitorComponent } from './components/admin/employee-monitor
 import { OfflineUsersMonitorComponent } from './components/admin/employee-monitor/offline-users-monitor/offline-users-monitor.component';
 import { UsersOnBreakMonitorComponent } from './components/admin/employee-monitor/users-on-break-monitor/users-on-break-monitor.component';
 import { ViewAllUsersTableComponent } from './components/admin/view-all-users/view-all-users-table/view-all-users-table.component';
-import { TimelogsComponent } from './components/admin/timelogs/timelogs.component';
-import { TimelogsTableComponent } from './components/admin/timelogs/timelogs-table/timelogs-table.component';
+import { TimelogsComponent } from './components/admin/timelogs/view-all-timelogs/timelogs.component';
+import { TimelogsTableComponent } from './components/admin/timelogs/view-all-timelogs/timelogs-table/timelogs-table.component';
 import { NetworkMonitorComponent } from './components/admin/network-monitor/network-monitor.component';
 import { NetworkMonitorTableComponent } from './components/admin/network-monitor/network-monitor-table/network-monitor-table.component';
 import { LoginComponent } from './components/login/login.component';
@@ -32,6 +32,8 @@ import { TimeloggingPanelComponent } from './components/timelogging-panel/timelo
 import { TimeInComponent } from './components/timelogging-panel/time-in/time-in.component';
 import { TimeOutComponent } from './components/timelogging-panel/time-out/time-out.component';
 import { ClockComponent } from './components/clock/clock.component';
+import { ViewAllTimelogsByUserComponent } from './components/admin/timelogs/view-all-timelogs-by-user/view-all-timelogs-by-user.component';
+import { TimelogsByUserTableComponent } from './components/admin/timelogs/view-all-timelogs-by-user/timelogs-by-user-table/timelogs-by-user-table.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -39,6 +41,7 @@ const appRoutes: Routes = [
   { path: '', component: DashboardComponent,
     children: [ { path: '', component: TimeloggingPanelComponent, canActivate: [AuthGuard]},
                 { path: 'timelogs', component: TimelogsComponent, canActivate: [AuthGuard]},
+                { path: 'timelogs/user/:username', component: ViewAllTimelogsByUserComponent, canActivate: [AuthGuard]},
                 { path: 'network', component: NetworkMonitorComponent, canActivate: [AuthGuard]},
                 { path: 'add-user', component: AddUserComponent, canActivate: [AuthGuard]},
                 { path: 'view-all-users', component: ViewUserComponent, canActivate: [AuthGuard]},
@@ -70,7 +73,9 @@ const appRoutes: Routes = [
     TimeloggingPanelComponent,
     TimeInComponent,
     TimeOutComponent,
-    ClockComponent
+    ClockComponent,
+    ViewAllTimelogsByUserComponent,
+    TimelogsByUserTableComponent
   ],
   imports: [
     BrowserModule,

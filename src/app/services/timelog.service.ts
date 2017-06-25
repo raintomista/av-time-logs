@@ -2,6 +2,7 @@ import { appConfig } from './../app.config';
 import { ResourceService } from './resource.service';
 import {Injectable} from '@angular/core';
 import {Http, Response,  Headers } from '@angular/http';
+import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 
 
@@ -14,6 +15,11 @@ export class TimelogService{
 
 	getTimelogs(){
 		return this.http.get(`${appConfig.apiURL}/timelogs/all`, {headers: this.getHeaders()})
+			.map((res:Response) => res.json());
+	}
+
+	getTimelogsByUser(username:string){
+		return this.http.get(`${appConfig.apiURL}/timelogs/user/${username}`, {headers: this.getHeaders()})
 			.map((res:Response) => res.json());
 	}
 
