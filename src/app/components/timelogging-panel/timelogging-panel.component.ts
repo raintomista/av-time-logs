@@ -12,4 +12,10 @@ export class TimeloggingPanelComponent implements OnInit {
   ngOnInit() {
   }
 
+  checkStatus(){
+    let status = JSON.parse(window.localStorage.getItem('currentUser')).status;
+    console.log(status);
+    return status;
+  }
+
 }

@@ -23,6 +23,11 @@ export class TimelogService{
 		return this.http.post(`${appConfig.apiURL}/time-in`, {username: username}, {headers: this.getHeaders()});
 	}
 
+	timeOut(username: string){
+		console.log(username);
+		return this.http.post(`${appConfig.apiURL}/time-out`, {username: username}, {headers: this.getHeaders()});
+	}
+
 	private getHeaders(){
 		let headers = new Headers();
 		headers.append('x-access-token', this.resource.getResource('x-access-token'));		

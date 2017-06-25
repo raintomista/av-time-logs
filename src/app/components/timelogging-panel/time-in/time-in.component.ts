@@ -1,6 +1,6 @@
 import { TimelogService } from './../../../services/timelog.service';
 import { Component, OnInit } from '@angular/core';
-TimelogService
+
 @Component({
   selector: 'time-in',
   templateUrl: './time-in.component.html',
@@ -18,6 +18,11 @@ export class TimeInComponent implements OnInit {
     let user = JSON.parse(window.localStorage.getItem('currentUser'));
     this.timelogService.timeIn(user.username).subscribe();
     alert("Successfully timed in");
+
+    user.status = 1;
+    window.localStorage.setItem('currentUser', JSON.stringify(user));
+    
+
   }
 
 }

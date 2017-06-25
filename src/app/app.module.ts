@@ -29,6 +29,7 @@ import { LoaderComponent } from './components/_loader/loader.component';
 import { AlertComponent } from './components/_alert/alert.component';
 import { TimeloggingPanelComponent } from './components/timelogging-panel/timelogging-panel.component';
 import { TimeInComponent } from './components/timelogging-panel/time-in/time-in.component';
+import { TimeOutComponent } from './components/timelogging-panel/time-out/time-out.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -65,7 +66,8 @@ const appRoutes: Routes = [
     LoaderComponent,
     AlertComponent,
     TimeloggingPanelComponent,
-    TimeInComponent
+    TimeInComponent,
+    TimeOutComponent
   ],
   imports: [
     BrowserModule,

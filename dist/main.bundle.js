@@ -157,6 +157,7 @@ var appConfig = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_alert_alert_component__ = __webpack_require__("../../../../../src/app/components/_alert/alert.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_timelogging_panel_timelogging_panel_component__ = __webpack_require__("../../../../../src/app/components/timelogging-panel/timelogging-panel.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_timelogging_panel_time_in_time_in_component__ = __webpack_require__("../../../../../src/app/components/timelogging-panel/time-in/time-in.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_timelogging_panel_time_out_time_out_component__ = __webpack_require__("../../../../../src/app/components/timelogging-panel/time-out/time-out.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -176,6 +177,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 // import { TimelogsComponent } from './components/timelogs/timelogs.component';
+
 
 
 
@@ -232,7 +234,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_24__components_loader_loader_component__["a" /* LoaderComponent */],
             __WEBPACK_IMPORTED_MODULE_25__components_alert_alert_component__["a" /* AlertComponent */],
             __WEBPACK_IMPORTED_MODULE_26__components_timelogging_panel_timelogging_panel_component__["a" /* TimeloggingPanelComponent */],
-            __WEBPACK_IMPORTED_MODULE_27__components_timelogging_panel_time_in_time_in_component__["a" /* TimeInComponent */]
+            __WEBPACK_IMPORTED_MODULE_27__components_timelogging_panel_time_in_time_in_component__["a" /* TimeInComponent */],
+            __WEBPACK_IMPORTED_MODULE_28__components_timelogging_panel_time_out_time_out_component__["a" /* TimeOutComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */],
@@ -1473,7 +1476,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-__WEBPACK_IMPORTED_MODULE_0__services_timelog_service__["a" /* TimelogService */];
 var TimeInComponent = (function () {
     function TimeInComponent(timelogService) {
         this.timelogService = timelogService;
@@ -1484,6 +1486,8 @@ var TimeInComponent = (function () {
         var user = JSON.parse(window.localStorage.getItem('currentUser'));
         this.timelogService.timeIn(user.username).subscribe();
         alert("Successfully timed in");
+        user.status = 1;
+        window.localStorage.setItem('currentUser', JSON.stringify(user));
     };
     return TimeInComponent;
 }());
@@ -1499,6 +1503,84 @@ TimeInComponent = __decorate([
 
 var _a;
 //# sourceMappingURL=time-in.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/timelogging-panel/time-out/time-out.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".ui.button{\r\n    color: #dc354e;  \r\n    background-color: transparent;\r\n    font-family: 'Comfortaa', cursive;\r\n    font-size: 1.2rem;\r\n    padding: 20px;\r\n}\r\n\r\n.ui.table#offline-user{\r\n\tbackground-color: transparent;\r\n\tborder-color: #dc354e;\r\n\tborder-width: 2.5px;\r\n\tborder-radius: 20px;\r\n}\r\n\r\n.ui.table#offline-user thead{\r\n\tbackground-color: #dc354e;\r\n\tborder-radius: 17px 17px 0px 0px;\r\n\r\n}\r\n.ui.table#offline-user thead tr th{\r\n\tbackground-color: #dc354e;\r\n\tcolor: white;\r\n\tfont-family: 'Comfortaa', cursive;\r\n\tfont-size: 1.07142857rem;\r\n\tletter-spacing: 0.3px;\r\n\tpadding: 14px 20px;\r\n}\r\n\r\n.ui.table#offline-user thead tr:first-child>th:only-child{\r\n\tborder-radius: 16px 16px 0px 0px;\r\n}\r\n\r\n.ui.table#offline-user tbody tr td{\r\n\tborder-color: #dc354e;\r\n\tborder-width: 2.5px;\r\n}\r\n\r\n.ui.table#offline-user td{\r\n\tcolor: #38383b;\r\n\tpadding: 14px 20px;\r\n\tfont-family: 'Comfortaa', cursive;\r\n\tfont-size: 1.07142857rem;\r\n\tfont-weight: 600;\r\n}\r\n\r\n\r\n.ui.table#offline-user tbody:last-child > td{\r\n\tpadding: 0px;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/timelogging-panel/time-out/time-out.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<table class=\"ui celled table\" id=\"offline-user\">\n  <thead>\n    <tr>\n      <th>\n        Offline Users\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <div class=\"ui fluid button\" (click)=\"timeOut()\">Time Out</div>\n  </tbody>\n</table>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/timelogging-panel/time-out/time-out.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_timelog_service__ = __webpack_require__("../../../../../src/app/services/timelog.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimeOutComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TimeOutComponent = (function () {
+    function TimeOutComponent(timelogService) {
+        this.timelogService = timelogService;
+    }
+    TimeOutComponent.prototype.ngOnInit = function () {
+    };
+    TimeOutComponent.prototype.timeOut = function () {
+        if (confirm('Are you sure you want to time out?') == true) {
+            var user = JSON.parse(window.localStorage.getItem('currentUser'));
+            this.timelogService.timeOut(user.username).subscribe();
+            alert('Successfully timed out');
+            user.status = 0;
+            window.localStorage.setItem('currentUser', JSON.stringify(user));
+        }
+        else {
+            alert('You pressed cancel!');
+        }
+    };
+    return TimeOutComponent;
+}());
+TimeOutComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_13" /* Component */])({
+        selector: 'time-out',
+        template: __webpack_require__("../../../../../src/app/components/timelogging-panel/time-out/time-out.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/timelogging-panel/time-out/time-out.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_0__services_timelog_service__["a" /* TimelogService */]]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__services_timelog_service__["a" /* TimelogService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_timelog_service__["a" /* TimelogService */]) === "function" && _a || Object])
+], TimeOutComponent);
+
+var _a;
+//# sourceMappingURL=time-out.component.js.map
 
 /***/ }),
 
@@ -1523,7 +1605,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/timelogging-panel/timelogging-panel.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui grid container\" id=\"content\">\n  <div class=\"ui row\">\n    <div class=\"ui column\">\n      <span id=\"time\">1:17:48PM</span>\n      <span id=\"date\">Thu, 8 June 2017</span>\n    </div>\n  </div>\n  <div class=\"ui three column stackable row\">\n    <!-- Online Users -->\n    <div class=\"column\">\n      <time-in></time-in>\n      <!--<div *ngIf=\"getUserStatus() == 0\">\n        <time-in-panel></time-in-panel>        \n      </div>\n      <div *ngIf=\"getUserStatus() == 1\">\n        <time-out-panel></time-out-panel>        \n      </div>      -->\n    </div>\n\n    <!-- Users on Break -->\n    <div class=\"column\">\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"ui grid container\" id=\"content\">\n  <div class=\"ui row\">\n    <div class=\"ui column\">\n      <span id=\"time\">1:17:48PM</span>\n      <span id=\"date\">Thu, 8 June 2017</span>\n    </div>\n  </div>\n  <div class=\"ui three column stackable row\">\n    <!-- Online Users -->\n    <div class=\"column\">\n      <time-in *ngIf=\"checkStatus() === 0\"></time-in>\n      <time-out *ngIf=\"checkStatus() === 1\"></time-out>\n    </div>\n\n    <!-- Users on Break -->\n    <div class=\"column\">\n      \n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1547,6 +1629,11 @@ var TimeloggingPanelComponent = (function () {
     function TimeloggingPanelComponent() {
     }
     TimeloggingPanelComponent.prototype.ngOnInit = function () {
+    };
+    TimeloggingPanelComponent.prototype.checkStatus = function () {
+        var status = JSON.parse(window.localStorage.getItem('currentUser')).status;
+        console.log(status);
+        return status;
     };
     return TimeloggingPanelComponent;
 }());
@@ -1806,6 +1893,10 @@ var TimelogService = (function () {
     TimelogService.prototype.timeIn = function (username) {
         console.log(username);
         return this.http.post(__WEBPACK_IMPORTED_MODULE_0__app_config__["a" /* appConfig */].apiURL + "/time-in", { username: username }, { headers: this.getHeaders() });
+    };
+    TimelogService.prototype.timeOut = function (username) {
+        console.log(username);
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_0__app_config__["a" /* appConfig */].apiURL + "/time-out", { username: username }, { headers: this.getHeaders() });
     };
     TimelogService.prototype.getHeaders = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Headers */]();
