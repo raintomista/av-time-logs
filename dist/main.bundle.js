@@ -118,7 +118,7 @@ AppComponent = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return appConfig; });
 var appConfig = {
-    apiURL: 'http://av-timelogs-api.herokuapp.com'
+    apiURL: 'https://av-timelogs-api.herokuapp.com'
     // apiURL: 'http://localhost:8080'
 };
 //# sourceMappingURL=app.config.js.map
