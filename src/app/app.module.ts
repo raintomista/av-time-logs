@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MomentModule} from 'angular2-moment/moment.module';
+
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -30,12 +32,13 @@ import { AlertComponent } from './components/_alert/alert.component';
 import { TimeloggingPanelComponent } from './components/timelogging-panel/timelogging-panel.component';
 import { TimeInComponent } from './components/timelogging-panel/time-in/time-in.component';
 import { TimeOutComponent } from './components/timelogging-panel/time-out/time-out.component';
+import { ClockComponent } from './components/clock/clock.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
 
   { path: '', component: DashboardComponent,
-    children: [ { path: '', component: EmployeeMonitorComponent, canActivate: [AuthGuard]},
+    children: [ { path: '', component: TimeloggingPanelComponent, canActivate: [AuthGuard]},
                 { path: 'timelogs', component: TimelogsComponent, canActivate: [AuthGuard]},
                 { path: 'network', component: NetworkMonitorComponent, canActivate: [AuthGuard]},
                 { path: 'add-user', component: AddUserComponent, canActivate: [AuthGuard]},
@@ -67,14 +70,16 @@ const appRoutes: Routes = [
     AlertComponent,
     TimeloggingPanelComponent,
     TimeInComponent,
-    TimeOutComponent
+    TimeOutComponent,
+    ClockComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MomentModule
   ],
   providers: [ResourceService, AuthGuard],
   bootstrap: [AppComponent]
