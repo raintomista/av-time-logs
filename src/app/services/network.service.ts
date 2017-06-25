@@ -1,3 +1,4 @@
+import { appConfig } from './../app.config';
 import { ResourceService } from './resource.service';
 import {Injectable} from '@angular/core';
 import {Http, Response,  Headers } from '@angular/http';
@@ -14,7 +15,7 @@ export class NetworkService{
 	}
 
 	getNetworks(){
-		return this.http.get('https://av-timelogs-api.herokuapp.com//timelogs/host', {headers: this.headers})
+		return this.http.get(`${appConfig.apiURL}/timelogs/host`, {headers: this.headers})
 			.map((res:Response) => res.json());
 	}
 }

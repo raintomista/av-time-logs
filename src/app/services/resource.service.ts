@@ -15,4 +15,11 @@ export class ResourceService {
         return JSON.stringify(data);
     }
 
+     getHeaders(){
+		let headers = new Headers();
+		headers.append('x-access-token', this.getResource('x-access-token'));		
+		return headers;
+
+	}
+
 }

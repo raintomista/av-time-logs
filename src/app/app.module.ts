@@ -1,4 +1,4 @@
-import { AuthGuard } from './../../mean-angular2-registration-login-example/client/app/_guards/auth.guard';
+import { AuthGuard } from './_guards/auth.guard';
 import { ResourceService } from './services/resource.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -27,15 +27,19 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoaderComponent } from './components/_loader/loader.component';
 import { AlertComponent } from './components/_alert/alert.component';
+import { TimeloggingPanelComponent } from './components/timelogging-panel/timelogging-panel.component';
+import { TimeInComponent } from './components/timelogging-panel/time-in/time-in.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
+
   { path: '', component: DashboardComponent,
     children: [ { path: '', component: EmployeeMonitorComponent, canActivate: [AuthGuard]},
                 { path: 'timelogs', component: TimelogsComponent, canActivate: [AuthGuard]},
                 { path: 'network', component: NetworkMonitorComponent, canActivate: [AuthGuard]},
                 { path: 'add-user', component: AddUserComponent, canActivate: [AuthGuard]},
-                { path: 'view-all-users', component: ViewUserComponent, canActivate: [AuthGuard]} ]
+                { path: 'view-all-users', component: ViewUserComponent, canActivate: [AuthGuard]},
+                { path: 'user', component: TimeloggingPanelComponent, canActivate: [AuthGuard] }]
   }
 ];
 
@@ -59,7 +63,9 @@ const appRoutes: Routes = [
     LoginComponent,
     DashboardComponent,
     LoaderComponent,
-    AlertComponent
+    AlertComponent,
+    TimeloggingPanelComponent,
+    TimeInComponent
   ],
   imports: [
     BrowserModule,

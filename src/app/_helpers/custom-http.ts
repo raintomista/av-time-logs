@@ -14,19 +14,19 @@ export class CustomHttp extends Http {
     }
  
     get(url: string, options?: RequestOptionsArgs): Observable<Response> {
-        return super.get(appConfig.apiUrl + url, this.addJwt(options)).catch(this.handleError);
+        return super.get(appConfig.apiURL + url, this.addJwt(options)).catch(this.handleError);
     }
  
     post(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
-        return super.post(appConfig.apiUrl + url, body, this.addJwt(options)).catch(this.handleError);
+        return super.post(appConfig.apiURL + url, body, this.addJwt(options)).catch(this.handleError);
     }
  
     put(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
-        return super.put(appConfig.apiUrl + url, body, this.addJwt(options)).catch(this.handleError);
+        return super.put(appConfig.apiURL + url, body, this.addJwt(options)).catch(this.handleError);
     }
  
     delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
-        return super.delete(appConfig.apiUrl + url, this.addJwt(options)).catch(this.handleError);
+        return super.delete(appConfig.apiURL + url, this.addJwt(options)).catch(this.handleError);
     }
  
     // private helper methods

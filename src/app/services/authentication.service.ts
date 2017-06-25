@@ -9,7 +9,7 @@ export class AuthenticationService {
     login(username: string, password: string){
         console.log({username: username, password: password});
         
-        return this.http.post(`${appConfig.apiUrl}/user/login`, { data: { username: username, password: password } })
+        return this.http.post(`${appConfig.apiURL}/user/login`, { data: { username: username, password: password } })
             .map((response: Response) => {
                 let user = response.json().data;
                 if(user && user.token){
