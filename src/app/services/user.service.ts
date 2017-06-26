@@ -14,6 +14,13 @@ export class UserService {
 		});
 	}
 
+	addUser(user:Object){
+		return this.http.post(`${appConfig.apiURL}/users/create`, { data: user },  {headers: this.getHeaders()})
+			.map((response: Response) => {
+				console.log(response);
+			});
+	}
+
 	getUsers() {
 		return this.http.get(`${appConfig.apiURL}/users/all`, {headers: this.getHeaders()})
 			.map((res: Response) => res.json());
@@ -34,7 +41,7 @@ export class UserService {
 			.map((res: Response) => res.json());
 	}
 
-		private getHeaders(){
+	private getHeaders(){
 		let headers = new Headers();
 		headers.append('x-access-token', this.resource.getResource('x-access-token'));		
 		return headers;

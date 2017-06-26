@@ -13,7 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { Routes, RouterModule } from '@angular/router';
 // import { TimelogsComponent } from './components/timelogs/timelogs.component';
-import { AddUserComponent } from './components/add-user/add-user.component';
+import { AddUserComponent } from './components/admin/add-user/add-user.component';
 import { ViewUserComponent } from './components/admin/view-all-users/view-all-users.component';
 import { EmployeeMonitorComponent } from './components/admin/employee-monitor/employee-monitor.component';
 import { OnlineUsersMonitorComponent } from './components/admin/employee-monitor/online-users-monitor/online-users-monitor.component';

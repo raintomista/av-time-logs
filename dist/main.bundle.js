@@ -142,7 +142,7 @@ var appConfig = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_servers_servers_component__ = __webpack_require__("../../../../../src/app/components/servers/servers.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_navbar_navbar_component__ = __webpack_require__("../../../../../src/app/components/navbar/navbar.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_add_user_add_user_component__ = __webpack_require__("../../../../../src/app/components/add-user/add-user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_admin_add_user_add_user_component__ = __webpack_require__("../../../../../src/app/components/admin/add-user/add-user.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_admin_view_all_users_view_all_users_component__ = __webpack_require__("../../../../../src/app/components/admin/view-all-users/view-all-users.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_admin_employee_monitor_employee_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/employee-monitor.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_admin_employee_monitor_online_users_monitor_online_users_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/online-users-monitor/online-users-monitor.component.ts");
@@ -211,7 +211,7 @@ var appRoutes = [
             { path: 'timelogs', component: __WEBPACK_IMPORTED_MODULE_19__components_admin_timelogs_view_all_timelogs_timelogs_component__["a" /* TimelogsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
             { path: 'timelogs/user/:username', component: __WEBPACK_IMPORTED_MODULE_31__components_admin_timelogs_view_all_timelogs_by_user_view_all_timelogs_by_user_component__["a" /* ViewAllTimelogsByUserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
             { path: 'network', component: __WEBPACK_IMPORTED_MODULE_21__components_admin_network_monitor_network_monitor_component__["a" /* NetworkMonitorComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'add-user', component: __WEBPACK_IMPORTED_MODULE_12__components_add_user_add_user_component__["a" /* AddUserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'add-user', component: __WEBPACK_IMPORTED_MODULE_12__components_admin_add_user_add_user_component__["a" /* AddUserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
             { path: 'view-all-users', component: __WEBPACK_IMPORTED_MODULE_13__components_admin_view_all_users_view_all_users_component__["a" /* ViewUserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
             { path: 'user', component: __WEBPACK_IMPORTED_MODULE_27__components_timelogging_panel_timelogging_panel_component__["a" /* TimeloggingPanelComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] }]
     }
@@ -229,7 +229,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_9__components_servers_servers_component__["a" /* ServersComponent */],
             __WEBPACK_IMPORTED_MODULE_10__components_navbar_navbar_component__["a" /* NavbarComponent */],
             __WEBPACK_IMPORTED_MODULE_19__components_admin_timelogs_view_all_timelogs_timelogs_component__["a" /* TimelogsComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__components_add_user_add_user_component__["a" /* AddUserComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__components_admin_add_user_add_user_component__["a" /* AddUserComponent */],
             __WEBPACK_IMPORTED_MODULE_13__components_admin_view_all_users_view_all_users_component__["a" /* ViewUserComponent */],
             __WEBPACK_IMPORTED_MODULE_14__components_admin_employee_monitor_employee_monitor_component__["a" /* EmployeeMonitorComponent */],
             __WEBPACK_IMPORTED_MODULE_15__components_admin_employee_monitor_online_users_monitor_online_users_monitor_component__["a" /* OnlineUsersMonitorComponent */],
@@ -395,7 +395,7 @@ LoaderComponent = __decorate([
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/add-user/add-user.component.css":
+/***/ "../../../../../src/app/components/admin/add-user/add-user.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -413,18 +413,20 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/add-user/add-user.component.html":
+/***/ "../../../../../src/app/components/admin/add-user/add-user.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  add-user works!\n</p>\n"
+module.exports = "<div class=\"ui grid container\">\n  <div class=\"ui centered row\">\n    <div class=\"ui eight wide column\">\n      <form class=\"ui form\" [formGroup]=\"addUserForm\" (ngSubmit)=\"addUserForm.valid && addUser()\" novalidate>\n        <div class=\"fields\">\n          <div class=\"eight wide field\" [ngClass]=\"{'error': addUserForm.controls.username.invalid && addUserForm.controls.username.dirty }\">\n            <label>\n              <span *ngIf=\"addUserForm.controls.username.valid || addUserForm.controls.username.pristine\" >Username</span>\n              <span *ngIf=\"addUserForm.controls.username.invalid && addUserForm.controls.username.dirty\">Username is required</span>\n            </label>\n            <input type=\"text\" placeholder=\"Username\" formControlName=\"username\">\n          </div>\n          <div class=\"eight wide field\" [ngClass]=\"{'error': addUserForm.controls.password.invalid && !addUserForm.controls.password.pristine }\">\n            <label>\n              <span *ngIf=\"addUserForm.controls.password.valid || addUserForm.controls.password.pristine\">Password</span>              \n              <span *ngIf=\"addUserForm.controls.password.errors && !addUserForm.controls.password.errors.required\">Password must be 8 characters long</span>\n              <span *ngIf=\"addUserForm.controls.password.errors && !addUserForm.controls.password.pristine && !addUserForm.controls.password.errors.minlength\">Password is required</span>              \n            </label>\n            <input type=\"password\" placeholder=\"Password\" formControlName=\"password\" required>\n          </div>\n        </div>\n        <div class=\"field\" [ngClass]=\"{'error': addUserForm.controls.name.invalid && !addUserForm.controls.name.pristine }\">\n          <label>\n            <span *ngIf=\"addUserForm.controls.name.valid || addUserForm.controls.name.pristine\">Full name</span>\n            <span *ngIf=\"addUserForm.controls.name.errors && !addUserForm.controls.name.pristine\">Full name is required</span>\n          </label>\n          <input type=\"text\" placeholder=\"Full Name\" formControlName=\"name\" required>\n        </div>\n        <div class=\"fields\">\n          <div class=\"eight wide field\" [ngClass]=\"{'error': addUserForm.controls.email.invalid && !addUserForm.controls.email.pristine }\">\n            <label>\n              <span *ngIf=\"addUserForm.controls.email.valid || addUserForm.controls.email.pristine\">Email Address</span>\n              <span *ngIf=\"addUserForm.controls.email.errors\">Invalid Email Address</span>\n            </label>\n            <input type=\"email\" placeholder=\"user@smartwave.ph\" formControlName=\"email\">\n          </div>\n          <div class=\"eight wide field\" [ngClass]=\"{'error': addUserForm.controls.contactNumber.invalid && !addUserForm.controls.contactNumber.pristine }\">\n            <label>Contact Number</label>\n            <input type=\"text\" placeholder=\"(+63) 9XXX XXX XXXX\" formControlName=\"contactNumber\">\n          </div>\n        </div>\n        <div class=\"field\">\n          <div class=\"field\">\n            <label>Profile Picture</label>\n            <div class=\"inline field\">\n              <div class=\"ui button\">Choose File</div>\n              <span>No File Chosen</span>\n            </div>\n          </div>\n        </div>\n        <div class=\"field\">\n          <button type=\"submit\" class=\"ui fluid button\" [disabled]=\"!addUserForm.valid\">Submit</button>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/add-user/add-user.component.ts":
+/***/ "../../../../../src/app/components/admin/add-user/add-user.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddUserComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -436,22 +438,70 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var AddUserComponent = (function () {
-    function AddUserComponent() {
+    // model = {
+    //   username: null,
+    //   password: null,
+    //   name: null,
+    //   email: null,
+    //   contactNumber: null,
+    //   totalHours: null,
+    //   status: 0,
+    //   imgUrl: null,
+    //   _timelog: null
+    // };
+    function AddUserComponent(userService) {
+        this.userService = userService;
     }
     AddUserComponent.prototype.ngOnInit = function () {
+        this.addUserForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormGroup */]({
+            username: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */]('', [
+                __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required,
+            ]),
+            password: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */]('', [
+                __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].minLength(8),
+                __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required
+            ]),
+            name: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */]('', [
+                __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required
+            ]),
+            email: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */]('', [
+                __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].pattern("[^ @]*@[^ @]*")
+            ]),
+            contactNumber: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */](),
+            totalHours: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */](),
+            status: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */](),
+            imgUrl: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */](),
+            _timelog: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */]()
+        });
+    };
+    AddUserComponent.prototype.addUser = function () {
+        var _this = this;
+        console.log(this.addUserForm.value);
+        if (this.addUserForm.valid) {
+            this.userService.addUser(this.addUserForm.value).subscribe(function (data) {
+                alert('Sucessfully Created User');
+                _this.addUserForm.reset();
+            }, function (error) {
+                alert('Error!');
+            });
+        }
     };
     return AddUserComponent;
 }());
 AddUserComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
         selector: 'app-add-user',
-        template: __webpack_require__("../../../../../src/app/components/add-user/add-user.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/add-user/add-user.component.css")]
+        template: __webpack_require__("../../../../../src/app/components/admin/add-user/add-user.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/admin/add-user/add-user.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_0__services_user_service__["a" /* UserService */]]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_user_service__["a" /* UserService */]) === "function" && _a || Object])
 ], AddUserComponent);
 
+var _a;
 //# sourceMappingURL=add-user.component.js.map
 
 /***/ }),
@@ -1660,7 +1710,7 @@ ServersComponent = __decorate([
 /***/ "../../../../../src/app/components/sidebar/sidebar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"item\">\r\n  <img src=\"../../assets/images/av_landscape_white.png\" alt=\"\">\r\n</div>\r\n<div class=\"filler item\"></div>\r\n<a class=\"item link\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{ exact: true }\" routerLink=\"\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe069;\"></span>\r\n  <span class=\"nav-label\">Home</span>\r\n</a>\r\n<a class=\"item link\" routerLinkActive=\"active\" routerLink=\"/timelogs\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe081;\"></span>\r\n  <span class=\"nav-label\">Time Logs</span>\r\n</a>\r\n<a class=\"item link\" routerLinkActive=\"active\" routerLink=\"/network\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe037;\"></span>\r\n  <span class=\"nav-label\">Network</span>\r\n</a>\r\n<a class=\"item link\" id=\"add-user\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe002;\"></span>\r\n  <span class=\"nav-label\">Add User</span>\r\n</a>\r\n<a class=\"item link\" routerLinkActive=\"active\" routerLink=\"/view-all-users\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe001;\"></span>\r\n  <span class=\"nav-label\">View Users</span>\r\n</a>\r\n"
+module.exports = "<div class=\"item\">\r\n  <img src=\"../../assets/images/av_landscape_white.png\" alt=\"\">\r\n</div>\r\n<div class=\"filler item\"></div>\r\n<a class=\"item link\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{ exact: true }\" routerLink=\"\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe069;\"></span>\r\n  <span class=\"nav-label\">Home</span>\r\n</a>\r\n<a class=\"item link\" routerLinkActive=\"active\" routerLink=\"/timelogs\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe081;\"></span>\r\n  <span class=\"nav-label\">Time Logs</span>\r\n</a>\r\n<a class=\"item link\" routerLinkActive=\"active\" routerLink=\"/network\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe037;\"></span>\r\n  <span class=\"nav-label\">Network</span>\r\n</a>\r\n<a class=\"item link\" routerLinkActive=\"active\" routerLink=\"/add-user\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe002;\"></span>\r\n  <span class=\"nav-label\">Add User</span>\r\n</a>\r\n<a class=\"item link\" routerLinkActive=\"active\" routerLink=\"/view-all-users\">\r\n  <span class=\"nav-icon\" data-icon=\"&#xe001;\"></span>\r\n  <span class=\"nav-label\">View Users</span>\r\n</a>\r\n"
 
 /***/ }),
 
@@ -2233,6 +2283,12 @@ var UserService = (function () {
             'x-access-token': this.resource.getResource('x-access-token')
         });
     }
+    UserService.prototype.addUser = function (user) {
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_0__app_config__["a" /* appConfig */].apiURL + "/users/create", { data: user }, { headers: this.getHeaders() })
+            .map(function (response) {
+            console.log(response);
+        });
+    };
     UserService.prototype.getUsers = function () {
         return this.http.get(__WEBPACK_IMPORTED_MODULE_0__app_config__["a" /* appConfig */].apiURL + "/users/all", { headers: this.getHeaders() })
             .map(function (res) { return res.json(); });
