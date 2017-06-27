@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../../services/user.service';
 
@@ -11,7 +12,7 @@ import { UserService } from '../../../../services/user.service';
 export class ViewAllUsersTableComponent implements OnInit {
   users: Object[];
 
-  constructor(private userService: UserService) { 
+  constructor(private userService: UserService, private router: Router) { 
     this.userService.getUsers().subscribe(users =>{
       this.users = users.data;
       console.log(users.data);
@@ -21,4 +22,25 @@ export class ViewAllUsersTableComponent implements OnInit {
   ngOnInit() {
   }
 
+  suspend(user){
+    if (confirm(`Do you want to suspend this ${user.name}`) == true) {
+      this.userService.suspendUser(user.username).subscribe(users =>{
+        alert(`Successfully suspended ${user.name}`);
+      }); 
+    } 
+    else {
+      alert('You pressed cancel');      
+    }
+  }
+
+  unsuspend(user){
+    if (confirm(`Do you want to unsuspend this ${user.name}`) == true) {
+      this.userService.unsuspendUser(user.username).subscribe(users =>{
+        alert(`Successfully unsuspended ${user.name}`);
+      }); 
+    } 
+    else {
+      alert('You pressed cancel');      
+    }
+  }
 }

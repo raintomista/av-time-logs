@@ -20,16 +20,23 @@
       {{user.name}}
     </td>
     <td class="center aligned">{{user.username}}</td>
-    <td class="center aligned">{{"0" + user.contactNumber}}</td>
+    <td class="center aligned">
+      <span *ngIf="user.contactNumber === null">--</span>
+      <span *ngIf="user.contactNumber !== null">{{user.contactNumber}}</span>
+    </td>
     <td class="center aligned">{{user.email}}</td>
     <td class="center aligned">
       <span *ngIf="user.status === 0">Offline</span>
       <span *ngIf="user.status === 1">Online</span>  
-      <span *ngIf="user.status === 2">On Break</span>              
+      <span *ngIf="user.status === 2">On Break</span>
+      <span *ngIf="user.status === 3">Suspended</span>              
     </td>
     <td class="center aligned">
-      <div class="ui icon button" data-tooltip="Remove" data-inverted="">
-        <i class="remove icon" (click)="test(user)"></i>
+      <div class="ui icon suspend button" data-tooltip="Suspend User" data-inverted="" *ngIf="user.status != 3">
+        <i class="remove icon" (click)="suspend(user)"></i>
+      </div>
+      <div class="ui icon unsuspend button" data-tooltip="Unsuspend User" data-inverted="" *ngIf="user.status == 3">
+        <i class="check icon" (click)="unsuspend(user)"></i>
       </div>
     </td>
   </tr>

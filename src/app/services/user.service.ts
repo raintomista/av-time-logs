@@ -42,6 +42,16 @@ export class UserService {
 			.map((res: Response) => res.json());
 	}
 
+	suspendUser(username: string){
+		return this.http.post(`${appConfig.apiURL}/users/suspend-user`, { username: username}, {headers: this.getHeaders()})
+			.map((res: Response) => res.json());
+	}
+
+	unsuspendUser(username: string){
+		return this.http.post(`${appConfig.apiURL}/users/unsuspend-user`, { username: username}, {headers: this.getHeaders()})
+			.map((res: Response) => res.json());
+	}
+
 	private getHeaders(){
 		let headers = new Headers();
 		headers.append('x-access-token', this.resource.getResource('x-access-token'));		

@@ -46,3 +46,8 @@
 .ui.table#time-logs tbody:last-child > td{
 	padding: 0px;
 }
+
+
+.ui.icon.unsuspend.button{
+	background-color: #aa67da;
+}

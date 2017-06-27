@@ -1251,7 +1251,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".ui.table#time-logs{\r\n\tbackground-color: transparent;\r\n\tborder-color: #2ec4b6;\r\n\tborder-width: 2.5px;\r\n\tborder-radius: 20px;\r\n}\r\n\r\n.ui.table#time-logs thead{\r\n\tbackground-color: #2ec4b6;\r\n}\r\n.ui.table#time-logs thead tr th{\r\n\tbackground-color: #2ec4b6;\r\n\tcolor: white;\r\n\tfont-family: 'Comfortaa', cursive;\r\n\tfont-size: 1.07142857rem;\r\n\tletter-spacing: 0.3px;\r\n\tpadding: 14px 20px;\r\n\r\n}\r\n\r\n.ui.table#time-logs thead tr th:first-child{\r\n\tborder-radius: 17px 0px 0px 0px;\r\n}\r\n\r\n.ui.table#time-logs thead tr th:last-child{\r\n\tborder-radius: 0px 17px 0px 0px;\r\n}\r\n\r\n.ui.table#time-logs thead tr:first-child>th:only-child{\r\n\tborder-radius: 16px 16px 0px 0px;\r\n}\r\n\r\n.ui.table#time-logs tbody tr td{\r\n\tborder-color: #2ec4b6;\r\n\tborder-width: 2.5px;\r\n}\r\n\r\n.ui.table#time-logs td{\r\n\tcolor: #38383b;\r\n\tpadding: 14px 20px;\r\n\tfont-family: 'Comfortaa', cursive;\r\n\tfont-size: 1.07142857rem;\r\n\tfont-weight: 600;\r\n}\r\n\r\n.ui.table#time-logs tbody:last-child > td{\r\n\tpadding: 0px;\r\n}\r\n", ""]);
+exports.push([module.i, ".ui.table#time-logs{\r\n\tbackground-color: transparent;\r\n\tborder-color: #2ec4b6;\r\n\tborder-width: 2.5px;\r\n\tborder-radius: 20px;\r\n}\r\n\r\n.ui.table#time-logs thead{\r\n\tbackground-color: #2ec4b6;\r\n}\r\n.ui.table#time-logs thead tr th{\r\n\tbackground-color: #2ec4b6;\r\n\tcolor: white;\r\n\tfont-family: 'Comfortaa', cursive;\r\n\tfont-size: 1.07142857rem;\r\n\tletter-spacing: 0.3px;\r\n\tpadding: 14px 20px;\r\n\r\n}\r\n\r\n.ui.table#time-logs thead tr th:first-child{\r\n\tborder-radius: 17px 0px 0px 0px;\r\n}\r\n\r\n.ui.table#time-logs thead tr th:last-child{\r\n\tborder-radius: 0px 17px 0px 0px;\r\n}\r\n\r\n.ui.table#time-logs thead tr:first-child>th:only-child{\r\n\tborder-radius: 16px 16px 0px 0px;\r\n}\r\n\r\n.ui.table#time-logs tbody tr td{\r\n\tborder-color: #2ec4b6;\r\n\tborder-width: 2.5px;\r\n}\r\n\r\n.ui.table#time-logs td{\r\n\tcolor: #38383b;\r\n\tpadding: 14px 20px;\r\n\tfont-family: 'Comfortaa', cursive;\r\n\tfont-size: 1.07142857rem;\r\n\tfont-weight: 600;\r\n}\r\n\r\n.ui.table#time-logs tbody:last-child > td{\r\n\tpadding: 0px;\r\n}\r\n\r\n\r\n.ui.icon.unsuspend.button{\r\n\tbackground-color: #aa67da;\r\n}", ""]);
 
 // exports
 
@@ -1264,7 +1264,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin/view-all-users/view-all-users-table/view-all-users-table.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<table class=\"ui celled table\" id=\"time-logs\">\r\n  <thead>\r\n    <tr>\r\n      <th class=\"center aligned\">Full Name</th>\r\n      <th class=\"center aligned\">Username</th>\r\n      <th class=\"center aligned\">Contact #</th>\r\n      <th class=\"center aligned\">Email Address</th>\r\n      <th class=\"center aligned\">Status</th>\r\n      <th></th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n  <tr *ngIf=\"users?.length < 1\">\r\n    <td class=\"center aligned\" colspan=\"5\">No Users</td>\r\n  </tr>\r\n  \r\n  <tr *ngFor=\"let user of users\">\r\n    <td>\r\n      <img class=\"ui avatar image\" src=\"{{user.imgUrl}}\">\r\n      {{user.name}}\r\n    </td>\r\n    <td class=\"center aligned\">{{user.username}}</td>\r\n    <td class=\"center aligned\">{{\"0\" + user.contactNumber}}</td>\r\n    <td class=\"center aligned\">{{user.email}}</td>\r\n    <td class=\"center aligned\">\r\n      <span *ngIf=\"user.status === 0\">Offline</span>\r\n      <span *ngIf=\"user.status === 1\">Online</span>  \r\n      <span *ngIf=\"user.status === 2\">On Break</span>              \r\n    </td>\r\n    <td class=\"center aligned\">\r\n      <div class=\"ui icon button\" data-tooltip=\"Remove\" data-inverted=\"\">\r\n        <i class=\"remove icon\" (click)=\"test(user)\"></i>\r\n      </div>\r\n    </td>\r\n  </tr>\r\n  </tbody>\r\n</table>"
+module.exports = "<table class=\"ui celled table\" id=\"time-logs\">\r\n  <thead>\r\n    <tr>\r\n      <th class=\"center aligned\">Full Name</th>\r\n      <th class=\"center aligned\">Username</th>\r\n      <th class=\"center aligned\">Contact #</th>\r\n      <th class=\"center aligned\">Email Address</th>\r\n      <th class=\"center aligned\">Status</th>\r\n      <th></th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n  <tr *ngIf=\"users?.length < 1\">\r\n    <td class=\"center aligned\" colspan=\"5\">No Users</td>\r\n  </tr>\r\n  \r\n  <tr *ngFor=\"let user of users\">\r\n    <td>\r\n      <img class=\"ui avatar image\" src=\"{{user.imgUrl}}\">\r\n      {{user.name}}\r\n    </td>\r\n    <td class=\"center aligned\">{{user.username}}</td>\r\n    <td class=\"center aligned\">\r\n      <span *ngIf=\"user.contactNumber === null\">--</span>\r\n      <span *ngIf=\"user.contactNumber !== null\">{{user.contactNumber}}</span>\r\n    </td>\r\n    <td class=\"center aligned\">{{user.email}}</td>\r\n    <td class=\"center aligned\">\r\n      <span *ngIf=\"user.status === 0\">Offline</span>\r\n      <span *ngIf=\"user.status === 1\">Online</span>  \r\n      <span *ngIf=\"user.status === 2\">On Break</span>\r\n      <span *ngIf=\"user.status === 3\">Suspended</span>              \r\n    </td>\r\n    <td class=\"center aligned\">\r\n      <div class=\"ui icon suspend button\" data-tooltip=\"Suspend User\" data-inverted=\"\" *ngIf=\"user.status != 3\">\r\n        <i class=\"remove icon\" (click)=\"suspend(user)\"></i>\r\n      </div>\r\n      <div class=\"ui icon unsuspend button\" data-tooltip=\"Unsuspend User\" data-inverted=\"\" *ngIf=\"user.status == 3\">\r\n        <i class=\"check icon\" (click)=\"unsuspend(user)\"></i>\r\n      </div>\r\n    </td>\r\n  </tr>\r\n  </tbody>\r\n</table>"
 
 /***/ }),
 
@@ -1272,8 +1272,9 @@ module.exports = "<table class=\"ui celled table\" id=\"time-logs\">\r\n  <thead
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewAllUsersTableComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1286,10 +1287,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var ViewAllUsersTableComponent = (function () {
-    function ViewAllUsersTableComponent(userService) {
+    function ViewAllUsersTableComponent(userService, router) {
         var _this = this;
         this.userService = userService;
+        this.router = router;
         this.userService.getUsers().subscribe(function (users) {
             _this.users = users.data;
             console.log(users.data);
@@ -1297,19 +1300,39 @@ var ViewAllUsersTableComponent = (function () {
     }
     ViewAllUsersTableComponent.prototype.ngOnInit = function () {
     };
+    ViewAllUsersTableComponent.prototype.suspend = function (user) {
+        if (confirm("Do you want to suspend this " + user.name) == true) {
+            this.userService.suspendUser(user.username).subscribe(function (users) {
+                alert("Successfully suspended " + user.name);
+            });
+        }
+        else {
+            alert('You pressed cancel');
+        }
+    };
+    ViewAllUsersTableComponent.prototype.unsuspend = function (user) {
+        if (confirm("Do you want to unsuspend this " + user.name) == true) {
+            this.userService.unsuspendUser(user.username).subscribe(function (users) {
+                alert("Successfully unsuspended " + user.name);
+            });
+        }
+        else {
+            alert('You pressed cancel');
+        }
+    };
     return ViewAllUsersTableComponent;
 }());
 ViewAllUsersTableComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
         selector: 'view-all-users-table',
         template: __webpack_require__("../../../../../src/app/components/admin/view-all-users/view-all-users-table/view-all-users-table.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/admin/view-all-users/view-all-users-table/view-all-users-table.component.css")],
-        providers: [__WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["d" /* Router */]) === "function" && _b || Object])
 ], ViewAllUsersTableComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=view-all-users-table.component.js.map
 
 /***/ }),
@@ -2367,6 +2390,14 @@ var UserService = (function () {
     };
     UserService.prototype.getUsersOnBreak = function () {
         return this.http.get(__WEBPACK_IMPORTED_MODULE_0__app_config__["a" /* appConfig */].apiURL + "/users/status/2", { headers: this.getHeaders() })
+            .map(function (res) { return res.json(); });
+    };
+    UserService.prototype.suspendUser = function (username) {
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_0__app_config__["a" /* appConfig */].apiURL + "/users/suspend-user", { username: username }, { headers: this.getHeaders() })
+            .map(function (res) { return res.json(); });
+    };
+    UserService.prototype.unsuspendUser = function (username) {
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_0__app_config__["a" /* appConfig */].apiURL + "/users/unsuspend-user", { username: username }, { headers: this.getHeaders() })
             .map(function (res) { return res.json(); });
     };
     UserService.prototype.getHeaders = function () {
