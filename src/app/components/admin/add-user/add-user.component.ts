@@ -10,19 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddUserComponent implements OnInit {
   addUserForm: FormGroup;
-  // model = {
-  //   username: null,
-  //   password: null,
-  //   name: null,
-  //   email: null,
-  //   contactNumber: null,
-  //   totalHours: null,
-  //   status: 0,
-  //   imgUrl: null,
-  //   _timelog: null
-  // };
+  usernameLabel: string;  
+  fullNameLabel: string;
+  emailLabel: string;
+  passwordLabel: string;
+  
+  
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit() {
     this.addUserForm = new FormGroup({
@@ -37,18 +33,58 @@ export class AddUserComponent implements OnInit {
         Validators.required
       ]),
       email: new FormControl('', [
-        Validators.pattern("[^ @]*@[^ @]*")
+        Validators.pattern("[^ @]*@[^ @]*"),
+        Validators.required,
       ]),
       contactNumber: new FormControl(),
       totalHours: new FormControl(),
       status: new FormControl(),
-      imgUrl: new FormControl(),
+      imgUrl: new FormControl(null),
       _timelog: new FormControl()
+    });
+
+    this.fullNameLabel = 'Full Name';
+    this.emailLabel = 'Email Address';
+    this.usernameLabel = 'Username';
+    this.passwordLabel = 'Password';
+    
+    
+    
+    
+    this.addUserForm.valueChanges.subscribe(form =>{
+      // Username Label
+      if(this.addUserForm.controls.username.valid || !this.addUserForm.controls.username.dirty){
+        this.usernameLabel = 'Username';
+      }else if(this.addUserForm.controls.username.dirty && this.addUserForm.controls.username.errors.required){
+        this.usernameLabel = 'Username is required'
+      }
+
+      if(this.addUserForm.controls.password.valid || !this.addUserForm.controls.password.dirty){
+        this.passwordLabel = 'Password';
+      }else if(this.addUserForm.controls.password.errors){
+        this.passwordLabel = 'Password must be 8 characters long'
+      }
+
+      // Full Name Label
+      if(this.addUserForm.controls.name.valid || !this.addUserForm.controls.name.dirty){
+        this.fullNameLabel = 'Full Name';
+      }else if(this.addUserForm.controls.name.dirty && this.addUserForm.controls.name.errors.required){
+        this.fullNameLabel = 'Full Name is required'
+      }
+
+      // Email Label
+      if(this.addUserForm.controls.email.valid || !this.addUserForm.controls.email.dirty){
+        this.emailLabel = 'Email Address';
+      }else if(this.addUserForm.controls.email.dirty && this.addUserForm.controls.email.errors.required){
+        this.emailLabel = 'Email Address is required';
+      }else if(this.addUserForm.controls.email.dirty && this.addUserForm.controls.email.errors.pattern){
+        this.emailLabel = 'Invalid Email Address';
+      }
     });
   }
 
   addUser(){
-    console.log(this.addUserForm.value);
+    console.log(this.addUserForm.value)
     if(this.addUserForm.valid){
       this.userService.addUser(this.addUserForm.value).subscribe(
         data => {

@@ -1,43 +1,40 @@
 <div class="ui grid container">
   <div class="ui centered row">
+    <p>{{addUserForm.value | json}}</p>
     <div class="ui eight wide column">
       <form class="ui form" [formGroup]="addUserForm" (ngSubmit)="addUserForm.valid && addUser()" novalidate>
         <div class="fields">
           <div class="eight wide field" [ngClass]="{'error': addUserForm.controls.username.invalid && addUserForm.controls.username.dirty }">
-            <label>
-              <span *ngIf="addUserForm.controls.username.valid || addUserForm.controls.username.pristine" >Username</span>
-              <span *ngIf="addUserForm.controls.username.invalid && addUserForm.controls.username.dirty">Username is required</span>
-            </label>
+            <label>{{usernameLabel}}</label>
             <input type="text" placeholder="Username" formControlName="username">
           </div>
           <div class="eight wide field" [ngClass]="{'error': addUserForm.controls.password.invalid && !addUserForm.controls.password.pristine }">
-            <label>
-              <span *ngIf="addUserForm.controls.password.valid || addUserForm.controls.password.pristine">Password</span>              
-              <span *ngIf="addUserForm.controls.password.errors && !addUserForm.controls.password.errors.required">Password must be 8 characters long</span>
-              <span *ngIf="addUserForm.controls.password.errors && !addUserForm.controls.password.pristine && !addUserForm.controls.password.errors.minlength">Password is required</span>              
-            </label>
+            <label>{{passwordLabel}}</label>
             <input type="password" placeholder="Password" formControlName="password" required>
           </div>
         </div>
         <div class="field" [ngClass]="{'error': addUserForm.controls.name.invalid && !addUserForm.controls.name.pristine }">
-          <label>
-            <span *ngIf="addUserForm.controls.name.valid || addUserForm.controls.name.pristine">Full name</span>
-            <span *ngIf="addUserForm.controls.name.errors && !addUserForm.controls.name.pristine">Full name is required</span>
-          </label>
+          <label>{{fullNameLabel}}</label>
           <input type="text" placeholder="Full Name" formControlName="name" required>
         </div>
         <div class="fields">
           <div class="eight wide field" [ngClass]="{'error': addUserForm.controls.email.invalid && !addUserForm.controls.email.pristine }">
-            <label>
-              <span *ngIf="addUserForm.controls.email.valid || addUserForm.controls.email.pristine">Email Address</span>
-              <span *ngIf="addUserForm.controls.email.errors">Invalid Email Address</span>
-            </label>
+            <label>{{emailLabel}}</label>
             <input type="email" placeholder="user@smartwave.ph" formControlName="email">
           </div>
           <div class="eight wide field" [ngClass]="{'error': addUserForm.controls.contactNumber.invalid && !addUserForm.controls.contactNumber.pristine }">
             <label>Contact Number</label>
             <input type="text" placeholder="(+63) 9XXX XXX XXXX" formControlName="contactNumber">
           </div>
+        </div>
+        <div class="field">
+            <input type="text" formControlName="imgUrl">
+          
+          <!--<div class="ui button">-->
+            <!--Upload Profile Picture-->
+            <!--<input type="file" name="pic" accept="image/*" formControlName="imgUrl">
+            -->
+          <!--</div>-->
         </div>
         <div class="field">
           <div class="field">
