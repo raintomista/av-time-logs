@@ -1,6 +1,6 @@
 <div class="ui grid container">
   <div class="ui centered row">
-    <p>{{addUserForm.value | json}}</p>
+    <!--<p>{{addUserForm.value | json}}</p>-->
     <div class="ui eight wide column">
       <form class="ui form" [formGroup]="addUserForm" (ngSubmit)="addUserForm.valid && addUser()" novalidate>
         <div class="fields">
@@ -27,22 +27,13 @@
             <input type="text" placeholder="(+63) 9XXX XXX XXXX" formControlName="contactNumber">
           </div>
         </div>
-        <div class="field">
-            <input type="text" formControlName="imgUrl">
-          
-          <!--<div class="ui button">-->
-            <!--Upload Profile Picture-->
-            <!--<input type="file" name="pic" accept="image/*" formControlName="imgUrl">
-            -->
-          <!--</div>-->
-        </div>
-        <div class="field">
+        <div class="inline fields">
+          <div class="six wide field">
+            <img class="ui medium rounded image" src="{{image}}">
+          </div>
           <div class="field">
             <label>Profile Picture</label>
-            <div class="inline field">
-              <div class="ui button">Choose File</div>
-              <span>No File Chosen</span>
-            </div>
+            <input type="file" name="file" (change)="fileEvent($event)">
           </div>
         </div>
         <div class="field">

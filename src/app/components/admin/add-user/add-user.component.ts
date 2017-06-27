@@ -1,3 +1,4 @@
+import { ResourceService } from './../../../services/resource.service';
 import { UserService } from './../../../services/user.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
   styleUrls: ['./add-user.component.css'],
-  providers: [UserService]
+  providers: [UserService, ResourceService]
 })
 export class AddUserComponent implements OnInit {
   addUserForm: FormGroup;
@@ -14,10 +15,12 @@ export class AddUserComponent implements OnInit {
   fullNameLabel: string;
   emailLabel: string;
   passwordLabel: string;
+  uploadParams: FormData;
+  image: string = 'https://semantic-ui.com/images/wireframe/square-image.png';
   
   
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private resourceService: ResourceService) {
   }
 
   ngOnInit() {
@@ -39,7 +42,7 @@ export class AddUserComponent implements OnInit {
       contactNumber: new FormControl(),
       totalHours: new FormControl(),
       status: new FormControl(),
-      imgUrl: new FormControl(null),
+      imgUrl: new FormControl(),
       _timelog: new FormControl()
     });
 
@@ -84,17 +87,36 @@ export class AddUserComponent implements OnInit {
   }
 
   addUser(){
-    console.log(this.addUserForm.value)
     if(this.addUserForm.valid){
-      this.userService.addUser(this.addUserForm.value).subscribe(
-        data => {
-          alert('Sucessfully Created User');
-          this.addUserForm.reset();
-        },
-        error => {
-          alert('Error!');        
-        }
-      );
+      // this.resourceService.upload(this.uploadParams).subscribe(result => {
+        // this.addUserForm.controls.imgUrl.setValue(result.secure_url);
+        this.userService.addUser(this.addUserForm.value).subscribe(
+          data => {
+            alert('Sucessfully Created User');
+            this.addUserForm.reset();
+          },
+          error => {
+            alert('Error!');        
+          }
+        );
+      // });
     }
   }
+
+  fileEvent(fileInput: any){    
+    this.uploadParams = this.createUploadParams(fileInput);
+
+    this.resourceService.upload(this.uploadParams).subscribe(result => {
+      this.image = result.secure_url;
+      this.addUserForm.controls.imgUrl.setValue(this.image);
+    });
+  }
+
+  private createUploadParams(fileInput) {
+    let formData: FormData = new FormData();
+    formData.append('upload_preset', 'bctvdem9');
+    formData.append('file', fileInput.target.files[0]);
+    return formData;
+  }
+
 }

@@ -118,7 +118,8 @@ AppComponent = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return appConfig; });
 var appConfig = {
-    apiURL: 'https://av-timelogs-api.herokuapp.com'
+    apiURL: 'https://av-timelogs-api.herokuapp.com',
+    CLOUDINARY_URL: 'https://api.cloudinary.com/v1_1/av-timelogs'
     // apiURL: 'http://localhost:8080'
 };
 //# sourceMappingURL=app.config.js.map
@@ -403,7 +404,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "[type=file] {\r\n    cursor: inherit;\r\n    display: block;\r\n    font-size: 999px;\r\n    filter: alpha(opacity=0);\r\n    min-height: 100%;\r\n    min-width: 100%;\r\n    opacity: 0;\r\n    position: absolute;\r\n    right: 0;\r\n    text-align: right;\r\n    top: 0;\r\n}", ""]);
+exports.push([module.i, "/*[type=file] {\r\n    cursor: inherit;\r\n    display: block;\r\n    font-size: 999px;\r\n    filter: alpha(opacity=0);\r\n    min-height: 100%;\r\n    min-width: 100%;\r\n    opacity: 0;\r\n    position: absolute;\r\n    right: 0;\r\n    text-align: right;\r\n    top: 0;\r\n}*/", ""]);
 
 // exports
 
@@ -416,7 +417,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin/add-user/add-user.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui grid container\">\n  <div class=\"ui centered row\">\n    <p>{{addUserForm.value | json}}</p>\n    <div class=\"ui eight wide column\">\n      <form class=\"ui form\" [formGroup]=\"addUserForm\" (ngSubmit)=\"addUserForm.valid && addUser()\" novalidate>\n        <div class=\"fields\">\n          <div class=\"eight wide field\" [ngClass]=\"{'error': addUserForm.controls.username.invalid && addUserForm.controls.username.dirty }\">\n            <label>{{usernameLabel}}</label>\n            <input type=\"text\" placeholder=\"Username\" formControlName=\"username\">\n          </div>\n          <div class=\"eight wide field\" [ngClass]=\"{'error': addUserForm.controls.password.invalid && !addUserForm.controls.password.pristine }\">\n            <label>{{passwordLabel}}</label>\n            <input type=\"password\" placeholder=\"Password\" formControlName=\"password\" required>\n          </div>\n        </div>\n        <div class=\"field\" [ngClass]=\"{'error': addUserForm.controls.name.invalid && !addUserForm.controls.name.pristine }\">\n          <label>{{fullNameLabel}}</label>\n          <input type=\"text\" placeholder=\"Full Name\" formControlName=\"name\" required>\n        </div>\n        <div class=\"fields\">\n          <div class=\"eight wide field\" [ngClass]=\"{'error': addUserForm.controls.email.invalid && !addUserForm.controls.email.pristine }\">\n            <label>{{emailLabel}}</label>\n            <input type=\"email\" placeholder=\"user@smartwave.ph\" formControlName=\"email\">\n          </div>\n          <div class=\"eight wide field\" [ngClass]=\"{'error': addUserForm.controls.contactNumber.invalid && !addUserForm.controls.contactNumber.pristine }\">\n            <label>Contact Number</label>\n            <input type=\"text\" placeholder=\"(+63) 9XXX XXX XXXX\" formControlName=\"contactNumber\">\n          </div>\n        </div>\n        <div class=\"field\">\n            <input type=\"text\" formControlName=\"imgUrl\">\n          \n          <!--<div class=\"ui button\">-->\n            <!--Upload Profile Picture-->\n            <!--<input type=\"file\" name=\"pic\" accept=\"image/*\" formControlName=\"imgUrl\">\n            -->\n          <!--</div>-->\n        </div>\n        <div class=\"field\">\n          <div class=\"field\">\n            <label>Profile Picture</label>\n            <div class=\"inline field\">\n              <div class=\"ui button\">Choose File</div>\n              <span>No File Chosen</span>\n            </div>\n          </div>\n        </div>\n        <div class=\"field\">\n          <button type=\"submit\" class=\"ui fluid button\" [disabled]=\"!addUserForm.valid\">Submit</button>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"ui grid container\">\n  <div class=\"ui centered row\">\n    <!--<p>{{addUserForm.value | json}}</p>-->\n    <div class=\"ui eight wide column\">\n      <form class=\"ui form\" [formGroup]=\"addUserForm\" (ngSubmit)=\"addUserForm.valid && addUser()\" novalidate>\n        <div class=\"fields\">\n          <div class=\"eight wide field\" [ngClass]=\"{'error': addUserForm.controls.username.invalid && addUserForm.controls.username.dirty }\">\n            <label>{{usernameLabel}}</label>\n            <input type=\"text\" placeholder=\"Username\" formControlName=\"username\">\n          </div>\n          <div class=\"eight wide field\" [ngClass]=\"{'error': addUserForm.controls.password.invalid && !addUserForm.controls.password.pristine }\">\n            <label>{{passwordLabel}}</label>\n            <input type=\"password\" placeholder=\"Password\" formControlName=\"password\" required>\n          </div>\n        </div>\n        <div class=\"field\" [ngClass]=\"{'error': addUserForm.controls.name.invalid && !addUserForm.controls.name.pristine }\">\n          <label>{{fullNameLabel}}</label>\n          <input type=\"text\" placeholder=\"Full Name\" formControlName=\"name\" required>\n        </div>\n        <div class=\"fields\">\n          <div class=\"eight wide field\" [ngClass]=\"{'error': addUserForm.controls.email.invalid && !addUserForm.controls.email.pristine }\">\n            <label>{{emailLabel}}</label>\n            <input type=\"email\" placeholder=\"user@smartwave.ph\" formControlName=\"email\">\n          </div>\n          <div class=\"eight wide field\" [ngClass]=\"{'error': addUserForm.controls.contactNumber.invalid && !addUserForm.controls.contactNumber.pristine }\">\n            <label>Contact Number</label>\n            <input type=\"text\" placeholder=\"(+63) 9XXX XXX XXXX\" formControlName=\"contactNumber\">\n          </div>\n        </div>\n        <div class=\"inline fields\">\n          <div class=\"six wide field\">\n            <img class=\"ui medium rounded image\" src=\"{{image}}\">\n          </div>\n          <div class=\"field\">\n            <label>Profile Picture</label>\n            <input type=\"file\" name=\"file\" (change)=\"fileEvent($event)\">\n          </div>\n        </div>\n        <div class=\"field\">\n          <button type=\"submit\" class=\"ui fluid button\" [disabled]=\"!addUserForm.valid\">Submit</button>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -424,9 +425,10 @@ module.exports = "<div class=\"ui grid container\">\n  <div class=\"ui centered 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_resource_service__ = __webpack_require__("../../../../../src/app/services/resource.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddUserComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -440,32 +442,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AddUserComponent = (function () {
-    function AddUserComponent(userService) {
+    function AddUserComponent(userService, resourceService) {
         this.userService = userService;
+        this.resourceService = resourceService;
+        this.image = 'https://semantic-ui.com/images/wireframe/square-image.png';
     }
     AddUserComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.addUserForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormGroup */]({
-            username: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */]('', [
-                __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required,
+        this.addUserForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormGroup */]({
+            username: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */]('', [
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* Validators */].required,
             ]),
-            password: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */]('', [
-                __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].minLength(8),
-                __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required
+            password: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */]('', [
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* Validators */].minLength(8),
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* Validators */].required
             ]),
-            name: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */]('', [
-                __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required
+            name: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */]('', [
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* Validators */].required
             ]),
-            email: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */]('', [
-                __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].pattern("[^ @]*@[^ @]*"),
-                __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required,
+            email: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */]('', [
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* Validators */].pattern("[^ @]*@[^ @]*"),
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* Validators */].required,
             ]),
-            contactNumber: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */](),
-            totalHours: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */](),
-            status: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */](),
-            imgUrl: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */](null),
-            _timelog: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormControl */]()
+            contactNumber: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */](),
+            totalHours: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */](),
+            status: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */](),
+            imgUrl: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */](),
+            _timelog: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */]()
         });
         this.fullNameLabel = 'Full Name';
         this.emailLabel = 'Email Address';
@@ -506,29 +511,45 @@ var AddUserComponent = (function () {
     };
     AddUserComponent.prototype.addUser = function () {
         var _this = this;
-        console.log(this.addUserForm.value);
         if (this.addUserForm.valid) {
+            // this.resourceService.upload(this.uploadParams).subscribe(result => {
+            // this.addUserForm.controls.imgUrl.setValue(result.secure_url);
             this.userService.addUser(this.addUserForm.value).subscribe(function (data) {
                 alert('Sucessfully Created User');
                 _this.addUserForm.reset();
             }, function (error) {
                 alert('Error!');
             });
+            // });
         }
+    };
+    AddUserComponent.prototype.fileEvent = function (fileInput) {
+        var _this = this;
+        this.uploadParams = this.createUploadParams(fileInput);
+        this.resourceService.upload(this.uploadParams).subscribe(function (result) {
+            _this.image = result.secure_url;
+            _this.addUserForm.controls.imgUrl.setValue(_this.image);
+        });
+    };
+    AddUserComponent.prototype.createUploadParams = function (fileInput) {
+        var formData = new FormData();
+        formData.append('upload_preset', 'bctvdem9');
+        formData.append('file', fileInput.target.files[0]);
+        return formData;
     };
     return AddUserComponent;
 }());
 AddUserComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
         selector: 'app-add-user',
         template: __webpack_require__("../../../../../src/app/components/admin/add-user/add-user.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/admin/add-user/add-user.component.css")],
-        providers: [__WEBPACK_IMPORTED_MODULE_0__services_user_service__["a" /* UserService */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_0__services_resource_service__["a" /* ResourceService */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_user_service__["a" /* UserService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__services_resource_service__["a" /* ResourceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_resource_service__["a" /* ResourceService */]) === "function" && _b || Object])
 ], AddUserComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=add-user.component.js.map
 
 /***/ }),
@@ -2160,7 +2181,9 @@ var _a, _b;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_config__ = __webpack_require__("../../../../../src/app/app.config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResourceService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2168,9 +2191,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
 
 var ResourceService = (function () {
-    function ResourceService() {
+    function ResourceService(http) {
+        this.http = http;
     }
     ResourceService.prototype.cacheResource = function (resource, name) {
         window.localStorage.setItem(name, resource);
@@ -2182,7 +2211,7 @@ var ResourceService = (function () {
         return JSON.stringify(data);
     };
     ResourceService.prototype.getHeaders = function () {
-        var headers = new Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Headers */]();
         headers.append('x-access-token', this.getResource('x-access-token'));
         return headers;
     };
@@ -2204,12 +2233,19 @@ var ResourceService = (function () {
         var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
         return currentTimeString;
     };
+    ResourceService.prototype.upload = function (params) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Headers */]();
+        headers.append('X-Requested-With', 'XMLHttpRequest');
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_1__app_config__["a" /* appConfig */].CLOUDINARY_URL + "/upload", params, { headers: headers }).map(function (response) { return response.json(); });
+    };
     return ResourceService;
 }());
 ResourceService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_http__["c" /* Http */]) === "function" && _a || Object])
 ], ResourceService);
 
+var _a;
 //# sourceMappingURL=resource.service.js.map
 
 /***/ }),
