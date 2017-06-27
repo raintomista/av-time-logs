@@ -34,5 +34,11 @@
         <span *ngIf="timelog != null && timelog.totalHrs != null">{{timelog.totalHrs}}</span>
       </td>
     </tr>
+    <tr *ngFor="let timelog of timelogs; let i=index">
+      <td colspan="4" *ngIf="i==0">TOTAL</td>
+      <td *ngIf="i==0 && timelog._user.totalHours != null" class="center aligned">{{timelog._user.totalHours}}</td>
+      <td *ngIf="i==0 && timelog._user.totalHours == null" class="center aligned">--</td>
+      
+    </tr>
   </tbody>
 </table>

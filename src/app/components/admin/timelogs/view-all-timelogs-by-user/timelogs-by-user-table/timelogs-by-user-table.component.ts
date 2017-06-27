@@ -23,6 +23,8 @@ export class TimelogsByUserTableComponent implements OnInit {
 
     this.timelogService.getTimelogsByUser(this.param).subscribe(timelogs =>{
       this.timelogs = timelogs.data;
+
+      console.log(this.timelogs);
     });  
    }
 
