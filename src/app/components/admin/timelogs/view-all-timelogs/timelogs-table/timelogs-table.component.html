@@ -2,11 +2,11 @@
   <thead>
     <tr>
       <th>Online Users</th>
-      <th class="center aligned">Recent Timelog Date</th>
-      <th class="center aligned">Recent Time In</th>
-      <th class="center aligned">Recent Time Out</th>
-      <th class="center aligned">Late Hours</th>
-      <th class="center aligned">Total</th>
+      <th class="center aligned">Date</th>
+      <th class="center aligned">Time In</th>
+      <th class="center aligned">Time Out</th>
+      <th class="center aligned">Total Late Hours</th>
+      <th class="center aligned">Total Hours</th>
     </tr>
   </thead>
   <tbody>
@@ -20,7 +20,7 @@
       </td>
       <td class="center aligned">
         <span *ngIf="user._timelog == null || (user._timelog != null && user._timelog.timeIn == null)">--</span>        
-        <span *ngIf="user._timelog != null && user._timelog.timeIn != null">{{user._timelog.timeIn | date }}</span>
+        <span *ngIf="user._timelog != null && user._timelog.timeIn != null">{{user._timelog.timeIn | date:'MMM dd' }}</span>
       </td>
       <td class="center aligned">
         <span *ngIf="user._timelog == null || (user._timelog != null && user._timelog.timeIn == null)">--</span>        
