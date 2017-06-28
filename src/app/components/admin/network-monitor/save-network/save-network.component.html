@@ -17,13 +17,13 @@
             </a>
             <a class="item ui form" id="description">
               <div class="field">
-                  <input type="text" name="first-name" placeholder="Description">
+                  <input type="text" name="first-name" placeholder="Description" [(ngModel)]="description">
                 </div>
             </a>
           </div>
         </div>
         <div class="ui center aligned column">
-          <div class="ui button">Save to Database</div>
+          <div class="ui button" (click)="saveNetwork()">Save to Database</div>
         </div>
       </div>
     </div>

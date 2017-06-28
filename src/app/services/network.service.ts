@@ -28,4 +28,16 @@ export class NetworkService{
 		return this.http.get('https://tools.keycdn.com/geo.json', {headers: headers})
 			.map((res:Response) => res.json());
 	}
+
+	saveNetwork(network){
+		return this.http.post(`${appConfig.apiURL}/timelogs/add_host`, {data: network}, {headers: this.getHeaders()})
+			.map((res:Response) => res.json());
+	}
+
+	private getHeaders(){
+		let headers = new Headers();
+		headers.append('x-access-token', this.resource.getResource('x-access-token'));		
+		return headers;
+
+	}
 }
