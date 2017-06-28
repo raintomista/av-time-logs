@@ -1,12 +1,13 @@
-<table class="ui celled table" id="time-logs">
+
+<table class="ui celled fixed single line table" id="time-logs">
   <thead>
     <tr>
-      <th class="center aligned">Full Name</th>
+      <th class="center aligned four wide">Full Name</th>
       <th class="center aligned">Username</th>
       <th class="center aligned">Contact #</th>
       <th class="center aligned">Email Address</th>
-      <th class="center aligned">Status</th>
-      <th></th>
+      <th class="center aligned two wide">Status</th>
+      <th class="two wide"></th>
     </tr>
   </thead>
   <tbody>
@@ -31,7 +32,7 @@
       <span *ngIf="user.status === 2">On Break</span>
       <span *ngIf="user.status === 3">Suspended</span>              
     </td>
-    <td class="center aligned">
+    <td class="center aligned options">
       <div class="ui icon suspend button" data-tooltip="Suspend User" data-inverted="" *ngIf="user.status != 3">
         <i class="remove icon" (click)="suspend(user)"></i>
       </div>

@@ -3,6 +3,14 @@
 	border-color: #2ec4b6;
 	border-width: 2.5px;
 	border-radius: 20px;
+	table-layout: fixed
+}
+
+.ui.table#time-logs > tbody > tr > td{
+	overflow-wrap: break-word;
+}
+.ui.table#time-logs > tbody > tr> td.center.aligned.options{
+	overflow: visible;
 }
 
 .ui.table#time-logs thead{

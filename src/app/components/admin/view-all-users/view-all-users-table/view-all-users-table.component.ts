@@ -26,6 +26,8 @@ export class ViewAllUsersTableComponent implements OnInit {
     if (confirm(`Do you want to suspend this ${user.name}`) == true) {
       this.userService.suspendUser(user.username).subscribe(users =>{
         alert(`Successfully suspended ${user.name}`);
+        user.status = 3;
+        
       }); 
     } 
     else {
@@ -37,6 +39,7 @@ export class ViewAllUsersTableComponent implements OnInit {
     if (confirm(`Do you want to unsuspend this ${user.name}`) == true) {
       this.userService.unsuspendUser(user.username).subscribe(users =>{
         alert(`Successfully unsuspended ${user.name}`);
+        user.status = 0;
       }); 
     } 
     else {

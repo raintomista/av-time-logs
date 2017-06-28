@@ -10,10 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class SaveNetworkComponent implements OnInit {
   client: any = {};
   description: string;
+  private loading = true;
 
   constructor(private networkService: NetworkService) {
     this.networkService.getClientIP().subscribe(result => {
       this.client = result.data.geo;
+      this.loading = false;
     })
    }
 

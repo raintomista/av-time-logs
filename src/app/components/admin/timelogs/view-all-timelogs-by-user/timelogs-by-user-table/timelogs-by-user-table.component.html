@@ -1,12 +1,16 @@
 <form class="ui form" [formGroup]="dateRange" novalidate>
   <div class="fields">
-      <div class="eight wide field">
+      <div class="label field">
+        <div class="input label">Start Date</div>
+      </div>
+      <div class="three wide field">
         <input class="form-control" style="float:none" placeholder="{{defaultStart}}" ngx-mydatepicker name="startDate"
                formControlName="startDate" [options]="myOptions" #sd="ngx-mydatepicker" (click)="sd.toggleCalendar()"/>
-          
       </div>
-      <div class="eight wide field">
-        <!--<input type="text" placeholder="End Date" formControlName="endDate">-->
+      <div class="label field">
+        <div class="input label">End Date</div>
+      </div>
+      <div class="three wide field">
         <input class="form-control" style="float:none" placeholder="{{defaultEnd}}" ngx-mydatepicker name="endDate"
                formControlName="endDate" [options]="myOptions" #ed="ngx-mydatepicker" (click)="ed.toggleCalendar()"/>
       </div>
@@ -17,11 +21,11 @@
 <table class="ui celled table" id="time-logs">
   <thead>
     <tr>
-      <th class="center aligned">Date</th>
-      <th class="center aligned">Time In</th>
-      <th class="center aligned">Time Out</th>
-      <th class="center aligned">Late Hours</th>
-      <th class="center aligned">Total</th>
+      <th class="center aligned four wide">Date</th>
+      <th class="center aligned three wide">Time In</th>
+      <th class="center aligned three wide">Time Out</th>
+      <th class="center aligned three wide">Late Hours</th>
+      <th class="center aligned three wide">Total</th>
     </tr>
   </thead>
   <tbody>
