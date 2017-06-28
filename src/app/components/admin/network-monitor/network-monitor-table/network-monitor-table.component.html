@@ -23,7 +23,7 @@
           <i class="toggle on icon" (click)="blacklist(network)"></i>
         </div>
         <div class="ui massive icon button" *ngIf="network.status == 0" data-tooltip="Set as whitelisted" data-inverted="">
-          <i class="toggle off icon"></i>
+          <i class="toggle off icon" (click)="whitelist(network)"></i>
         </div>
       </td>
     </tr>

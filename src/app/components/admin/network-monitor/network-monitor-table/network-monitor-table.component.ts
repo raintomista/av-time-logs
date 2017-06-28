@@ -22,6 +22,14 @@ export class NetworkMonitorTableComponent implements OnInit {
 
   blacklist(network){
     this.networkService.blacklist(network._id).subscribe(response => {
+      network.status = 0;
+      alert(response.msg);
+    });
+  }
+
+  whitelist(network){
+    this.networkService.whitelist(network._id).subscribe(response => {
+      network.status = 1;      
       alert(response.msg);
     });
   }

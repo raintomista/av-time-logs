@@ -40,6 +40,11 @@ export class NetworkService{
 			.map((res:Response) => res.json());
 	}
 
+	whitelist(_id){
+		return this.http.put(`${appConfig.apiURL}/timelogs/set_valid/${_id}`, {}, {headers: this.getHeaders()})
+			.map((res:Response) => res.json());
+	}
+
 	private getHeaders(){
 		let headers = new Headers();
 		headers.append('x-access-token', this.resource.getResource('x-access-token'));		
