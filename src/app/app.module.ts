@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MomentModule} from 'angular2-moment/moment.module';
+import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -84,6 +85,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MomentModule,
+    NgxMyDatePickerModule
   ],
   providers: [ResourceService, AuthGuard],
   bootstrap: [AppComponent]

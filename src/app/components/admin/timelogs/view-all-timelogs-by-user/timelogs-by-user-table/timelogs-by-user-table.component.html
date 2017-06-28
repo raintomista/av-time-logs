@@ -1,3 +1,19 @@
+<form class="ui form" [formGroup]="dateRange" novalidate>
+  <div class="fields">
+      <div class="eight wide field">
+        <input class="form-control" style="float:none" placeholder="{{defaultStart}}" ngx-mydatepicker name="startDate"
+               formControlName="startDate" [options]="myOptions" #sd="ngx-mydatepicker" (click)="sd.toggleCalendar()"/>
+          
+      </div>
+      <div class="eight wide field">
+        <!--<input type="text" placeholder="End Date" formControlName="endDate">-->
+        <input class="form-control" style="float:none" placeholder="{{defaultEnd}}" ngx-mydatepicker name="endDate"
+               formControlName="endDate" [options]="myOptions" #ed="ngx-mydatepicker" (click)="ed.toggleCalendar()"/>
+      </div>
+  </div>
+</form> 
+
+
 <table class="ui celled table" id="time-logs">
   <thead>
     <tr>
@@ -42,3 +58,17 @@
     </tr>
   </tbody>
 </table>
+
+<script>
+var timepicker = new Pikaday({
+    field: document.getElementById('datetimepicker'),
+    firstDay: 1,
+    minDate: new Date(2016, 0, 1),
+    maxDate: new Date(2100, 12, 31),
+    yearRange: [2016,2100],
+    showTime: true,
+    autoClose: false,
+    use24hour: false,
+    format: 'MMM Do YYYY, h:mm a'
+});
+</script>

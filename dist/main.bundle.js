@@ -138,32 +138,33 @@ var appConfig = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_moment_moment_module__ = __webpack_require__("../../../../angular2-moment/moment.module.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_moment_moment_module___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angular2_moment_moment_module__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_sidebar_sidebar_component__ = __webpack_require__("../../../../../src/app/components/sidebar/sidebar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_servers_servers_component__ = __webpack_require__("../../../../../src/app/components/servers/servers.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_navbar_navbar_component__ = __webpack_require__("../../../../../src/app/components/navbar/navbar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_admin_add_user_add_user_component__ = __webpack_require__("../../../../../src/app/components/admin/add-user/add-user.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_admin_view_all_users_view_all_users_component__ = __webpack_require__("../../../../../src/app/components/admin/view-all-users/view-all-users.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_admin_employee_monitor_employee_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/employee-monitor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_admin_employee_monitor_online_users_monitor_online_users_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/online-users-monitor/online-users-monitor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_admin_employee_monitor_offline_users_monitor_offline_users_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/offline-users-monitor/offline-users-monitor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_admin_employee_monitor_users_on_break_monitor_users_on_break_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/users-on-break-monitor/users-on-break-monitor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_admin_view_all_users_view_all_users_table_view_all_users_table_component__ = __webpack_require__("../../../../../src/app/components/admin/view-all-users/view-all-users-table/view-all-users-table.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_admin_timelogs_view_all_timelogs_timelogs_component__ = __webpack_require__("../../../../../src/app/components/admin/timelogs/view-all-timelogs/timelogs.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_admin_timelogs_view_all_timelogs_timelogs_table_timelogs_table_component__ = __webpack_require__("../../../../../src/app/components/admin/timelogs/view-all-timelogs/timelogs-table/timelogs-table.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_admin_network_monitor_network_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/network-monitor/network-monitor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_admin_network_monitor_network_monitor_table_network_monitor_table_component__ = __webpack_require__("../../../../../src/app/components/admin/network-monitor/network-monitor-table/network-monitor-table.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_loader_loader_component__ = __webpack_require__("../../../../../src/app/components/_loader/loader.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_alert_alert_component__ = __webpack_require__("../../../../../src/app/components/_alert/alert.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_timelogging_panel_timelogging_panel_component__ = __webpack_require__("../../../../../src/app/components/timelogging-panel/timelogging-panel.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_timelogging_panel_time_in_time_in_component__ = __webpack_require__("../../../../../src/app/components/timelogging-panel/time-in/time-in.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_timelogging_panel_time_out_time_out_component__ = __webpack_require__("../../../../../src/app/components/timelogging-panel/time-out/time-out.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_clock_clock_component__ = __webpack_require__("../../../../../src/app/components/clock/clock.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_admin_timelogs_view_all_timelogs_by_user_view_all_timelogs_by_user_component__ = __webpack_require__("../../../../../src/app/components/admin/timelogs/view-all-timelogs-by-user/view-all-timelogs-by-user.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_admin_timelogs_view_all_timelogs_by_user_timelogs_by_user_table_timelogs_by_user_table_component__ = __webpack_require__("../../../../../src/app/components/admin/timelogs/view-all-timelogs-by-user/timelogs-by-user-table/timelogs-by-user-table.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ngx_mydatepicker__ = __webpack_require__("../../../../ngx-mydatepicker/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_sidebar_sidebar_component__ = __webpack_require__("../../../../../src/app/components/sidebar/sidebar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_servers_servers_component__ = __webpack_require__("../../../../../src/app/components/servers/servers.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_navbar_navbar_component__ = __webpack_require__("../../../../../src/app/components/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_admin_add_user_add_user_component__ = __webpack_require__("../../../../../src/app/components/admin/add-user/add-user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_admin_view_all_users_view_all_users_component__ = __webpack_require__("../../../../../src/app/components/admin/view-all-users/view-all-users.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_admin_employee_monitor_employee_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/employee-monitor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_admin_employee_monitor_online_users_monitor_online_users_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/online-users-monitor/online-users-monitor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_admin_employee_monitor_offline_users_monitor_offline_users_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/offline-users-monitor/offline-users-monitor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_admin_employee_monitor_users_on_break_monitor_users_on_break_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/employee-monitor/users-on-break-monitor/users-on-break-monitor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_admin_view_all_users_view_all_users_table_view_all_users_table_component__ = __webpack_require__("../../../../../src/app/components/admin/view-all-users/view-all-users-table/view-all-users-table.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_admin_timelogs_view_all_timelogs_timelogs_component__ = __webpack_require__("../../../../../src/app/components/admin/timelogs/view-all-timelogs/timelogs.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_admin_timelogs_view_all_timelogs_timelogs_table_timelogs_table_component__ = __webpack_require__("../../../../../src/app/components/admin/timelogs/view-all-timelogs/timelogs-table/timelogs-table.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_admin_network_monitor_network_monitor_component__ = __webpack_require__("../../../../../src/app/components/admin/network-monitor/network-monitor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_admin_network_monitor_network_monitor_table_network_monitor_table_component__ = __webpack_require__("../../../../../src/app/components/admin/network-monitor/network-monitor-table/network-monitor-table.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_loader_loader_component__ = __webpack_require__("../../../../../src/app/components/_loader/loader.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_alert_alert_component__ = __webpack_require__("../../../../../src/app/components/_alert/alert.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_timelogging_panel_timelogging_panel_component__ = __webpack_require__("../../../../../src/app/components/timelogging-panel/timelogging-panel.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_timelogging_panel_time_in_time_in_component__ = __webpack_require__("../../../../../src/app/components/timelogging-panel/time-in/time-in.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_timelogging_panel_time_out_time_out_component__ = __webpack_require__("../../../../../src/app/components/timelogging-panel/time-out/time-out.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_clock_clock_component__ = __webpack_require__("../../../../../src/app/components/clock/clock.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_admin_timelogs_view_all_timelogs_by_user_view_all_timelogs_by_user_component__ = __webpack_require__("../../../../../src/app/components/admin/timelogs/view-all-timelogs-by-user/view-all-timelogs-by-user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_admin_timelogs_view_all_timelogs_by_user_timelogs_by_user_table_timelogs_by_user_table_component__ = __webpack_require__("../../../../../src/app/components/admin/timelogs/view-all-timelogs-by-user/timelogs-by-user-table/timelogs-by-user-table.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -171,6 +172,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -206,15 +208,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var appRoutes = [
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_23__components_login_login_component__["a" /* LoginComponent */] },
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_24__components_dashboard_dashboard_component__["a" /* DashboardComponent */],
-        children: [{ path: '', component: __WEBPACK_IMPORTED_MODULE_27__components_timelogging_panel_timelogging_panel_component__["a" /* TimeloggingPanelComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'timelogs', component: __WEBPACK_IMPORTED_MODULE_19__components_admin_timelogs_view_all_timelogs_timelogs_component__["a" /* TimelogsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'timelogs/user/:username', component: __WEBPACK_IMPORTED_MODULE_31__components_admin_timelogs_view_all_timelogs_by_user_view_all_timelogs_by_user_component__["a" /* ViewAllTimelogsByUserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'network', component: __WEBPACK_IMPORTED_MODULE_21__components_admin_network_monitor_network_monitor_component__["a" /* NetworkMonitorComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'add-user', component: __WEBPACK_IMPORTED_MODULE_12__components_admin_add_user_add_user_component__["a" /* AddUserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'view-all-users', component: __WEBPACK_IMPORTED_MODULE_13__components_admin_view_all_users_view_all_users_component__["a" /* ViewUserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
-            { path: 'user', component: __WEBPACK_IMPORTED_MODULE_27__components_timelogging_panel_timelogging_panel_component__["a" /* TimeloggingPanelComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] }]
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_24__components_login_login_component__["a" /* LoginComponent */] },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_25__components_dashboard_dashboard_component__["a" /* DashboardComponent */],
+        children: [{ path: '', component: __WEBPACK_IMPORTED_MODULE_28__components_timelogging_panel_timelogging_panel_component__["a" /* TimeloggingPanelComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'timelogs', component: __WEBPACK_IMPORTED_MODULE_20__components_admin_timelogs_view_all_timelogs_timelogs_component__["a" /* TimelogsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'timelogs/user/:username', component: __WEBPACK_IMPORTED_MODULE_32__components_admin_timelogs_view_all_timelogs_by_user_view_all_timelogs_by_user_component__["a" /* ViewAllTimelogsByUserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'network', component: __WEBPACK_IMPORTED_MODULE_22__components_admin_network_monitor_network_monitor_component__["a" /* NetworkMonitorComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'add-user', component: __WEBPACK_IMPORTED_MODULE_13__components_admin_add_user_add_user_component__["a" /* AddUserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'view-all-users', component: __WEBPACK_IMPORTED_MODULE_14__components_admin_view_all_users_view_all_users_component__["a" /* ViewUserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
+            { path: 'user', component: __WEBPACK_IMPORTED_MODULE_28__components_timelogging_panel_timelogging_panel_component__["a" /* TimeloggingPanelComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] }]
     }
 ];
 var AppModule = (function () {
@@ -225,42 +227,43 @@ var AppModule = (function () {
 AppModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__angular_core__["NgModule"])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__components_sidebar_sidebar_component__["a" /* SidebarComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__components_servers_servers_component__["a" /* ServersComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__components_navbar_navbar_component__["a" /* NavbarComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__components_admin_timelogs_view_all_timelogs_timelogs_component__["a" /* TimelogsComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__components_admin_add_user_add_user_component__["a" /* AddUserComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__components_admin_view_all_users_view_all_users_component__["a" /* ViewUserComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_admin_employee_monitor_employee_monitor_component__["a" /* EmployeeMonitorComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__components_admin_employee_monitor_online_users_monitor_online_users_monitor_component__["a" /* OnlineUsersMonitorComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__components_admin_employee_monitor_offline_users_monitor_offline_users_monitor_component__["a" /* OfflineUsersMonitorComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__components_admin_employee_monitor_users_on_break_monitor_users_on_break_monitor_component__["a" /* UsersOnBreakMonitorComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__components_admin_view_all_users_view_all_users_table_view_all_users_table_component__["a" /* ViewAllUsersTableComponent */],
-            __WEBPACK_IMPORTED_MODULE_20__components_admin_timelogs_view_all_timelogs_timelogs_table_timelogs_table_component__["a" /* TimelogsTableComponent */],
-            __WEBPACK_IMPORTED_MODULE_21__components_admin_network_monitor_network_monitor_component__["a" /* NetworkMonitorComponent */],
-            __WEBPACK_IMPORTED_MODULE_22__components_admin_network_monitor_network_monitor_table_network_monitor_table_component__["a" /* NetworkMonitorTableComponent */],
-            __WEBPACK_IMPORTED_MODULE_23__components_login_login_component__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_24__components_dashboard_dashboard_component__["a" /* DashboardComponent */],
-            __WEBPACK_IMPORTED_MODULE_25__components_loader_loader_component__["a" /* LoaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_26__components_alert_alert_component__["a" /* AlertComponent */],
-            __WEBPACK_IMPORTED_MODULE_27__components_timelogging_panel_timelogging_panel_component__["a" /* TimeloggingPanelComponent */],
-            __WEBPACK_IMPORTED_MODULE_28__components_timelogging_panel_time_in_time_in_component__["a" /* TimeInComponent */],
-            __WEBPACK_IMPORTED_MODULE_29__components_timelogging_panel_time_out_time_out_component__["a" /* TimeOutComponent */],
-            __WEBPACK_IMPORTED_MODULE_30__components_clock_clock_component__["a" /* ClockComponent */],
-            __WEBPACK_IMPORTED_MODULE_31__components_admin_timelogs_view_all_timelogs_by_user_view_all_timelogs_by_user_component__["a" /* ViewAllTimelogsByUserComponent */],
-            __WEBPACK_IMPORTED_MODULE_32__components_admin_timelogs_view_all_timelogs_by_user_timelogs_by_user_table_timelogs_by_user_table_component__["a" /* TimelogsByUserTableComponent */]
+            __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__components_sidebar_sidebar_component__["a" /* SidebarComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__components_servers_servers_component__["a" /* ServersComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__components_navbar_navbar_component__["a" /* NavbarComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__components_admin_timelogs_view_all_timelogs_timelogs_component__["a" /* TimelogsComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__components_admin_add_user_add_user_component__["a" /* AddUserComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__components_admin_view_all_users_view_all_users_component__["a" /* ViewUserComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__components_admin_employee_monitor_employee_monitor_component__["a" /* EmployeeMonitorComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__components_admin_employee_monitor_online_users_monitor_online_users_monitor_component__["a" /* OnlineUsersMonitorComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__components_admin_employee_monitor_offline_users_monitor_offline_users_monitor_component__["a" /* OfflineUsersMonitorComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__components_admin_employee_monitor_users_on_break_monitor_users_on_break_monitor_component__["a" /* UsersOnBreakMonitorComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__components_admin_view_all_users_view_all_users_table_view_all_users_table_component__["a" /* ViewAllUsersTableComponent */],
+            __WEBPACK_IMPORTED_MODULE_21__components_admin_timelogs_view_all_timelogs_timelogs_table_timelogs_table_component__["a" /* TimelogsTableComponent */],
+            __WEBPACK_IMPORTED_MODULE_22__components_admin_network_monitor_network_monitor_component__["a" /* NetworkMonitorComponent */],
+            __WEBPACK_IMPORTED_MODULE_23__components_admin_network_monitor_network_monitor_table_network_monitor_table_component__["a" /* NetworkMonitorTableComponent */],
+            __WEBPACK_IMPORTED_MODULE_24__components_login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_25__components_dashboard_dashboard_component__["a" /* DashboardComponent */],
+            __WEBPACK_IMPORTED_MODULE_26__components_loader_loader_component__["a" /* LoaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_27__components_alert_alert_component__["a" /* AlertComponent */],
+            __WEBPACK_IMPORTED_MODULE_28__components_timelogging_panel_timelogging_panel_component__["a" /* TimeloggingPanelComponent */],
+            __WEBPACK_IMPORTED_MODULE_29__components_timelogging_panel_time_in_time_in_component__["a" /* TimeInComponent */],
+            __WEBPACK_IMPORTED_MODULE_30__components_timelogging_panel_time_out_time_out_component__["a" /* TimeOutComponent */],
+            __WEBPACK_IMPORTED_MODULE_31__components_clock_clock_component__["a" /* ClockComponent */],
+            __WEBPACK_IMPORTED_MODULE_32__components_admin_timelogs_view_all_timelogs_by_user_view_all_timelogs_by_user_component__["a" /* ViewAllTimelogsByUserComponent */],
+            __WEBPACK_IMPORTED_MODULE_33__components_admin_timelogs_view_all_timelogs_by_user_timelogs_by_user_table_timelogs_by_user_table_component__["a" /* TimelogsByUserTableComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_11__angular_router__["a" /* RouterModule */].forRoot(appRoutes),
+            __WEBPACK_IMPORTED_MODULE_12__angular_router__["a" /* RouterModule */].forRoot(appRoutes),
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* ReactiveFormsModule */],
             __WEBPACK_IMPORTED_MODULE_6_angular2_moment_moment_module__["MomentModule"],
+            __WEBPACK_IMPORTED_MODULE_7_ngx_mydatepicker__["NgxMyDatePickerModule"]
         ],
         providers: [__WEBPACK_IMPORTED_MODULE_1__services_resource_service__["a" /* ResourceService */], __WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -451,26 +454,26 @@ var AddUserComponent = (function () {
     }
     AddUserComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.addUserForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormGroup */]({
-            username: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */]('', [
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* Validators */].required,
+        this.addUserForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormGroup */]({
+            username: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* FormControl */]('', [
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required,
             ]),
-            password: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */]('', [
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* Validators */].minLength(8),
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* Validators */].required
+            password: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* FormControl */]('', [
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].minLength(8),
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required
             ]),
-            name: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */]('', [
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* Validators */].required
+            name: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* FormControl */]('', [
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required
             ]),
-            email: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */]('', [
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* Validators */].pattern("[^ @]*@[^ @]*"),
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* Validators */].required,
+            email: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* FormControl */]('', [
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].pattern("[^ @]*@[^ @]*"),
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required,
             ]),
-            contactNumber: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */](),
-            totalHours: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */](),
-            status: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */](),
-            imgUrl: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */](),
-            _timelog: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormControl */]()
+            contactNumber: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* FormControl */](),
+            totalHours: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* FormControl */](),
+            status: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* FormControl */](),
+            imgUrl: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* FormControl */](),
+            _timelog: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* FormControl */]()
         });
         this.fullNameLabel = 'Full Name';
         this.emailLabel = 'Email Address';
@@ -989,7 +992,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin/timelogs/view-all-timelogs-by-user/timelogs-by-user-table/timelogs-by-user-table.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<table class=\"ui celled table\" id=\"time-logs\">\n  <thead>\n    <tr>\n      <th class=\"center aligned\">Date</th>\n      <th class=\"center aligned\">Time In</th>\n      <th class=\"center aligned\">Time Out</th>\n      <th class=\"center aligned\">Late Hours</th>\n      <th class=\"center aligned\">Total</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngIf=\"timelogs?.length < 1\">\n      <td class=\"center aligned\" colspan=\"6\">No Timelogs yet</td>\n    </tr>\n    <tr *ngFor=\"let timelog of timelogs\">\n      <td class=\"center aligned\">\n        <span *ngIf=\"timelog == null || (timelog != null && timelog.timeIn == null)\">--</span>        \n        <span *ngIf=\"timelog != null && timelog.timeIn != null\">{{timelog.timeIn | date }}</span>\n      </td>\n      <td class=\"center aligned\">\n        <span *ngIf=\"timelog == null || (timelog != null && timelog.timeIn == null)\">--</span>        \n        <span *ngIf=\"timelog != null && timelog.timeIn != null\">{{timelog.timeIn | date:'hh:mm:ss a'}}</span>\n      </td>\n      <td class=\"center aligned\">\n        <span *ngIf=\"timelog == null || (timelog != null && timelog.timeOut == null)\">--</span>        \n        <span *ngIf=\"timelog != null && timelog.timeOut != null\">{{timelog.timeOut | date:'hh:mm:ss a'}}</span>\n      </td>\n      <td class=\"center aligned\" [ngClass]=\"{'warning': timelog != null && timelog.lateHrs != null}\">\n        <span *ngIf=\"timelog == null || (timelog != null && timelog.lateHrs == null)\">--</span>        \n        <span *ngIf=\"timelog != null && timelog.lateHrs != null\">{{timelog.lateHrs}}</span>\n      </td>\n      <td class=\"center aligned\">\n        <span *ngIf=\"timelog == null || (timelog != null && timelog.totalHrs == null)\">00:00:00</span>        \n        <span *ngIf=\"timelog != null && timelog.totalHrs != null\">{{timelog.totalHrs}}</span>\n      </td>\n    </tr>\n    <tr *ngFor=\"let timelog of timelogs; let i=index\">\n      <td colspan=\"4\" *ngIf=\"i==0\">TOTAL</td>\n      <td *ngIf=\"i==0 && timelog._user.totalHours != null\" class=\"center aligned\">{{timelog._user.totalHours}}</td>\n      <td *ngIf=\"i==0 && timelog._user.totalHours == null\" class=\"center aligned\">--</td>\n      \n    </tr>\n  </tbody>\n</table>"
+module.exports = "<form class=\"ui form\" [formGroup]=\"dateRange\" novalidate>\n  <div class=\"fields\">\n      <div class=\"eight wide field\">\n        <input class=\"form-control\" style=\"float:none\" placeholder=\"{{defaultStart}}\" ngx-mydatepicker name=\"startDate\"\n               formControlName=\"startDate\" [options]=\"myOptions\" #sd=\"ngx-mydatepicker\" (click)=\"sd.toggleCalendar()\"/>\n          \n      </div>\n      <div class=\"eight wide field\">\n        <!--<input type=\"text\" placeholder=\"End Date\" formControlName=\"endDate\">-->\n        <input class=\"form-control\" style=\"float:none\" placeholder=\"{{defaultEnd}}\" ngx-mydatepicker name=\"endDate\"\n               formControlName=\"endDate\" [options]=\"myOptions\" #ed=\"ngx-mydatepicker\" (click)=\"ed.toggleCalendar()\"/>\n      </div>\n  </div>\n</form> \n\n\n<table class=\"ui celled table\" id=\"time-logs\">\n  <thead>\n    <tr>\n      <th class=\"center aligned\">Date</th>\n      <th class=\"center aligned\">Time In</th>\n      <th class=\"center aligned\">Time Out</th>\n      <th class=\"center aligned\">Late Hours</th>\n      <th class=\"center aligned\">Total</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngIf=\"timelogs?.length < 1\">\n      <td class=\"center aligned\" colspan=\"6\">No Timelogs yet</td>\n    </tr>\n    <tr *ngFor=\"let timelog of timelogs\">\n      <td class=\"center aligned\">\n        <span *ngIf=\"timelog == null || (timelog != null && timelog.timeIn == null)\">--</span>        \n        <span *ngIf=\"timelog != null && timelog.timeIn != null\">{{timelog.timeIn | date }}</span>\n      </td>\n      <td class=\"center aligned\">\n        <span *ngIf=\"timelog == null || (timelog != null && timelog.timeIn == null)\">--</span>        \n        <span *ngIf=\"timelog != null && timelog.timeIn != null\">{{timelog.timeIn | date:'hh:mm:ss a'}}</span>\n      </td>\n      <td class=\"center aligned\">\n        <span *ngIf=\"timelog == null || (timelog != null && timelog.timeOut == null)\">--</span>        \n        <span *ngIf=\"timelog != null && timelog.timeOut != null\">{{timelog.timeOut | date:'hh:mm:ss a'}}</span>\n      </td>\n      <td class=\"center aligned\" [ngClass]=\"{'warning': timelog != null && timelog.lateHrs != null}\">\n        <span *ngIf=\"timelog == null || (timelog != null && timelog.lateHrs == null)\">--</span>        \n        <span *ngIf=\"timelog != null && timelog.lateHrs != null\">{{timelog.lateHrs}}</span>\n      </td>\n      <td class=\"center aligned\">\n        <span *ngIf=\"timelog == null || (timelog != null && timelog.totalHrs == null)\">00:00:00</span>        \n        <span *ngIf=\"timelog != null && timelog.totalHrs != null\">{{timelog.totalHrs}}</span>\n      </td>\n    </tr>\n    <tr *ngFor=\"let timelog of timelogs; let i=index\">\n      <td colspan=\"4\" *ngIf=\"i==0\">TOTAL</td>\n      <td *ngIf=\"i==0 && timelog._user.totalHours != null\" class=\"center aligned\">{{timelog._user.totalHours}}</td>\n      <td *ngIf=\"i==0 && timelog._user.totalHours == null\" class=\"center aligned\">--</td>\n      \n    </tr>\n  </tbody>\n</table>\n\n<script>\nvar timepicker = new Pikaday({\n    field: document.getElementById('datetimepicker'),\n    firstDay: 1,\n    minDate: new Date(2016, 0, 1),\n    maxDate: new Date(2100, 12, 31),\n    yearRange: [2016,2100],\n    showTime: true,\n    autoClose: false,\n    use24hour: false,\n    format: 'MMM Do YYYY, h:mm a'\n});\n</script>"
 
 /***/ }),
 
@@ -997,9 +1000,11 @@ module.exports = "<table class=\"ui celled table\" id=\"time-logs\">\n  <thead>\
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_timelog_service__ = __webpack_require__("../../../../../src/app/services/timelog.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_timelog_service__ = __webpack_require__("../../../../../src/app/services/timelog.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimelogsByUserTableComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1013,34 +1018,83 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var TimelogsByUserTableComponent = (function () {
-    function TimelogsByUserTableComponent(timelogService, route) {
+    function TimelogsByUserTableComponent(timelogService, route, datePipe) {
         var _this = this;
         this.timelogService = timelogService;
         this.route = route;
+        this.datePipe = datePipe;
+        this.myOptions = {
+            dateFormat: 'mm/dd/yyyy',
+        };
+        this.endDateOptions = {
+            dateFormat: 'mm/dd/yyyy',
+        };
         this.route.params.subscribe(function (params) {
             _this.param = params['username'];
         });
-        this.timelogService.getTimelogsByUser(this.param).subscribe(function (timelogs) {
-            _this.timelogs = timelogs.data;
-            console.log(_this.timelogs);
-        });
     }
     TimelogsByUserTableComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var date = new Date(), y = date.getFullYear(), m = date.getMonth();
+        var firstDay = new Date(y, m, 1);
+        var lastDay = new Date(y, m + 1, 0);
+        this.dateRange = new __WEBPACK_IMPORTED_MODULE_0__angular_forms__["d" /* FormGroup */]({
+            startDate: new __WEBPACK_IMPORTED_MODULE_0__angular_forms__["e" /* FormControl */]({ date: { year: y, month: m + 1, day: firstDay.getDate() } }),
+            endDate: new __WEBPACK_IMPORTED_MODULE_0__angular_forms__["e" /* FormControl */]({ date: { year: y, month: m + 1, day: lastDay.getDate() } })
+        });
+        this.timelogService.getTimelogsByDateRange(this.param, this.datePipe.transform(firstDay, 'MMddyyyy'), this.datePipe.transform(lastDay, 'MMddyyyy')).subscribe(function (timelogs) {
+            _this.timelogs = timelogs.data;
+        });
+        this.dateRange.valueChanges.subscribe(function (form) {
+            // console.log(form.startDate.date);
+            _this.timelogService.getTimelogsByDateRange(_this.param, _this.formatDate(form.startDate.date), _this.formatDate(form.endDate.date)).subscribe(function (timelogs) {
+                _this.timelogs = timelogs.data;
+            });
+        });
+    };
+    TimelogsByUserTableComponent.prototype.transformDate = function (date) {
+        this.datePipe.transform(date, 'MMddyyyy');
+    };
+    TimelogsByUserTableComponent.prototype.setDate = function () {
+        // Set today date using the setValue function
+        var date = new Date();
+        this.dateRange.setValue({ startDate: {
+                date: {
+                    year: date.getFullYear(),
+                    month: date.getMonth() + 1,
+                    day: date.getDate()
+                }
+            } });
+    };
+    TimelogsByUserTableComponent.prototype.clearDate = function () {
+        // Clear the date using the setValue function
+        this.dateRange.setValue({ startDate: null });
+    };
+    TimelogsByUserTableComponent.prototype.formatDate = function (date) {
+        return "" + this.padValue(date.month) + this.padValue(date.day) + date.year;
+    };
+    TimelogsByUserTableComponent.prototype.padValue = function (value) {
+        if (value < 10) {
+            return '0' + value;
+        }
+        return value;
     };
     return TimelogsByUserTableComponent;
 }());
 TimelogsByUserTableComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
         selector: 'timelogs-by-user-table',
         template: __webpack_require__("../../../../../src/app/components/admin/timelogs/view-all-timelogs-by-user/timelogs-by-user-table/timelogs-by-user-table.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/admin/timelogs/view-all-timelogs-by-user/timelogs-by-user-table/timelogs-by-user-table.component.css")],
-        providers: [__WEBPACK_IMPORTED_MODULE_1__services_timelog_service__["a" /* TimelogService */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_2__services_timelog_service__["a" /* TimelogService */], __WEBPACK_IMPORTED_MODULE_4__angular_common__["j" /* DatePipe */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_timelog_service__["a" /* TimelogService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_timelog_service__["a" /* TimelogService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* ActivatedRoute */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_timelog_service__["a" /* TimelogService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_timelog_service__["a" /* TimelogService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_common__["j" /* DatePipe */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_common__["j" /* DatePipe */]) === "function" && _c || Object])
 ], TimelogsByUserTableComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=timelogs-by-user-table.component.js.map
 
 /***/ }),
@@ -2310,6 +2364,10 @@ var TimelogService = (function () {
     };
     TimelogService.prototype.getTimelogsByUser = function (username) {
         return this.http.get(__WEBPACK_IMPORTED_MODULE_0__app_config__["a" /* appConfig */].apiURL + "/timelogs/user/" + username, { headers: this.getHeaders() })
+            .map(function (res) { return res.json(); });
+    };
+    TimelogService.prototype.getTimelogsByDateRange = function (username, startDate, endDate) {
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_0__app_config__["a" /* appConfig */].apiURL + "/timelogs/user/" + username + "/date/" + startDate + "/" + endDate, { headers: this.getHeaders() })
             .map(function (res) { return res.json(); });
     };
     TimelogService.prototype.timeIn = function (username) {

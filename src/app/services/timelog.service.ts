@@ -23,6 +23,11 @@ export class TimelogService{
 			.map((res:Response) => res.json());
 	}
 
+	getTimelogsByDateRange(username: string, startDate: string, endDate:string){
+		return this.http.get(`${appConfig.apiURL}/timelogs/user/${username}/date/${startDate}/${endDate}`, {headers: this.getHeaders()})
+			.map((res:Response) => res.json());
+	}
+
 	timeIn(username: string){
 		console.log(username);
 		
