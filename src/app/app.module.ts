@@ -35,6 +35,7 @@ import { TimeOutComponent } from './components/timelogging-panel/time-out/time-o
 import { ClockComponent } from './components/clock/clock.component';
 import { ViewAllTimelogsByUserComponent } from './components/admin/timelogs/view-all-timelogs-by-user/view-all-timelogs-by-user.component';
 import { TimelogsByUserTableComponent } from './components/admin/timelogs/view-all-timelogs-by-user/timelogs-by-user-table/timelogs-by-user-table.component';
+import { SaveNetworkComponent } from './components/admin/network-monitor/save-network/save-network.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -76,7 +77,8 @@ const appRoutes: Routes = [
     TimeOutComponent,
     ClockComponent,
     ViewAllTimelogsByUserComponent,
-    TimelogsByUserTableComponent
+    TimelogsByUserTableComponent,
+    SaveNetworkComponent
   ],
   imports: [
     BrowserModule,

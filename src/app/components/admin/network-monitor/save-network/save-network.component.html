@@ -1,0 +1,31 @@
+<div class="ui segments">
+  <div class="ui segment" id="header-segment">
+    <h4>Current Network</h4>
+  </div>
+  <div class="ui secondary segment">
+    <div class="ui grid">
+      <div class="ui one column row">
+        <div class="ui column">
+          <div class="ui divided selection list">
+            <a class="item" id="hostname">
+              <div class="ui horizontal label" >Host Name</div>
+              {{client.rdns}}
+            </a>
+            <a class="item" id="ip-address">
+              <div class="ui purple horizontal label">IP Address</div>
+              {{client.ip}}
+            </a>
+            <a class="item ui form" id="description">
+              <div class="field">
+                  <input type="text" name="first-name" placeholder="Description">
+                </div>
+            </a>
+          </div>
+        </div>
+        <div class="ui center aligned column">
+          <div class="ui button">Save to Database</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
