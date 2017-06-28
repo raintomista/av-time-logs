@@ -19,4 +19,11 @@ export class NetworkMonitorTableComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  blacklist(network){
+    this.networkService.blacklist(network._id).subscribe(response => {
+      alert(response.msg);
+    });
+  }
+
 }
