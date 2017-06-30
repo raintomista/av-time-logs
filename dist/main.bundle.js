@@ -2831,8 +2831,8 @@ var NetworkService = (function () {
     NetworkService.prototype.getClientIP = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Headers */]();
         headers.append('Access-Control-Allow-Origin', '*');
-        // headers.append('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
-        // headers.append('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
+        headers.append('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+        headers.append('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
         return this.http.get('https://tools.keycdn.com/geo.json', { headers: headers })
             .map(function (res) { return res.json(); });
     };
