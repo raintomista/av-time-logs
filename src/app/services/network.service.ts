@@ -29,6 +29,11 @@ export class NetworkService{
 			.map((res:Response) => res.json());
 	}
 
+	checkNetworkStatus(ip){
+		return this.http.post(`${appConfig.apiURL}/timelogs/host/status`, {ip: ip}, {headers: this.getHeaders()})
+			.map((res:Response) => res.json());
+	}
+
 	saveNetwork(network){
 		return this.http.post(`${appConfig.apiURL}/timelogs/add_host`, {data: network}, {headers: this.getHeaders()})
 			.map((res:Response) => res.json());
