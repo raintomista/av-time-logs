@@ -1,0 +1,64 @@
+<form class="ui form" [formGroup]="dateRange" novalidate>
+  <div class="fields">
+      <div class="label field">
+        <div class="input label">Start Date</div>
+      </div>
+      <div class="three wide field">
+        <input class="form-control" style="float:none" placeholder="{{defaultStart}}" ngx-mydatepicker name="startDate"
+               formControlName="startDate" [options]="myOptions" #sd="ngx-mydatepicker" (click)="sd.toggleCalendar()"/>
+      </div>
+      <div class="label field">
+        <div class="input label">End Date</div>
+      </div>
+      <div class="three wide field">
+        <input class="form-control" style="float:none" placeholder="{{defaultEnd}}" ngx-mydatepicker name="endDate"
+               formControlName="endDate" [options]="myOptions" #ed="ngx-mydatepicker" (click)="ed.toggleCalendar()"/>
+      </div>
+  </div>
+</form> 
+
+
+<table class="ui celled table" id="time-logs">
+  <thead>
+    <tr>
+      <th class="center aligned four wide">Date</th>
+      <th class="center aligned three wide">Time In</th>
+      <th class="center aligned three wide">Time Out</th>
+      <th class="center aligned three wide">Late Hours</th>
+      <th class="center aligned three wide">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="timelogs?.length < 1">
+      <td class="center aligned" colspan="6">No Timelogs yet</td>
+    </tr>
+    <tr *ngFor="let timelog of timelogs">
+      <td class="center aligned">
+        <span *ngIf="timelog == null || (timelog != null && timelog.timeIn == null)">--</span>        
+        <span *ngIf="timelog != null && timelog.timeIn != null">{{timelog.timeIn | date }}</span>
+      </td>
+      <td class="center aligned">
+        <span *ngIf="timelog == null || (timelog != null && timelog.timeIn == null)">--</span>        
+        <span *ngIf="timelog != null && timelog.timeIn != null">{{timelog.timeIn | date:'hh:mm:ss a'}}</span>
+      </td>
+      <td class="center aligned">
+        <span *ngIf="timelog == null || (timelog != null && timelog.timeOut == null)">--</span>        
+        <span *ngIf="timelog != null && timelog.timeOut != null">{{timelog.timeOut | date:'hh:mm:ss a'}}</span>
+      </td>
+      <td class="center aligned" [ngClass]="{'warning': timelog != null && timelog.lateHrs != null}">
+        <span *ngIf="timelog == null || (timelog != null && timelog.lateHrs == null)">--</span>        
+        <span *ngIf="timelog != null && timelog.lateHrs != null">{{timelog.lateHrs}}</span>
+      </td>
+      <td class="center aligned">
+        <span *ngIf="timelog == null || (timelog != null && timelog.totalHrs == null)">00:00:00</span>        
+        <span *ngIf="timelog != null && timelog.totalHrs != null">{{timelog.totalHrs}}</span>
+      </td>
+    </tr>
+    <tr *ngFor="let timelog of timelogs; let i=index">
+      <td colspan="4" *ngIf="i==0">TOTAL</td>
+      <td *ngIf="i==0 && timelog._user.totalHours != null" class="center aligned">{{timelog._user.totalHours}}</td>
+      <td *ngIf="i==0 && timelog._user.totalHours == null" class="center aligned">--</td>
+      
+    </tr>
+  </tbody>
+</table>

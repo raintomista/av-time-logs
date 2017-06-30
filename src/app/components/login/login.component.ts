@@ -33,8 +33,13 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.authenticationService.login(this.model.username, this.model.password).subscribe(
       data => {
-        console.log(this.returnUrl);
-        this.router.navigate([this.returnUrl]);
+        if(data.isAdmin === true){
+          this.router.navigate(['/admin']);
+        }else{
+          this.router.navigate(['/']);
+        }
+        // console.log(this.returnUrl);
+        // this.router.navigate([this.returnUrl]);
       },
       error => {
         this.alertService.error("Invalid username/password.");
