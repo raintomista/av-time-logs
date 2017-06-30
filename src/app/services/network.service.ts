@@ -22,8 +22,8 @@ export class NetworkService{
 	getClientIP(){
 		let headers = new Headers();
 		headers.append('Access-Control-Allow-Origin', '*');
-		// headers.append('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
-		// headers.append('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
+		headers.append('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+		headers.append('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
 		
 		return this.http.get('https://tools.keycdn.com/geo.json', {headers: headers})
 			.map((res:Response) => res.json());
