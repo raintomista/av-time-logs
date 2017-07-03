@@ -45,9 +45,7 @@ export class ViewAllTimelogsByUserComponent{
 
     this.timelogService.getTimelogsByDateRange(this.param, this.datePipe.transform(firstDay, 'MMddyyyy'), this.datePipe.transform(lastDay, 'MMddyyyy')).subscribe(timelogs =>{
       this.table.timelogs = timelogs.data;
-      this.table.user = timelogs.user;
-
-
+      this.table.total = this.getTotal(timelogs.data);
       this.exportBtn.data = timelogs.data;
       this.exportBtn.user = timelogs.user;
       this.exportBtn.type = ALL_TIMELOGS_OF_USER;
@@ -56,12 +54,33 @@ export class ViewAllTimelogsByUserComponent{
     this.dateRange.valueChanges.subscribe(form => {
       this.timelogService.getTimelogsByDateRange(this.param, this.formatDate(form.startDate.date), this.formatDate(form.endDate.date)).subscribe(timelogs => {
         this.table.timelogs = timelogs.data;
-        this.table.user = timelogs.user;
+        this.table.total = this.getTotal(timelogs.data);  
         this.exportBtn.data = timelogs.data;
         this.exportBtn.user = timelogs.user;
         this.exportBtn.type = ALL_TIMELOGS_OF_USER;
       });
     }); 
+  }
+
+  getTotal(data){
+    let hours = 0, minutes = 0, seconds = 0;
+    let hh=0, mm=0, ss=0;
+    data.forEach(timelog =>{
+      if(timelog.totalHrs !== null){
+        let temp = timelog.totalHrs.split(':');
+        hours+=parseInt(temp[0]);
+        minutes+=parseInt(temp[1]);
+        seconds+=parseInt(temp[2]);
+      }
+    });
+
+    ss = seconds % 60;
+    mm = (minutes % 60) + Math.floor(seconds/60);
+    hh = hours + Math.floor(minutes/60);
+    
+    console.log(`${hours}:${minutes}:${seconds}`)
+    console.log(`${hh}:${mm}:${ss}`)
+    return `${this.padValue(hh)}:${this.padValue(mm)}:${this.padValue(ss)}`
   }
 
   formatDate(date){

@@ -34,10 +34,9 @@
         <span *ngIf="timelog != null && timelog.totalHrs != null">{{timelog.totalHrs}}</span>
       </td>
     </tr>
-    <tr *ngIf="user !== undefined && timelogs.length > 0">
+    <tr *ngIf="total !== null && timelogs.length > 0">
       <td colspan="4">TOTAL</td>
-      <td *ngIf="user.totalHours !== null" class="center aligned">{{user.totalHours}}</td>
-      <td *ngIf="user.totalHour === null" class="center aligned">--</td>
+      <td class="center aligned">{{total}}</td>
     </tr>
   </tbody>
 </table>

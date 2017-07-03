@@ -24,8 +24,39 @@ export class ExportComponent implements OnInit {
 
   ngOnInit() {
   }
+  getTotal(data){
+    let hours = 0, minutes = 0, seconds = 0;
+    let hh=0, mm=0, ss=0;
+    data.forEach(timelog =>{
+      if(timelog.totalHrs !== null){
+        let temp = timelog.totalHrs.split(':');
+        hours+=parseInt(temp[0]);
+        minutes+=parseInt(temp[1]);
+        seconds+=parseInt(temp[2]);
+      }
+    });
 
+    ss = seconds % 60;
+    mm = (minutes % 60) + Math.floor(seconds/60);
+    hh = hours + Math.floor(minutes/60);
+    
+    console.log(`${hours}:${minutes}:${seconds}`)
+    console.log(`${hh}:${mm}:${ss}`)
+    return `${this.padValue(hh)}:${this.padValue(mm)}:${this.padValue(ss)}`
+  }
+
+  formatDate(date){
+    return  `${this.padValue(date.month)}${this.padValue(date.day)}${date.year}`
+  }
+
+  padValue(value){
+    if(value < 10){
+      return '0' + value;
+    }
+    return value;
+  }
   export(){
+    this.getTotal(this.data);
     console.log(this.data.length);
     let doc = new jsPDF('p', 'pt', 'letter');
     let date = this.datePipe.transform(new Date(), 'MMMM dd, yyyy');
@@ -90,7 +121,7 @@ export class ExportComponent implements OnInit {
           this.setTitle(doc, `${this.user.name}'s Timelog Activities between ${start} and ${end}`, 0, 75, 13, '');
           y = 110;  
         }
-        let total = this.user.totalHours || '00:00:00';
+        let total = this.getTotal(this.data);
         this.createTotal(doc, dataHeaders, total, (this.WIDTH-row_width)/2, y, row_width);
         
 
