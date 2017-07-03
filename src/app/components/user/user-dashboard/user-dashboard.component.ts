@@ -4,11 +4,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'user-dashboard',
   templateUrl: './user-dashboard.component.html',
-  styleUrls: ['./user-dashboard.component.css']
+  styleUrls: ['./user-dashboard.component.css'],
+  providers:[NetworkService, AuthenticationService]
 })
 export class UserDashboardComponent implements OnInit {
 
-  constructor(private networkService: NetworkService, private authService: AuthenticationService) { }
+  constructor(private networkService: NetworkService, private authService: AuthenticationService  ) { }
 
   ngOnInit() {
   }
