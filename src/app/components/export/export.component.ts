@@ -1,9 +1,12 @@
+import { User } from './../../models/user';
 import { DatePipe } from '@angular/common';
 import { element } from 'protractor';
 import { Timelog } from './../../models/timelog';
 import { Component, OnInit } from '@angular/core';
 import * as jsPDF from 'jspdf';
 const ALL_USERS_RECENT: Number = 0;
+const ALL_TIMELOGS_OF_USER: Number = 1;
+
 
 @Component({
   selector: 'export',
@@ -12,7 +15,8 @@ const ALL_USERS_RECENT: Number = 0;
   providers: [DatePipe]
 })
 export class ExportComponent implements OnInit {
-  data: Object[] = [];
+  data: any[] = [];
+  user: User;
   type: Number;
   WIDTH:number = 612; HEIGHT:number = 792; 
 
@@ -26,10 +30,11 @@ export class ExportComponent implements OnInit {
     let doc = new jsPDF('p', 'pt', 'letter');
     let date = this.datePipe.transform(new Date(), 'MMMM dd, yyyy');
     this.addTemplate(doc, this.WIDTH, this.HEIGHT);
-
     let dataHeaders = [];
+    
     switch(this.type){
       case ALL_USERS_RECENT:
+        dataHeaders = [];
         dataHeaders.push({text: 'Online Users', padding: 95});
         dataHeaders.push({text: 'Recent Time In', padding: 40});
         dataHeaders.push({text: 'Recent Time Out', padding: 30});
@@ -51,6 +56,34 @@ export class ExportComponent implements OnInit {
           y+=20;
         });
         break;
+      case ALL_TIMELOGS_OF_USER :
+        dataHeaders = [];
+        dataHeaders.push({text: 'Date', padding: 80});
+        dataHeaders.push({text: 'Time In', padding: 40});
+        dataHeaders.push({text: 'Date', padding: 80});        
+        dataHeaders.push({text: 'Time Out', padding: 40});
+        dataHeaders.push({text: 'Late Hours', padding: 20});
+        dataHeaders.push({text: 'Working Hours', padding: 20});
+        let start = this.datePipe.transform(this.data[0].timeIn, 'MMMM dd, yyyy') 
+        let end = this.datePipe.transform(this.data[this.data.length-1].timeIn, 'MMMM dd, yyyy') 
+        
+        this.setTitle(doc, `${this.user.name}'s Timelog Activities between ${start} and ${end}`, 0, 75, 13, '');
+        row_width = this.createHeaders(doc, dataHeaders, 110);
+        y = 130;        
+        this.data.forEach((element, index) => {
+          if(index % 29 == 0 && index != 0){
+            y = 130;
+            doc.addPage();
+            this.addTemplate(doc, this.WIDTH, this.HEIGHT);
+            this.setTitle(doc, `${this.user.name}'s Timelog Activities between ${start} and ${end}`, 0, 75, 13, '');
+            row_width = this.createHeaders(doc, dataHeaders, 110);
+          }
+          let rowData = this.createTimelogRow(element);
+          this.createRow(doc, dataHeaders, rowData, (this.WIDTH-row_width)/2, y, row_width);
+          y+=20;
+          
+        });
+        break;
     }
     doc.output('dataurlnewwindow');
   }
@@ -70,6 +103,17 @@ export class ExportComponent implements OnInit {
       rowData.push(element._timelog.lateHrs || '00:00:00');
       rowData.push(element._timelog.totalHrs || '00:00:00');  
     }
+    return rowData;
+  }
+
+  createTimelogRow(element){
+    let rowData = [];
+    rowData.push(this.datePipe.transform(element.timeIn, 'MMMM dd, yyyy') || '--');
+    rowData.push(this.datePipe.transform(element.timeIn, 'hh:mm:ss a') || '--');
+    rowData.push(this.datePipe.transform(element.timeOut, 'MMMM dd, yyyy') || '--');
+    rowData.push(this.datePipe.transform(element.timeOut, 'hh:mm:ss a') || '--');
+    rowData.push(element.lateHrs || '00:00:00');
+    rowData.push(element.totalHrs || '00:00:00');  
     return rowData;
   }
 

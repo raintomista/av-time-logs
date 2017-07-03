@@ -35,7 +35,6 @@ export class TimelogsByUserTableComponent implements OnInit {
 
   ngOnInit() {
     var date = new Date(), y = date.getFullYear(), m = date.getMonth();
-
     var firstDay = new Date(y, m, 1);
     var lastDay = new Date(y, m + 1, 0); 
 
@@ -45,16 +44,16 @@ export class TimelogsByUserTableComponent implements OnInit {
       endDate: new FormControl({date: {year: y, month: m+1, day: lastDay.getDate()}})
     });
 
-    this.timelogService.getTimelogsByDateRange(this.param, this.datePipe.transform(firstDay, 'MMddyyyy'), this.datePipe.transform(lastDay, 'MMddyyyy')).subscribe(timelogs =>{
-      this.timelogs = timelogs.data;
-    });  
+    // this.timelogService.getTimelogsByDateRange(this.param, this.datePipe.transform(firstDay, 'MMddyyyy'), this.datePipe.transform(lastDay, 'MMddyyyy')).subscribe(timelogs =>{
+    //   this.timelogs = timelogs.data;
+    // });  
 
-    this.dateRange.valueChanges.subscribe(form => {
-      // console.log(form.startDate.date);
-      this.timelogService.getTimelogsByDateRange(this.param, this.formatDate(form.startDate.date), this.formatDate(form.endDate.date)).subscribe(timelogs => {
-        this.timelogs = timelogs.data;
-      });
-    });
+    // this.dateRange.valueChanges.subscribe(form => {
+    //   // console.log(form.startDate.date);
+    //   this.timelogService.getTimelogsByDateRange(this.param, this.formatDate(form.startDate.date), this.formatDate(form.endDate.date)).subscribe(timelogs => {
+    //     this.timelogs = timelogs.data;
+    //   });
+    // });
   }
 
   transformDate(date) {
