@@ -12,11 +12,7 @@ export class TimelogsTableComponent implements OnInit {
   users: Object[];
 
   constructor(private timelogService: TimelogService) {
-    this.timelogService.getTimelogs().subscribe(users =>{
-      this.users = users.data;
-      console.log(this.users);
-      
-    });  
+    
    }
 
   ngOnInit() {

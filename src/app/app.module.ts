@@ -43,6 +43,7 @@ import { SaveNetworkComponent } from './components/admin/network-monitor/save-ne
 import { UserSidebarComponent } from './components/user/user-sidebar/user-sidebar.component';
 import { MyTimelogsComponent } from './components/user/my-timelogs/my-timelogs.component';
 import { MyTimelogsTableComponent } from './components/user/my-timelogs/my-timelogs-table/my-timelogs-table.component';
+import { ExportComponent } from './components/export/export.component';
 
 const appRoutes: Routes = [
   
@@ -102,7 +103,8 @@ const appRoutes: Routes = [
     SaveNetworkComponent,
     UserSidebarComponent,
     MyTimelogsComponent,
-    MyTimelogsTableComponent
+    MyTimelogsTableComponent,
+    ExportComponent
   ],
   imports: [
     BrowserModule,
