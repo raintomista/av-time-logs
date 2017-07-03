@@ -2981,7 +2981,8 @@ UserDashboardComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
         selector: 'user-dashboard',
         template: __webpack_require__("../../../../../src/app/components/user/user-dashboard/user-dashboard.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/user/user-dashboard/user-dashboard.component.css")]
+        styles: [__webpack_require__("../../../../../src/app/components/user/user-dashboard/user-dashboard.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_1__services_network_service__["a" /* NetworkService */], __WEBPACK_IMPORTED_MODULE_0__services_authentication_service__["a" /* AuthenticationService */]]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_network_service__["a" /* NetworkService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_network_service__["a" /* NetworkService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__services_authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_authentication_service__["a" /* AuthenticationService */]) === "function" && _b || Object])
 ], UserDashboardComponent);
