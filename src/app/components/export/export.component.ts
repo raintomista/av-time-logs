@@ -81,8 +81,20 @@ export class ExportComponent implements OnInit {
           let rowData = this.createTimelogRow(element);
           this.createRow(doc, dataHeaders, rowData, (this.WIDTH-row_width)/2, y, row_width);
           y+=20;
-          
+          console.log(y);
         });
+
+        if(y === 710){
+          doc.addPage();
+          this.addTemplate(doc, this.WIDTH, this.HEIGHT);
+          this.setTitle(doc, `${this.user.name}'s Timelog Activities between ${start} and ${end}`, 0, 75, 13, '');
+          y = 110;  
+        }
+        let total = this.user.totalHours || '00:00:00';
+        this.createTotal(doc, dataHeaders, total, (this.WIDTH-row_width)/2, y, row_width);
+        
+
+
         break;
     }
     doc.output('dataurlnewwindow');
@@ -141,6 +153,24 @@ export class ExportComponent implements OnInit {
     let width = 0;
     data.forEach(header => width += (this.getTextWidth(doc, header.text, size) + header.padding));
     return width;
+  }
+
+  createTotal(doc, headers, total, x, y, rowWidth){
+    let size = 11, offset_x = 0;
+    let columnWidth = 0;
+    doc.setFontStyle('bold');         
+    for(let i=0; i<headers.length-1; i++){
+        let text = headers[i].text, padding = headers[i].padding;
+        columnWidth += this.getTextWidth(doc, text, size) + padding;
+    }
+    doc.rect(x+offset_x, y, columnWidth, 20);
+    let textWidth = this.getTextWidth(doc, 'TOTAL HOURS', size);
+    this.centerText(doc, 'TOTAL HOURS', size, textWidth, columnWidth, x+offset_x, y);
+    offset_x+=columnWidth;
+    columnWidth = this.getTextWidth(doc, headers[headers.length-1].text, size) + headers[headers.length-1].padding;
+    textWidth = this.getTextWidth(doc, total, size);
+    doc.rect(x+offset_x, y, columnWidth, 20);
+    this.centerText(doc, total, size, textWidth, columnWidth, x+offset_x, y);
   }
 
   createRow(doc, headers, data, x, y, rowWidth){

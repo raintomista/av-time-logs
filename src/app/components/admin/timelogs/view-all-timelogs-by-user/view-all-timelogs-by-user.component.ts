@@ -4,6 +4,10 @@ import { TimelogsByUserTableComponent } from './timelogs-by-user-table/timelogs-
 import { ExportComponent } from './../../../export/export.component';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import {INgxMyDpOptions} from 'ngx-mydatepicker';
+import { FormGroup, FormControl } from '@angular/forms';
+
+
 const ALL_TIMELOGS_OF_USER: Number = 1;
 
 
@@ -17,20 +21,57 @@ export class ViewAllTimelogsByUserComponent{
   private param: any;
   @ViewChild(ExportComponent) exportBtn: ExportComponent;
   @ViewChild(TimelogsByUserTableComponent) table: TimelogsByUserTableComponent;
-  
+  private myOptions: INgxMyDpOptions = {
+      dateFormat: 'mm/dd/yyyy',
+  };
+
+  private endDateOptions: INgxMyDpOptions = {
+      dateFormat: 'mm/dd/yyyy',
+  };
+  dateRange: FormGroup;
 
   constructor(private route: ActivatedRoute, private timelogService: TimelogService, private datePipe: DatePipe) {
     let date = new Date(), y = date.getFullYear(), m = date.getMonth();
     let firstDay = new Date(y, m, 1);
     let lastDay = new Date(y, m + 1, 0); 
 
-    this.route.params.subscribe(params => this.param = params['username']);
+    this.dateRange = new FormGroup({
+      startDate: new FormControl({date: {year: y, month: m+1, day: firstDay.getDate()}}),
+      endDate: new FormControl({date: {year: y, month: m+1, day: lastDay.getDate()}})
+    });
 
-    this.timelogService.getTimelogsByDateRange(this.param, '06012017', '06302017').subscribe(timelogs =>{
+    this.route.params.subscribe(params => this.param = params['username']);
+    
+
+    this.timelogService.getTimelogsByDateRange(this.param, this.datePipe.transform(firstDay, 'MMddyyyy'), this.datePipe.transform(lastDay, 'MMddyyyy')).subscribe(timelogs =>{
       this.table.timelogs = timelogs.data;
+      this.table.user = timelogs.user;
+
+
       this.exportBtn.data = timelogs.data;
       this.exportBtn.user = timelogs.user;
       this.exportBtn.type = ALL_TIMELOGS_OF_USER;
-    });  
+    }); 
+
+    this.dateRange.valueChanges.subscribe(form => {
+      this.timelogService.getTimelogsByDateRange(this.param, this.formatDate(form.startDate.date), this.formatDate(form.endDate.date)).subscribe(timelogs => {
+        this.table.timelogs = timelogs.data;
+        this.table.user = timelogs.user;
+        this.exportBtn.data = timelogs.data;
+        this.exportBtn.user = timelogs.user;
+        this.exportBtn.type = ALL_TIMELOGS_OF_USER;
+      });
+    }); 
+  }
+
+  formatDate(date){
+    return  `${this.padValue(date.month)}${this.padValue(date.day)}${date.year}`
+  }
+
+  padValue(value){
+    if(value < 10){
+      return '0' + value;
+    }
+    return value;
   }
 }
