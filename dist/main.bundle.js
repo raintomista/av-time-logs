@@ -2938,7 +2938,9 @@ module.exports = "<div id=\"container\">\r\n  <div class=\"pusher\">\r\n    <nav
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_authentication_service__ = __webpack_require__("../../../../../src/app/services/authentication.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_network_service__ = __webpack_require__("../../../../../src/app/services/network.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserDashboardComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2950,22 +2952,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var UserDashboardComponent = (function () {
-    function UserDashboardComponent() {
+    function UserDashboardComponent(networkService, authService) {
+        this.networkService = networkService;
+        this.authService = authService;
     }
     UserDashboardComponent.prototype.ngOnInit = function () {
+    };
+    UserDashboardComponent.prototype.ngAfterViewInit = function () {
+        this.checkNetwork();
+    };
+    UserDashboardComponent.prototype.checkNetwork = function () {
+        var _this = this;
+        this.networkService.getClientIP().subscribe(function (result) {
+            _this.networkService.checkNetworkStatus(result.data.geo.ip).subscribe(function (network) {
+                if (network.data.status === 0 || network.data === null) {
+                    alert("Sorry but this network is blacklisted.");
+                    _this.authService.logout();
+                }
+            });
+        });
     };
     return UserDashboardComponent;
 }());
 UserDashboardComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
         selector: 'user-dashboard',
         template: __webpack_require__("../../../../../src/app/components/user/user-dashboard/user-dashboard.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/user/user-dashboard/user-dashboard.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_network_service__["a" /* NetworkService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_network_service__["a" /* NetworkService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__services_authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_authentication_service__["a" /* AuthenticationService */]) === "function" && _b || Object])
 ], UserDashboardComponent);
 
+var _a, _b;
 //# sourceMappingURL=user-dashboard.component.js.map
 
 /***/ }),
