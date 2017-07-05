@@ -56,8 +56,6 @@ export class ExportComponent implements OnInit {
     return value;
   }
   export(){
-    this.getTotal(this.data);
-    console.log(this.data.length);
     let doc = new jsPDF('p', 'pt', 'letter');
     let date = this.datePipe.transform(new Date(), 'MMMM dd, yyyy');
     this.addTemplate(doc, this.WIDTH, this.HEIGHT);
