@@ -44,6 +44,7 @@ import { UserSidebarComponent } from './components/user/user-sidebar/user-sideba
 import { MyTimelogsComponent } from './components/user/my-timelogs/my-timelogs.component';
 import { MyTimelogsTableComponent } from './components/user/my-timelogs/my-timelogs-table/my-timelogs-table.component';
 import { ExportComponent } from './components/export/export.component';
+import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
 
 const appRoutes: Routes = [
   
@@ -59,6 +60,8 @@ const appRoutes: Routes = [
   { path: '', component: UserDashboardComponent, children: [
     { path: '', component: TimeloggingPanelComponent, canActivate: [AuthGuard, UserGuard]},
     { path: 'my-timelogs', component: MyTimelogsComponent, canActivate: [AuthGuard, UserGuard]},    
+    { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard, UserGuard]},    
+    
   ]}
 
   // { path: '', component: DashboardComponent,
@@ -104,7 +107,8 @@ const appRoutes: Routes = [
     UserSidebarComponent,
     MyTimelogsComponent,
     MyTimelogsTableComponent,
-    ExportComponent
+    ExportComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
