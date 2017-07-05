@@ -2,3 +2,21 @@
     margin-left: 5px;
     font-weight: 600;
 }
+
+
+
+.ui.inverted.top.borderless.fluid.menu{
+    border-radius: 0px;
+}
+
+.hamburger.item{
+    padding: 0px;
+}
+.hamburger.item > a{
+    height: 100%;
+    padding: 20px;
+}
+
+.right.item{
+    padding: 0px;
+}

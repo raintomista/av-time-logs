@@ -1,6 +1,39 @@
 @import 'https://fonts.googleapis.com/css?family=Lato:300,400,900';
 
+
 #time{
-    font-weight: 900;
-    font-family: 'Lato';
+	font-family: 'Lato', sans-serif;
+	font-weight: 900;
+	font-size: 30px;
+}
+
+#date{
+	font-family: 'Lato', sans-serif;
+	font-size: 	20px;
+}
+
+/*.ui.four.wide.tablet.column{
+    padding: 0px;
+}
+
+.ui.five.wide.tablet.sixteen.wide.mobile.column{
+    padding-right: 0px;
+}*/
+
+@media only screen and (max-width: 767px){
+    .ui.stackable.row > div.ui.four.wide.computer.five.wide.tablet.sixteen.wide.mobile.column{
+        padding-bottom: 0px !important; 
+    }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px){
+    .ui.five.wide.computer.four.wide.tablet.sixteen.wide.mobile.column #date{
+        margin-left: -40px;
+    }
+}
+
+@media only screen and (min-width: 992px){
+    .ui.five.wide.computer.four.wide.tablet.sixteen.wide.mobile.column #date{
+        margin-left: -50px;
+    }
 }

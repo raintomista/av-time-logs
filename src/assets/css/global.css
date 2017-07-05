@@ -1,14 +1,10 @@
 body{
 	background-color: #d9d9d9;
 }
-
-
-.pusher{
-	width: calc(100% - 260px);
-	height: 100vh;
+user-sidebar.ui.vertical.menu{
+	width: 260px;
 }
-
-.ui.sidebar.menu .item.link{
+user-sidebar.ui.menu .item.link{
 	font-family: 'Comfortaa', cursive;
 	letter-spacing: 0.3px;
 	font-size: 17px;
@@ -18,37 +14,37 @@ body{
 	padding: 15px 30px;
 }
 
-.ui.inverted.menu .item.link:hover{
+user-sidebar.ui.inverted.menu .item.link:hover{
 	border-left: 4px solid #aa67da;
 	color: #aa67da !important;
 }
 
-.ui.inverted.menu .active.item.link{
+user-sidebar.ui.inverted.menu .active.item.link{
 	border-left: 4px solid #aa67da;
 	background-color: transparent;
 	color: #aa67da !important;
 }
 
-.ui.inverted.menu .active.item.link:hover{
+user-sidebar.ui.inverted.menu .active.item.link:hover{
 	border-left: 4px solid #67dacb;
 	color: #67dacb !important;
 }
 
-.ui.inverted.top.menu{
+user-sidebar.ui.inverted.top.menu{
 	background-color: #111111;
 	border-radius: 0px;
 }
 
-.ui.inverted.top.menu .right.item{
+user-sidebar.ui.inverted.top.menu .right.item{
 	padding: 0px;
 }
 
-.ui.vertical.menu .item > i.left.aligned.icon {
+user-sidebar.ui.vertical.menu .item > i.left.aligned.icon {
   float: left;
   margin: 0 0.5em 0 0;
 }
 
-.ui.left.vertical.inverted.labeled.visible.sidebar.menu{
+user-sidebar.ui.left.vertical.inverted.labeled.visible.menu{
 	background-color: #2a2830;
 }
 
@@ -62,17 +58,7 @@ body{
 
 /*Time*/
 
-#time{
-	font-family: 'Lato', sans-serif;
-	font-weight: 900;
-	font-size: 30px;
-}
 
-#date{
-	font-family: 'Lato', sans-serif;
-	font-size: 	20px;
-	margin-left: 10px;
-}
 
 .nav-icon{
 	margin-right: 15px;
@@ -86,4 +72,37 @@ body{
 	line-height: 20px;
     display: inline-block;
     vertical-align: middle;
+}
+
+@media only screen and (max-width: 767px) {
+    .mobile.hidden,
+    .tablet.only,
+    .small.monitor.only,
+    .large.monitor.only {
+        display: none !important;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .mobile.only,
+    .tablet.hidden,
+    .small.monitor.only,
+    .large.monitor.only {
+        display: none !important;
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .mobile.only,
+    .tablet.only,
+    .small.monitor.hidden,
+    .large.monitor.only {
+        display: none !important;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .mobile.only,
+    .tablet.only,
+    .small.monitor.only,
+    .large.monitor.hidden {
+        display: none !important;
+    }
 }

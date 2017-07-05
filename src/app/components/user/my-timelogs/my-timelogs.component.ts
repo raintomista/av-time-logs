@@ -30,7 +30,7 @@ export class MyTimelogsComponent {
   dateRange: FormGroup;
 
   constructor(private route: ActivatedRoute, private timelogService: TimelogService, private datePipe: DatePipe) {
-    this.param = JSON.parse(window.localStorage.getItem('currentUser')).username;
+    this.param = JSON.parse(window.localStorage.getItem('currentUser'));
     let date = new Date(), y = date.getFullYear(), m = date.getMonth();
     let firstDay = new Date(y, m, 1);
     let lastDay = new Date(y, m + 1, 0); 
@@ -40,7 +40,7 @@ export class MyTimelogsComponent {
       endDate: new FormControl({date: {year: y, month: m+1, day: lastDay.getDate()}})
     });
 
-    this.timelogService.getTimelogsByDateRange(this.param, this.datePipe.transform(firstDay, 'MMddyyyy'), this.datePipe.transform(lastDay, 'MMddyyyy')).subscribe(timelogs =>{
+    this.timelogService.getTimelogsByDateRange(this.param.username, this.datePipe.transform(firstDay, 'MMddyyyy'), this.datePipe.transform(lastDay, 'MMddyyyy')).subscribe(timelogs =>{
       this.table.timelogs = timelogs.data;
       this.table.total = this.getTotal(timelogs.data);
       this.exportBtn.data = timelogs.data;
@@ -49,7 +49,7 @@ export class MyTimelogsComponent {
     }); 
 
     this.dateRange.valueChanges.subscribe(form => {
-      this.timelogService.getTimelogsByDateRange(this.param, this.formatDate(form.startDate.date), this.formatDate(form.endDate.date)).subscribe(timelogs => {
+      this.timelogService.getTimelogsByDateRange(this.param.username, this.formatDate(form.startDate.date), this.formatDate(form.endDate.date)).subscribe(timelogs => {
         this.table.timelogs = timelogs.data;
         this.table.total = this.getTotal(timelogs.data);  
         this.exportBtn.data = timelogs.data;

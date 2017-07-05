@@ -1,1 +1,3 @@
-<button class="ui export button" (click)="export()" [disabled]="data.length < 1">Export to PDF</button>
+<button class="ui export circular icon button" (click)="export()" [disabled]="data.length < 1" data-tooltip="Download as PDF" data-inverted="">
+    <i class="download icon"></i>
+</button>

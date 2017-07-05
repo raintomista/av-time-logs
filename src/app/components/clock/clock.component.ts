@@ -6,11 +6,12 @@ import {TimerObservable} from "rxjs/observable/TimerObservable";
   selector: 'clock',
   template: `
     <div class="ui grid container" id="content">
-      <div class="ui row">
-        <div class="ui column">
+      <div class="ui stackable row">
+        <div class="ui four wide computer five wide tablet sixteen wide mobile column">
             <span id="time"><time>{{clock | amDateFormat: 'hh:mm:ss A'}}</time></span>
+        </div>
+        <div class="ui five wide computer four wide tablet sixteen wide mobile column">
             <span id="date"><time>{{clock | amDateFormat: 'ddd, D MMM YY'}}</time></span>
-            
         </div>
       </div>
     </div>`,
