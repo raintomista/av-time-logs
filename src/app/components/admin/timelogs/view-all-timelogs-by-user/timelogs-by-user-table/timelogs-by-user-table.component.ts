@@ -15,7 +15,7 @@ import {INgxMyDpOptions} from 'ngx-mydatepicker';
 })
 export class TimelogsByUserTableComponent implements OnInit {
   private param: any;
-  timelogs: Timelog[];
+  timelogs: Timelog[] = [];
   total;  
 
   constructor(private timelogService: TimelogService, private route: ActivatedRoute, private datePipe: DatePipe) {

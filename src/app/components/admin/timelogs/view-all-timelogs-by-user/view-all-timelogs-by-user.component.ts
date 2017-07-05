@@ -1,3 +1,4 @@
+import { UserService } from './../../../../services/user.service';
 import { DatePipe } from '@angular/common';
 import { TimelogService } from './../../../../services/timelog.service';
 import { TimelogsByUserTableComponent } from './timelogs-by-user-table/timelogs-by-user-table.component';
@@ -15,10 +16,11 @@ const ALL_TIMELOGS_OF_USER: Number = 1;
   selector: 'app-view-all-timelogs-by-user',
   templateUrl: './view-all-timelogs-by-user.component.html',
   styleUrls: ['./view-all-timelogs-by-user.component.css'],
-  providers: [DatePipe, TimelogService]
+  providers: [DatePipe, TimelogService, UserService]
 })
 export class ViewAllTimelogsByUserComponent{
   private param: any;
+  private name: any;
   @ViewChild(ExportComponent) exportBtn: ExportComponent;
   @ViewChild(TimelogsByUserTableComponent) table: TimelogsByUserTableComponent;
   private myOptions: INgxMyDpOptions = {
@@ -30,7 +32,12 @@ export class ViewAllTimelogsByUserComponent{
   };
   dateRange: FormGroup;
 
-  constructor(private route: ActivatedRoute, private timelogService: TimelogService, private datePipe: DatePipe) {
+  constructor(private route: ActivatedRoute, private timelogService: TimelogService, private userService: UserService, private datePipe: DatePipe) {
+    this.route.params.subscribe(params => {
+      this.param = params['username']
+      this.name = this.param;
+    });
+
     let date = new Date(), y = date.getFullYear(), m = date.getMonth();
     let firstDay = new Date(y, m, 1);
     let lastDay = new Date(y, m + 1, 0); 
@@ -40,8 +47,10 @@ export class ViewAllTimelogsByUserComponent{
       endDate: new FormControl({date: {year: y, month: m+1, day: lastDay.getDate()}})
     });
 
-    this.route.params.subscribe(params => this.param = params['username']);
-    
+    this.userService.getUser(this.param).subscribe(user => {
+      console.log(user.data);
+      this.name = user.data[0].name;
+    });
 
     this.timelogService.getTimelogsByDateRange(this.param, this.datePipe.transform(firstDay, 'MMddyyyy'), this.datePipe.transform(lastDay, 'MMddyyyy')).subscribe(timelogs =>{
       this.table.timelogs = timelogs.data;
@@ -49,6 +58,7 @@ export class ViewAllTimelogsByUserComponent{
       this.exportBtn.data = timelogs.data;
       this.exportBtn.user = timelogs.user;
       this.exportBtn.type = ALL_TIMELOGS_OF_USER;
+      this.param
     }); 
 
     this.dateRange.valueChanges.subscribe(form => {
@@ -94,3 +104,7 @@ export class ViewAllTimelogsByUserComponent{
     return value;
   }
 }
+
+
+
+

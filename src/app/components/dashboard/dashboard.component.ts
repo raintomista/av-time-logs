@@ -1,6 +1,7 @@
 import { AuthenticationService } from './../../services/authentication.service';
 import { NetworkService } from './../../services/network.service';
 import { Component, OnInit } from '@angular/core';
+declare var $: any;
 
 @Component({
   selector: 'app-dashboard',
@@ -17,6 +18,13 @@ export class DashboardComponent implements OnInit {
 
   ngAfterViewInit(){
     this.checkNetwork();
+    $('.ui.dropdown').dropdown();
+     $('a.sidebar-toggle').click(function () {
+       $('#sidebar').sidebar('toggle')
+     })
+     $('#sidebar a.item.link').click(function () {
+       $('#sidebar').sidebar('toggle')
+     })
   }
 
 

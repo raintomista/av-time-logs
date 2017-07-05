@@ -1,10 +1,10 @@
 body{
 	background-color: #d9d9d9;
 }
-user-sidebar.ui.vertical.menu{
+user-sidebar.ui.vertical.menu, sidebar.ui.vertical.menu{
 	width: 260px;
 }
-user-sidebar.ui.menu .item.link{
+user-sidebar.ui.menu .item.link, sidebar.ui.menu .item.link{
 	font-family: 'Comfortaa', cursive;
 	letter-spacing: 0.3px;
 	font-size: 17px;
@@ -14,37 +14,37 @@ user-sidebar.ui.menu .item.link{
 	padding: 15px 30px;
 }
 
-user-sidebar.ui.inverted.menu .item.link:hover{
+user-sidebar.ui.inverted.menu .item.link:hover, sidebar.ui.inverted.menu .item.link:hover{
 	border-left: 4px solid #aa67da;
 	color: #aa67da !important;
 }
 
-user-sidebar.ui.inverted.menu .active.item.link{
+user-sidebar.ui.inverted.menu .active.item.link, sidebar.ui.inverted.menu .active.item.link{
 	border-left: 4px solid #aa67da;
 	background-color: transparent;
 	color: #aa67da !important;
 }
 
-user-sidebar.ui.inverted.menu .active.item.link:hover{
+user-sidebar.ui.inverted.menu .active.item.link:hover, sidebar.ui.inverted.menu .active.item.link:hover{
 	border-left: 4px solid #67dacb;
 	color: #67dacb !important;
 }
 
-user-sidebar.ui.inverted.top.menu{
+user-sidebar.ui.inverted.top.menu, sidebar.ui.inverted.top.menu{
 	background-color: #111111;
 	border-radius: 0px;
 }
 
-user-sidebar.ui.inverted.top.menu .right.item{
+user-sidebar.ui.inverted.top.menu .right.item, sidebar.ui.inverted.top.menu .right.item{
 	padding: 0px;
 }
 
-user-sidebar.ui.vertical.menu .item > i.left.aligned.icon {
+user-sidebar.ui.vertical.menu .item > i.left.aligned.icon, sidebar.ui.vertical.menu .item > i.left.aligned.icon {
   float: left;
   margin: 0 0.5em 0 0;
 }
 
-user-sidebar.ui.left.vertical.inverted.labeled.visible.menu{
+user-sidebar.ui.left.vertical.inverted.labeled.visible.menu, sidebar.ui.left.vertical.inverted.labeled.visible.menu{
 	background-color: #2a2830;
 }
 

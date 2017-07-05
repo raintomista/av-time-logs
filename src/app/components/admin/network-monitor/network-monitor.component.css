@@ -1,2 +1,7 @@
 
 
+@media only screen and (min-width: 768px){
+    .ui.ten.wide.computer.sixteen.wide.tablet.sixteen.wide.mobile.column{
+        padding: 1.5rem !important;
+    }
+}

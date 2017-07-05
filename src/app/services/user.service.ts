@@ -22,6 +22,11 @@ export class UserService {
 			});
 	}
 
+	getUser(username) {
+		return this.http.get(`${appConfig.apiURL}/users/${username}`, {headers: this.getHeaders()})
+			.map((res: Response) => res.json());
+	}
+
 	getUsers() {
 		return this.http.get(`${appConfig.apiURL}/users/all`, {headers: this.getHeaders()})
 			.map((res: Response) => res.json());
