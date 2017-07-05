@@ -2,6 +2,7 @@ import { ResourceService } from './../../../services/resource.service';
 import { UserService } from './../../../services/user.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-user',
@@ -16,11 +17,11 @@ export class AddUserComponent implements OnInit {
   emailLabel: string;
   passwordLabel: string;
   uploadParams: FormData;
-  image: string = 'https://semantic-ui.com/images/wireframe/square-image.png';
+  image: any = 'https://semantic-ui.com/images/wireframe/square-image.png';
+  name = 'New User';
+  username  = 'newuser';
   
-  
-
-  constructor(private userService: UserService, private resourceService: ResourceService) {
+  constructor(private userService: UserService, private resourceService: ResourceService, private sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
@@ -51,10 +52,13 @@ export class AddUserComponent implements OnInit {
     this.usernameLabel = 'Username';
     this.passwordLabel = 'Password';
     
-    
-    
-    
+
     this.addUserForm.valueChanges.subscribe(form =>{
+
+      this.name = this.addUserForm.controls.name.value || this.name;
+      this.username = this.addUserForm.controls.username.value || this.name;
+      
+
       // Username Label
       if(this.addUserForm.controls.username.valid || !this.addUserForm.controls.username.dirty){
         this.usernameLabel = 'Username';
@@ -87,36 +91,28 @@ export class AddUserComponent implements OnInit {
   }
 
   addUser(){
+    this.addUserForm.controls.imgUrl.setValue(this.image);
+    console.log(this.addUserForm.valid);
     if(this.addUserForm.valid){
-      // this.resourceService.upload(this.uploadParams).subscribe(result => {
-        // this.addUserForm.controls.imgUrl.setValue(result.secure_url);
-        this.userService.addUser(this.addUserForm.value).subscribe(
-          data => {
-            alert('Sucessfully Created User');
-            this.addUserForm.reset();
-          },
-          error => {
-            alert('Error!');        
-          }
-        );
-      // });
+      this.userService.addUser(this.addUserForm.value).subscribe(
+        data => {
+          alert('Sucessfully Created User');
+          console.log(data);
+          this.addUserForm.reset();
+        },
+        error => {
+          alert('Error!');        
+        });
     }
   }
 
-  fileEvent(fileInput: any){    
-    this.uploadParams = this.createUploadParams(fileInput);
-
-    this.resourceService.upload(this.uploadParams).subscribe(result => {
-      this.image = result.secure_url;
-      this.addUserForm.controls.imgUrl.setValue(this.image);
-    });
+  fileEvent(event: any){
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+      this.image = reader.result;
+    }, false);
+    if(event.target.files[0]){
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
-
-  private createUploadParams(fileInput) {
-    let formData: FormData = new FormData();
-    formData.append('upload_preset', 'bctvdem9');
-    formData.append('file', fileInput.target.files[0]);
-    return formData;
-  }
-
 }

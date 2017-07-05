@@ -1,4 +1,4 @@
-/*[type=file] {
+[type=file] {
     cursor: inherit;
     display: block;
     font-size: 999px;
@@ -10,4 +10,114 @@
     right: 0;
     text-align: right;
     top: 0;
+}
+
+
+.ui.right.floated.edit.button{
+    padding: 0px;
+    background-color: transparent;
+}
+
+.ui.segments{
+	border: 2.5px solid #2ec4b6;
+	border-radius: 24px 24px 20px 20px;
+}
+
+.ui.segments>.segment{
+    border-top: none;
+}
+
+.ui.segment#header-segment{
+	background-color: #2ec4b6;
+	color: white;
+	border-radius: 20px 20px 0px 0px;
+    border-top: none;
+}
+
+.ui.segment#header-segment *{
+	display: inline;
+    vertical-align: middle;
+}
+
+.ui.segment#header-segment h4{
+	font-family: 'Comfortaa', cursive;
+}
+
+.ui.secondary.segment{
+	background-color: transparent;
+}
+
+.ui.secondary.segment .ui.button{
+	background-color: #aa67da;
+	color: white;
+	margin-top: 2px;
+}
+
+.ui.form .fields .eight.wide.field{
+    padding-bottom: 0px;
+}
+
+.ui.form .field .ui.labeled.input .ui.label{
+    background-color: #2ec4b6;
+    border-radius: 20px 0px 0px 20px;
+    color: white;
+    line-height: 40px;
+    padding: 0px 20px;
+    font-family: 'Comfortaa';
+    font-size: 1.03142857rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+
+.ui.form .field .ui.input input{
+	background-color: transparent;
+    border-radius: 0px 20px 20px 0px;
+    border: 2px solid #2ec4b6;
+    color: #2ec4b6;    
+}
+
+.ui.form > .fields > .field, .ui.form > .field{
+    margin-bottom: 10px !important;
+}
+
+/*/*.ui.form .fields .field{
+    margin-bottom: 10px;
 }*/
+
+
+.ui.form input::placeholder{
+	color: #2ec4b6;
+}
+
+::-webkit-input-placeholder { /* Chrome */
+  color: #2ec4b6;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #2ec4b6;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #2ec4b6;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: #2ec4b6;
+  opacity: 1;
+}
+
+
+.ui.form .field > label{
+    font-size: 1.042em;
+}
+.ui.form > .field{
+    margin-bottom: 10px !important;
+}
+
+.ui.form .field:last-child{
+    margin-bottom: 0px !important;
+}
+
+.field .ui.fluid.button{
+    margin-top: 15px !important;
+    margin-bottom: 0px !important;
+}

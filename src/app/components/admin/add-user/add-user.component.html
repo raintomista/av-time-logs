@@ -1,7 +1,7 @@
-<div class="ui grid container">
+<!--<div class="ui grid container">-->
   <div class="ui centered row">
     <!--<p>{{addUserForm.value | json}}</p>-->
-    <div class="ui eight wide column">
+    <!--<div class="ui eight wide column">
       <form class="ui form" [formGroup]="addUserForm" (ngSubmit)="addUserForm.valid && addUser()" novalidate>
         <div class="fields">
           <div class="eight wide field" [ngClass]="{'error': addUserForm.controls.username.invalid && addUserForm.controls.username.dirty }">
@@ -42,4 +42,116 @@
       </form>
     </div>
   </div>
+</div>-->
+
+
+
+<div class="ui stackable grid container">
+  <form class="ui centered row form" [formGroup]="addUserForm" (ngSubmit)="addUserForm.valid && addUser()" novalidate>
+    <div class="ui seven wide column">
+      <div class="ui segments">
+        <div class="ui segment" id="header-segment">
+          <h4>Create User</h4>
+        </div>
+        <div class="ui center aligned padded secondary segment">
+          <div class="ui grid">
+            <div class="row">
+              <div class="column">
+                <div class="ui circular small image">
+                  <img [src]="image" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column">
+                <h2 class="ui header">
+                  <div class="content">
+                    {{name}}
+                    <div class="sub header">@{{username}}</div>
+                  </div>
+                </h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column">
+                <div class="ui grid container">
+                  <div class="equal width row">
+                    <div class="column">
+                        <div class="ui fluid button">
+                          Upload
+                          <input type="file" name="file" (change)="fileEvent($event)">
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui nine wide column">
+      <div class="ui grid">
+      <div class="row">
+        <div class="column">
+          <div class="ui segments">
+          <div class="ui segment" id="header-segment">
+            <h4>User Details</h4>
+          </div>
+          <div class="ui padded secondary segment">
+            <div class="ui form">
+              <div class="sixteen wide inline field"  [ngClass]="{'error': addUserForm.controls.username.invalid && addUserForm.controls.username.dirty }">
+                <label>{{usernameLabel}}</label>
+                <div class="ui labeled input">
+                  <div class="ui label">
+                    <i class="user icon"></i>
+                  </div>
+                  <input type="text" placeholder="Username" value="rftomista" formControlName="username">
+                </div>
+              </div>
+              <div class="sixteen wide field" [ngClass]="{'error': addUserForm.controls.password.invalid && !addUserForm.controls.password.pristine }">
+                <label>{{passwordLabel}}</label>
+                <div class="ui labeled input">
+                  <div class="ui label">
+                    <i class="lock icon"></i>
+                  </div>
+                  <input type="password" placeholder="Password" value="********" formControlName="password">
+                </div>
+              </div>
+              <div class="sixteen wide field" [ngClass]="{'error': addUserForm.controls.name.invalid && !addUserForm.controls.name.pristine }">
+                <label>{{fullNameLabel}}</label>                
+                <div class="ui labeled input">
+                  <div class="ui label"><i class="certificate icon"></i></div>
+                  <input type="text" placeholder="Full Name" value="Rainier Francis Tomista" formControlName="name">
+                </div>
+              </div>
+              <div class="sixteen wide field" [ngClass]="{'error': addUserForm.controls.contactNumber.invalid && !addUserForm.controls.contactNumber.pristine }">
+                <label>Contact Number</label>   
+                <div class="ui labeled input" >
+                  <div class="ui label">
+                    <i class="phone icon"></i>
+                  </div>
+                  <input type="text" placeholder="Contact Number" value="09959786692" formControlName="contactNumber">
+                </div>
+              </div>
+              <div class="sixteen wide field" [ngClass]="{'error': addUserForm.controls.email.invalid && !addUserForm.controls.email.pristine }">
+                <label>{{emailLabel}}</label>
+                <div class="ui labeled input">
+                  <div class="ui label">
+                    <i class="mail icon"></i>
+                  </div>
+                  <input type="email" placeholder="Email Address" value="rftomista@gmail.com" formControlName="email">
+                </div>
+              </div>
+              <div class="field">
+                <button class="ui fluid button" [disabled]="!addUserForm.valid">Create User</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </form>
 </div>
