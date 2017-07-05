@@ -66,8 +66,8 @@
               <div class="column">
                 <h2 class="ui header">
                   <div class="content">
-                    {{name}}
-                    <div class="sub header">@{{username}}</div>
+                    {{addUserForm.controls.name.value || 'New User'}}
+                    <div class="sub header">@{{addUserForm.controls.username.value || 'newuser'}}</div>
                   </div>
                 </h2>
               </div>
@@ -78,7 +78,7 @@
                   <div class="equal width row">
                     <div class="column">
                         <div class="ui fluid button">
-                          Upload
+                          Upload Profile Picture 
                           <input type="file" name="file" (change)="fileEvent($event)">
                         </div>
                     </div>
@@ -90,17 +90,17 @@
         </div>
       </div>
     </div>
-    <div class="ui nine wide column">
+    <div class="ui seven wide column">
       <div class="ui grid">
       <div class="row">
         <div class="column">
-          <div class="ui segments">
+          <div class="ui segments" [ngClass]="{'error': !addUserForm.pristine && addUserForm.touched && addUserForm.invalid}">
           <div class="ui segment" id="header-segment">
             <h4>User Details</h4>
           </div>
           <div class="ui padded secondary segment">
             <div class="ui form">
-              <div class="sixteen wide inline field"  [ngClass]="{'error': addUserForm.controls.username.invalid && addUserForm.controls.username.dirty }">
+              <div class="sixteen wide field"  [ngClass]="{'error': addUserForm.controls.username.invalid && addUserForm.controls.username.dirty }">
                 <label>{{usernameLabel}}</label>
                 <div class="ui labeled input">
                   <div class="ui label">
@@ -131,7 +131,7 @@
                   <div class="ui label">
                     <i class="phone icon"></i>
                   </div>
-                  <input type="text" placeholder="Contact Number" value="09959786692" formControlName="contactNumber">
+                  <input type="text" placeholder="Contact Number" formControlName="contactNumber">
                 </div>
               </div>
               <div class="sixteen wide field" [ngClass]="{'error': addUserForm.controls.email.invalid && !addUserForm.controls.email.pristine }">

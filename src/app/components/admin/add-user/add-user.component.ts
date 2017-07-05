@@ -18,8 +18,6 @@ export class AddUserComponent implements OnInit {
   passwordLabel: string;
   uploadParams: FormData;
   image: any = 'https://semantic-ui.com/images/wireframe/square-image.png';
-  name = 'New User';
-  username  = 'newuser';
   
   constructor(private userService: UserService, private resourceService: ResourceService, private sanitizer: DomSanitizer) {
   }
@@ -54,10 +52,6 @@ export class AddUserComponent implements OnInit {
     
 
     this.addUserForm.valueChanges.subscribe(form =>{
-
-      this.name = this.addUserForm.controls.name.value || this.name;
-      this.username = this.addUserForm.controls.username.value || this.name;
-      
 
       // Username Label
       if(this.addUserForm.controls.username.valid || !this.addUserForm.controls.username.dirty){
