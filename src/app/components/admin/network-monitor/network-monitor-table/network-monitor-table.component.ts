@@ -8,11 +8,14 @@ import { NetworkService } from './../../../../services/network.service';
   providers: [NetworkService]
 })
 export class NetworkMonitorTableComponent implements OnInit {
-  networks: Object[];
+  private networks: Object[];
+  private loading: Boolean;
 
   constructor(private networkService: NetworkService) {
+    this.loading = true;
     this.networkService.getNetworks().subscribe(result =>{
       this.networks = result.data;
+      this.loading = false;
     });  
   }
 

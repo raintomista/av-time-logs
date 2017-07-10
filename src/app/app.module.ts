@@ -45,6 +45,7 @@ import { MyTimelogsComponent } from './components/user/my-timelogs/my-timelogs.c
 import { MyTimelogsTableComponent } from './components/user/my-timelogs/my-timelogs-table/my-timelogs-table.component';
 import { ExportComponent } from './components/export/export.component';
 import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
+import { ContentLoaderComponent } from './components/content-loader/content-loader.component';
 
 const appRoutes: Routes = [
   
@@ -108,7 +109,8 @@ const appRoutes: Routes = [
     MyTimelogsComponent,
     MyTimelogsTableComponent,
     ExportComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ContentLoaderComponent
   ],
   imports: [
     BrowserModule,

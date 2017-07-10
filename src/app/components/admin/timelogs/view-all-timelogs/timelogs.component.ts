@@ -16,7 +16,8 @@ export class TimelogsComponent implements OnInit {
 
   constructor(private timelogService: TimelogService) {
     this.timelogService.getTimelogs().subscribe(users =>{
-      this.table.users = users.data;
+      this.table.setUsers(users.data);
+      this.table.setLoading(false);
       this.exportBtn.data = users.data;
       this.exportBtn.type = ALL_USERS_RECENT;
     });  

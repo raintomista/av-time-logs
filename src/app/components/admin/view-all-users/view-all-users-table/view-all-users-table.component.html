@@ -13,8 +13,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngIf="users?.length < 1">
-            <td class="center aligned" colspan="5">No Users</td>
+          <tr class="center aligned" *ngIf="loading">
+            <td colspan="6"><content-loader></content-loader></td>
+          </tr>
+          <tr *ngIf="users?.length < 1 && !loading">
+            <td class="center aligned" colspan="6" id="no-data">No Users</td>
           </tr>
           <tr *ngFor="let user of users">
             <td>

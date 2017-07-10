@@ -8,11 +8,14 @@ import { UserService } from '../../../../services/user.service';
   providers: [UserService]
 })
 export class UsersOnBreakMonitorComponent implements OnInit {
-  usersOnBreak: Object[];
+  private usersOnBreak: Object[];
+  private loading: Boolean;
 
   constructor(private userService: UserService) { 
+    this.loading = true;
     this.userService.getUsersOnBreak().subscribe(users =>{
       this.usersOnBreak = users.data;
+      this.loading = false;
     });  
   }
 

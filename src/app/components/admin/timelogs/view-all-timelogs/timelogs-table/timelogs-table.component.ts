@@ -9,13 +9,28 @@ import { TimelogService } from '../../../../../services/timelog.service';
 
 })
 export class TimelogsTableComponent implements OnInit {
-  users: Object[];
-
+  private users: Object[];
+  private loading: Boolean;
   constructor(private timelogService: TimelogService) {
-    
-   }
+    this.loading = true;
+  }
 
   ngOnInit() {
+  }
+
+  getLoading(){
+    return this.loading;
+  }
+  setLoading(bool:Boolean){
+    this.loading = bool;
+  }
+
+  getUsers(){
+    return this.users;
+  }
+
+  setUsers(users: Object[]){
+    this.users = users;
   }
 
 

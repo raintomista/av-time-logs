@@ -10,11 +10,13 @@ import { Component, OnInit } from '@angular/core';
   providers: [UserService]
 })
 export class OnlineUsersMonitorComponent implements OnInit {
-  onlineUsers: Object[];
-
+  private onlineUsers: Object[];
+  private loading: Boolean;
   constructor(private userService: UserService, private resource: ResourceService) { 
+    this.loading = true;
     this.userService.getOnlineUsers().subscribe(users =>{
       this.onlineUsers = users.data;
+      this.loading = false;
     });  
   }
 

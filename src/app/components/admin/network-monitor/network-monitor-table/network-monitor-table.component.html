@@ -11,7 +11,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngIf="networks?.length < 1">
+          <tr class="center aligned" *ngIf="loading">
+            <td colspan="4"><content-loader></content-loader></td>
+          </tr>
+          <tr *ngIf="networks?.length < 1 && !loading">
             <td class="center aligned" colspan="4">No Networks Listed</td>
           </tr>
           <tr *ngFor="let network of networks">

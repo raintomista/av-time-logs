@@ -7,7 +7,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngIf="offlineUsers?.length < 1">
+    <tr class="center aligned" *ngIf="loading">
+      <td><content-loader></content-loader></td>
+    </tr>
+    <tr *ngIf="offlineUsers?.length < 1 && !loading">
       <td>
         No Offline Users 
       </td>

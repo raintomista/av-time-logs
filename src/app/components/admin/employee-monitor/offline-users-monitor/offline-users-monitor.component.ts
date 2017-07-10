@@ -9,11 +9,14 @@ import { UserService } from '../../../../services/user.service';
   providers: [UserService]
 })
 export class OfflineUsersMonitorComponent implements OnInit {
-  offlineUsers: Object[];
+  private offlineUsers: Object[];
+  private loading: Boolean;
 
   constructor(private userService: UserService) {
+    this.loading = true;
     this.userService.getOfflineUsers().subscribe(users =>{
       this.offlineUsers = users.data;
+      this.loading = false;
     });  
    }
 

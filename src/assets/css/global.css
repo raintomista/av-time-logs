@@ -106,3 +106,8 @@ user-sidebar.ui.left.vertical.inverted.labeled.visible.menu, sidebar.ui.left.ver
         display: none !important;
     }
 }
+
+#no-data{
+	line-height: 50px;
+	padding: 20px 14px;
+}

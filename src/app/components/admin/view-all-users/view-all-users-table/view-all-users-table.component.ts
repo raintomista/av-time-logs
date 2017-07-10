@@ -10,12 +10,14 @@ import { UserService } from '../../../../services/user.service';
 
 })
 export class ViewAllUsersTableComponent implements OnInit {
-  users: Object[];
+  private users: Object[];
+  private loading: Boolean;
 
   constructor(private userService: UserService, private router: Router) { 
+    this.loading = true;
     this.userService.getUsers().subscribe(users =>{
       this.users = users.data;
-      console.log(users.data);
+      this.loading = false;
     }); 
   }
 
