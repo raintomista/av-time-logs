@@ -3,12 +3,12 @@ import { ResourceService } from './resource.service';
 import {Injectable} from '@angular/core';
 import {Http, Response,  Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
-
+import { Jsonp } from '@angular/http';
 
 @Injectable()
 export class NetworkService{
 	public headers: Headers;
-	constructor(private http: Http,  private resource: ResourceService){
+	constructor(private http: Http,  private resource: ResourceService, private jsonp: Jsonp){
 		this.headers = new Headers({
 			'x-access-token': this.resource.getResource('x-access-token')
 		});
@@ -17,6 +17,20 @@ export class NetworkService{
 	getNetworks(){
 		return this.http.get(`${appConfig.apiURL}/timelogs/host`, {headers: this.headers})
 			.map((res:Response) => res.json());
+	}
+
+	getRDNS(ip: String){
+		return this.http.get(`${appConfig.apiURL}/network/${ip}/rdns`, {headers: this.headers})
+			.map((res:Response) => res.json());
+	}
+
+
+
+	getIPAddress(){
+		return this.jsonp.get('//api.ipify.org/?format=jsonp&callback=JSONP_CALLBACK')
+			.map((res:Response) => {
+				return res.json();
+			});
 	}
 
 	getClientIP(){

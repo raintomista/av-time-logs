@@ -15,7 +15,6 @@
             <a class="item" id="ip-address">
               <div class="ui purple horizontal label">IP Address</div>
               {{client.ip}}
-              <span *ngIf="loading === true">Fetching IP Address...</span>
             </a>
             <a class="item ui form" id="description">
               <div class="field">
@@ -25,7 +24,7 @@
           </div>
         </div>
         <div class="ui center aligned column">
-          <div class="ui button" (click)="saveNetwork()">Save to Database</div>
+          <button class="ui button" [disabled]="loading" (click)="saveNetwork()">Save to Database</button>
         </div>
       </div>
     </div>

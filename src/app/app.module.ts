@@ -6,7 +6,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { ResourceService } from './services/resource.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MomentModule} from 'angular2-moment/moment.module';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
@@ -117,7 +117,8 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MomentModule,
-    NgxMyDatePickerModule
+    NgxMyDatePickerModule,
+    JsonpModule
   ],
   providers: [ResourceService, AuthGuard, UserGuard, AdminGuard, LoginGuard],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { NetworkService } from './../../../../services/network.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'save-network',
@@ -7,20 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./save-network.component.css'],
   providers: [NetworkService]
 })
-export class SaveNetworkComponent implements OnInit {
-  client: any = {};
-  description: string;
-  private loading = true;
+export class SaveNetworkComponent{
+  private client: any = {};
+  private description: string;
+  private loading: boolean;
 
   constructor(private networkService: NetworkService) {
-    this.networkService.getClientIP().subscribe(result => {
-      this.client = result.data.geo;
-      this.loading = false;
-    })
+    this.loading = true; //Indicates that RDNS is not yet done
+    this.client.ip = localStorage.getItem('currentIP'); //Gets the Current IP Address
+    this.networkService.getRDNS(this.client.ip).subscribe(response => {
+      this.client.rdns = response.data; //Reverse DNS Lookup
+      this.loading = false; //Indicate that RDNS is done
+    });
    }
-
-  ngOnInit() {
-  }
 
   saveNetwork(){
     let network = {
@@ -28,9 +27,21 @@ export class SaveNetworkComponent implements OnInit {
       ip_address: this.client.ip,
       description: this.description
     }
-    this.networkService.saveNetwork(network).subscribe(response =>{
-      alert(response.message);
+
+    this.networkService.checkNetworkStatus(network.ip_address).subscribe(response => {
+      if(response.data){ //Alert that Network Already Exists in Database
+        alert('Network already exists in Database.');
+        this.description = ''; //Resets description field
+      }
+      else{ // Save Network to Database
+        this.networkService.saveNetwork(network).subscribe(response =>{ 
+          alert(response.message)
+          this.description = ''; //Resets description Field
+        });
+      }
     });
+
+
   }
 
 

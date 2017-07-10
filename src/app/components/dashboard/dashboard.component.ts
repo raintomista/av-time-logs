@@ -29,14 +29,20 @@ export class DashboardComponent implements OnInit {
 
 
   checkNetwork(){
-    this.networkService.getClientIP().subscribe(result => {
-      this.networkService.checkNetworkStatus(result.data.geo.ip).subscribe(network => {
-        if(network.data.status === 0 || network.data === null){
-          alert("Sorry but this network is blacklisted.")
-          this.authService.logout();
-        }
-      });
-    })
+    this.networkService.getIPAddress().subscribe(network => {
+      localStorage.setItem('currentIP', network.ip);
+      // this.networkService.checkNetworkStatus(network.ip).subscribe(res => {
+      //   console.log(res);
+      // });
+    });
+    // this.networkService.getClientIP().subscribe(result => {
+    //   this.networkService.checkNetworkStatus(result.data.geo.ip).subscribe(network => {
+    //     if(network.data.status === 0 || network.data === null){
+    //       alert("Sorry but this network is blacklisted.")
+    //       this.authService.logout();
+    //     }
+    //   });
+    // })
   }
 
 }
