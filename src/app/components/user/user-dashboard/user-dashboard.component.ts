@@ -27,16 +27,20 @@ export class UserDashboardComponent implements OnInit {
      })
   }
 
-
   checkNetwork(){
-    this.networkService.getClientIP().subscribe(result => {
-      this.networkService.checkNetworkStatus(result.data.geo.ip).subscribe(network => {
-        if(network.data.status === 0 || network.data === null){
-          alert("Sorry but this network is blacklisted.")
-          this.authService.logout();
-        }
-      });
-    })
+    this.networkService.getIPAddress().subscribe(network => {
+      localStorage.setItem('currentIP', network.ip); //Get Current IP Address
+      this.networkService.checkNetworkStatus(network.ip) //Check the IP Address in the Database
+        .subscribe(response => {
+          if(response.data === null){ //Network is not found in the database
+            alert("Sorry but this network is not found in the database");  
+            this.authService.logout();                      
+          }
+          else if(response.data !== null && response.data.status === 0){ //Network is blacklisted
+            alert("Sorry but this network is blacklisted.")
+            this.authService.logout();
+          }
+        });
+    });
   }
-
 }
