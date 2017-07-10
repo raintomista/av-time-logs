@@ -41,17 +41,21 @@ export class MyTimelogsComponent {
     });
 
     this.timelogService.getTimelogsByDateRange(this.param.username, this.datePipe.transform(firstDay, 'MMddyyyy'), this.datePipe.transform(lastDay, 'MMddyyyy')).subscribe(timelogs =>{
-      this.table.timelogs = timelogs.data;
-      this.table.total = this.getTotal(timelogs.data);
+      this.table.setTimelogs(timelogs.data);
+      this.table.setTotal(this.getTotal(timelogs.data));
+      this.table.setLoading(false);
       this.exportBtn.data = timelogs.data;
       this.exportBtn.user = timelogs.user;
       this.exportBtn.type = ALL_TIMELOGS_OF_USER;
     }); 
 
     this.dateRange.valueChanges.subscribe(form => {
+      this.table.setLoading(true);
+      this.table.setTimelogs([]);
       this.timelogService.getTimelogsByDateRange(this.param.username, this.formatDate(form.startDate.date), this.formatDate(form.endDate.date)).subscribe(timelogs => {
-        this.table.timelogs = timelogs.data;
-        this.table.total = this.getTotal(timelogs.data);  
+        this.table.setTimelogs(timelogs.data);
+        this.table.setTotal(this.getTotal(timelogs.data));
+        this.table.setLoading(false);
         this.exportBtn.data = timelogs.data;
         this.exportBtn.user = timelogs.user;
         this.exportBtn.type = ALL_TIMELOGS_OF_USER;
