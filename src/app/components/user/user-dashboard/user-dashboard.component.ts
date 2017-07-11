@@ -1,3 +1,4 @@
+import { UserService } from './../../../services/user.service';
 import { AuthenticationService } from './../../../services/authentication.service';
 import { NetworkService } from './../../../services/network.service';
 import { Component, OnInit } from '@angular/core';
@@ -7,17 +8,18 @@ declare var $: any;
   selector: 'user-dashboard',
   templateUrl: './user-dashboard.component.html',
   styleUrls: ['./user-dashboard.component.css'],
-  providers:[NetworkService, AuthenticationService]
+  providers:[NetworkService, AuthenticationService, UserService ]
 })
 export class UserDashboardComponent implements OnInit {
 
-  constructor(private networkService: NetworkService, private authService: AuthenticationService  ) { }
+  constructor(private networkService: NetworkService, private authService: AuthenticationService, private userService: UserService ) { }
 
   ngOnInit() {
   }
 
   ngAfterViewInit(){
     this.checkNetwork();
+    this.checkUser();
      $('.ui.dropdown').dropdown();
      $('a.sidebar-toggle').click(function () {
        $('#sidebar').sidebar('toggle')
@@ -41,6 +43,18 @@ export class UserDashboardComponent implements OnInit {
             this.authService.logout();
           }
         });
+    });
+  }
+
+  checkUser(){
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.userService.getUser(currentUser.username).subscribe(response => {
+      localStorage.setItem('currentUser', JSON.stringify(response.data[0]));
+      console.log(currentUser);
+      if(currentUser.isSuspended){
+        alert("This account is suspended. Please contact administrator.");
+        this.authService.logout();
+      }
     });
   }
 }
