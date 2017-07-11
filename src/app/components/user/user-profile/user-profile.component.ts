@@ -3,6 +3,8 @@ import { AuthenticationService } from './../../../services/authentication.servic
 import { UserService } from './../../../services/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+declare var $: any;
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -46,6 +48,13 @@ export class UserProfileComponent implements OnInit {
       ]),
       contactNumber: new FormControl(this.currentUser.contactNumber, []),
     });
+  }
+
+  ngAfterViewChecked(){
+    $('.upload.image')
+      .dimmer({
+        on: 'hover'
+      });
   }
 
   private toggleAccountDetails(){
@@ -93,4 +102,14 @@ export class UserProfileComponent implements OnInit {
     return JSON.parse(localStorage.getItem('currentUser')).username;
   }
 
+  private fileEvent(event: any){
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+      this.accountDetailsForm.controls.imgUrl.setValue(reader.result);
+      this.imgUrl = reader.result;
+    }, false);
+    if(event.target.files[0]){
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
 }

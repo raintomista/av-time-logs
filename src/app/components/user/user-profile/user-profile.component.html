@@ -9,8 +9,19 @@
           <div class="ui grid">
             <div class="row">
               <div class="column">
-                <div class="ui circular small image">
-                  <img src="{{imgUrl}}" alt="">
+                <div class="ui circular small upload image" *ngIf="allowEditing == true">
+                  <div class="ui dimmer" >
+                    <div class="content">
+                      <div class="center">
+                        Upload
+                        <input type="file" name="file" (change)="fileEvent($event)">
+                      </div>
+                    </div>
+                  </div>
+                  <img src="{{imgUrl}}">
+                </div>
+                <div class="ui circular small image" *ngIf="allowEditing == false">
+                  <img src="{{imgUrl}}">
                 </div>
               </div>
             </div>
@@ -32,7 +43,7 @@
                         <div class="ui fluid button" (click)="toggleFormEditing()" *ngIf="!allowEditing">
                           Edit Profile
                         </div>
-                        <div class="ui fluid button" (click)="saveChanges()" *ngIf="allowEditing">
+                        <div class="ui fluid save button" (click)="saveChanges()" *ngIf="allowEditing">
                           Save Changes
                         </div>
                     </div>
