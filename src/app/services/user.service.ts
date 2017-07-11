@@ -22,6 +22,13 @@ export class UserService {
 			});
 	}
 
+	editUser(user:Object){
+		return this.http.post(`${appConfig.apiURL}/users/edit`, { data: user },  {headers: this.getHeaders()})
+			.map((response: Response) => {
+				return response.json();
+			});
+	}
+
 	getUser(username) {
 		return this.http.get(`${appConfig.apiURL}/users/${username}`, {headers: this.getHeaders()})
 			.map((res: Response) => res.json());
