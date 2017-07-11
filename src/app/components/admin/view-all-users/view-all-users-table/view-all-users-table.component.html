@@ -31,16 +31,16 @@
             </td>
             <td class="center aligned">{{user.email}}</td>
             <td class="center aligned">
-              <span *ngIf="user.status === 0">Offline</span>
-              <span *ngIf="user.status === 1">Online</span>  
-              <span *ngIf="user.status === 2">On Break</span>
-              <span *ngIf="user.status === 3">Suspended</span>              
+              <span *ngIf="user.status === 0 && !user.isSuspended">Offline</span>
+              <span *ngIf="user.status === 1 && !user.isSuspended">Online</span>  
+              <span *ngIf="user.status === 2 && !user.isSuspended">On Break</span>
+              <span *ngIf="user.isSuspended">Suspended</span>              
             </td>
             <td class="center aligned options">
-              <div class="ui icon suspend button" data-tooltip="Suspend User" data-inverted="" *ngIf="user.status != 3">
+              <div class="ui icon suspend button" data-tooltip="Suspend User" data-inverted="" *ngIf="!user.isSuspended">
                 <i class="remove icon" (click)="suspend(user)"></i>
               </div>
-              <div class="ui icon unsuspend button" data-tooltip="Unsuspend User" data-inverted="" *ngIf="user.status == 3">
+              <div class="ui icon unsuspend button" data-tooltip="Unsuspend User" data-inverted="" *ngIf="user.isSuspended">
                 <i class="check icon" (click)="unsuspend(user)"></i>
               </div>
             </td>
