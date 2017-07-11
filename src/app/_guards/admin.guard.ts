@@ -8,16 +8,12 @@ export class AdminGuard implements CanActivate {
  
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         let user = localStorage.getItem('currentUser');
-        // console.log(JSON.parse(user).hasOwnProperty('isAdmin') === false);
         if (JSON.parse(user).hasOwnProperty('isAdmin') === true) {
             // logged in so return true
             return true;
         }
-        
-        
-        // not logged in so redirect to login page with the return url
-        // 
-        this.router.navigate(['']);
+    
+        this.router.navigate(['/']);
         alert('403 Unauthorized');
         return false;
     }

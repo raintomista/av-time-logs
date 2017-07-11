@@ -8,22 +8,21 @@ export class AuthenticationService {
     constructor(private http: Http, private router: Router) {}
 
     login(username: string, password: string){
-        console.log({username: username, password: password});
-        
-        return this.http.post(`${appConfig.apiURL}/user/login`, { data: { username: username, password: password } })
-            .map((response: Response) => {
-                let user = response.json().data;
-                if(user && user.token){
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                    localStorage.setItem('x-access-token', user.token);
-                }
-                return user;
-            });
+        return this.http.post(`${appConfig.apiURL}/user/login`, {
+            data: {
+              username: username,
+              password: password
+            }
+          })
+          .map((response: Response) => {
+            return response.json();
+          });
+
     }
 
     logout() {
         this.router.navigate(['/login']);
-        localStorage.removeItem('currentUser');
+        localStorage.clear();
     }
 
 }

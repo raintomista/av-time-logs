@@ -23,30 +23,36 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     // reset login status
-      this.authenticationService.logout();
-
-      // get return url from route parameters or default to '/'
-      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.authenticationService.logout();
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'];
   }
-
   login(){
     this.loading = true;
-    this.authenticationService.login(this.model.username, this.model.password).subscribe(
-      data => {
-        if(data.isAdmin === true){
-          this.router.navigate(['/admin']);
-        }else{
-          this.router.navigate(['/']);
+    this.authenticationService.login(this.model.username, this.model.password)
+      .subscribe(
+        response => {
+          let user = response.data;
+          this.storeSession(user);
+          if(user.isAdmin === undefined){
+            console.log("Welcome User!");
+            this.router.navigate(['/']);
+          }
+          else{
+            console.log("Hello Admin!");
+            this.router.navigate(['/admin']);            
+          }
+          this.loading = false;
+        },
+        err => {
+          this.alertService.error(err.json().message);
+          this.loading = false;
         }
-        // console.log(this.returnUrl);
-        // this.router.navigate([this.returnUrl]);
-      },
-      error => {
-        this.alertService.error("Invalid username/password.");
-        this.loading = false; 
-      }
-      
-    );
+      );
   }
-
+  private storeSession(user){
+    console.log(user);
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    localStorage.setItem('x-access-token', user.token);
+  }
 }

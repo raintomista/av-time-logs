@@ -63,7 +63,8 @@ const appRoutes: Routes = [
     { path: 'my-timelogs', component: MyTimelogsComponent, canActivate: [AuthGuard, UserGuard]},    
     { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard, UserGuard]},    
     
-  ]}
+  ]},
+  { path: '', redirectTo: '/', pathMatch: 'full'}
 
   // { path: '', component: DashboardComponent,
   //   children: [ { path: '', component: TimeloggingPanelComponent, canActivate: [AuthGuard]},
