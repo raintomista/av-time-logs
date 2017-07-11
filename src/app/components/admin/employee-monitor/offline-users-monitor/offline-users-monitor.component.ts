@@ -15,6 +15,9 @@ export class OfflineUsersMonitorComponent implements OnInit {
   constructor(private userService: UserService) {
     this.loading = true;
     this.userService.getOfflineUsers().subscribe(users =>{
+      users.data.sort((a, b) =>{
+        return this.compareStrings(a.name, b.name);
+      })
       this.offlineUsers = users.data;
       this.loading = false;
     });  
@@ -22,5 +25,11 @@ export class OfflineUsersMonitorComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
+  compareStrings(a, b) {
+    // Assuming you want case-insensitive comparison
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+    return (a < b) ? -1 : (a > b) ? 1 : 0;
+  }
 }

@@ -88,7 +88,7 @@ export class UserProfileComponent implements OnInit {
       localStorage.setItem('currentUser', JSON.stringify(response.data));
       this.allowEditing = false;      
       alert(response.message);
-      this.router.navigateByUrl('/', true);
+      window.location.reload();
     });
 
     

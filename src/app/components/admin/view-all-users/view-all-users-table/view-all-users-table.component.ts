@@ -16,6 +16,11 @@ export class ViewAllUsersTableComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { 
     this.loading = true;
     this.userService.getUsers().subscribe(users =>{
+      if(users.data.length > 0){
+        users.data.sort((a, b) =>{
+          return this.compareStrings(a.name, b.name);
+        })
+      }
       this.users = users.data;
       this.loading = false;
     }); 
@@ -48,4 +53,12 @@ export class ViewAllUsersTableComponent implements OnInit {
       alert('You pressed cancel');      
     }
   }
+
+  compareStrings(a, b) {
+    // Assuming you want case-insensitive comparison
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+    return (a < b) ? -1 : (a > b) ? 1 : 0;
+  }
+  
 }

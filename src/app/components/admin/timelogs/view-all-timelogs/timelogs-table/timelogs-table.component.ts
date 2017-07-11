@@ -29,9 +29,19 @@ export class TimelogsTableComponent implements OnInit {
     return this.users;
   }
 
-  setUsers(users: Object[]){
+  setUsers(users: any[]){
+    if(users.length > 0){
+      users.sort((a, b) =>{
+        return this.compareStrings(a.name, b.name);
+      })
+    }
     this.users = users;
   }
 
-
+  compareStrings(a, b) {
+    // Assuming you want case-insensitive comparison
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+    return (a < b) ? -1 : (a > b) ? 1 : 0;
+  }
 }

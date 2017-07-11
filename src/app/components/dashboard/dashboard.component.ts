@@ -14,6 +14,7 @@ export class DashboardComponent{
   constructor(private networkService: NetworkService, private authService: AuthenticationService) { }
 
   ngAfterViewInit(){
+    this.checkNetwork();
     $('.ui.dropdown').dropdown();
      $('a.sidebar-toggle').click(function () {
        $('#sidebar').sidebar('toggle')
@@ -21,5 +22,11 @@ export class DashboardComponent{
      $('#sidebar a.item.link').click(function () {
        $('#sidebar').sidebar('toggle')
      })
+  }
+
+  checkNetwork(){
+    this.networkService.getIPAddress().subscribe(network => {
+      localStorage.setItem('currentIP', network.ip); //Get Current IP Address
+    });
   }
 }
