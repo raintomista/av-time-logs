@@ -48,7 +48,7 @@
 }
 
 .ui.table td.warning, .ui.table tr.warning{
-	background-color: transparent !important; 
+	background-color: transparent !important;
 	color: #dc354e !important;
 	font-weight: bolder;
 }

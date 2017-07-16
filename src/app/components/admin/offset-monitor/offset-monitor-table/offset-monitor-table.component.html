@@ -13,7 +13,7 @@
         </thead>
         <tbody>
           <tr class="center aligned" *ngIf="loading">
-            <td colspan="6"><content-loader></content-loader></td>
+            <td colspan="6" id="no-data"><content-loader></content-loader></td>
           </tr>
           <tr *ngIf="users?.length < 1 && !loading">
             <td class="center aligned" colspan="6" id="no-data">No Timelogs for the Day</td>

@@ -79,8 +79,17 @@
     border: 0px;
 }
 
+/* Late Hours Highlighting */
+.ui.table tr td.center.aligned.warning {
+   background-color: transparent !important;
+   color: #dc354e !important;
+   font-weight: 900;
+}
+
 /* Validate Icon */
 .ui.validate.icon.button{
     background-color: #aa67da;
 }
+
+
 
