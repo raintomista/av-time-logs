@@ -3,6 +3,9 @@
     <tr>
       <th>
         Offline Users
+        <div class="ui horizontal label">
+           {{offlineUsers.length}}
+        </div>
       </th>
     </tr>
   </thead>
@@ -18,7 +21,7 @@
     <tr *ngFor="let user of offlineUsers">
       <td>
         <img class="ui avatar image" src="{{user.imgUrl}}">
-        {{user.name}}
+        {{user.lastName}}, {{user.firstName}}
       </td>
     </tr>
   </tbody>

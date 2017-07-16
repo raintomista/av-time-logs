@@ -43,6 +43,14 @@
 	padding: 0px;
 }
 
-
+/* Horizontal Label */
+.ui.horizontal.label{
+   min-width: 18px;
+   background-color: white;
+   padding: 2px 3px;
+   font-family: 'Lato';
+   font-weight: bolder;
+   color: #dc354e;
+}
 
 

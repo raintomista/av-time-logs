@@ -2,7 +2,10 @@
   <thead>
     <tr>
       <th>
-        Users On Break
+         Users On Break
+         <div class="ui horizontal label">
+            {{usersOnBreak.length}}
+         </div>
       </th>
     </tr>
   </thead>
@@ -18,7 +21,7 @@
     <tr *ngFor="let user of usersOnBreak">
       <td>
         <img class="ui avatar image" src="{{user.imgUrl}}">
-        {{user.name}}
+        {{user.lastName}}, {{user.firstName}}
       </td>
     </tr>
   </tbody>
