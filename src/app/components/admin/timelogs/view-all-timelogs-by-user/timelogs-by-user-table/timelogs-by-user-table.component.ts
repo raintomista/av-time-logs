@@ -17,7 +17,8 @@ export class TimelogsByUserTableComponent implements OnInit {
   private param: any;
   private timelogs: Timelog[] = [];
   private loading: Boolean;
-  private total;  
+  private total: String;  
+  private totalLate: String;
 
   constructor(private timelogService: TimelogService, private route: ActivatedRoute, private datePipe: DatePipe) {
     this.loading = true;
@@ -53,8 +54,16 @@ export class TimelogsByUserTableComponent implements OnInit {
     return this.total;
   }
 
-  setTotal(total:any){
+  setTotal(total: String){
     this.total = total;
+  }
+
+  getTotalLate(){
+    return this.totalLate;
+  }
+
+  setTotalLate(totalLate: String){
+    this.totalLate = totalLate;
   }
 
 

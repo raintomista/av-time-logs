@@ -46,6 +46,10 @@ import { MyTimelogsTableComponent } from './components/user/my-timelogs/my-timel
 import { ExportComponent } from './components/export/export.component';
 import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
 import { ContentLoaderComponent } from './components/content-loader/content-loader.component';
+import { OffsetMonitorComponent } from './components/admin/offset-monitor/offset-monitor.component';
+import { OffsetMonitorTableComponent } from './components/admin/offset-monitor/offset-monitor-table/offset-monitor-table.component';
+import { OffsetMonitorByUserComponent } from './components/admin/offset-monitor-by-user/offset-monitor-by-user.component';
+import { UserOffsetsTableComponent } from './components/admin/offset-monitor-by-user/user-offsets-table/user-offsets-table.component';
 
 const appRoutes: Routes = [
   
@@ -56,7 +60,9 @@ const appRoutes: Routes = [
     { path: 'timelogs/user/:username', component: ViewAllTimelogsByUserComponent, canActivate: [AuthGuard, AdminGuard]},
     { path: 'network', component: NetworkMonitorComponent, canActivate: [AuthGuard, AdminGuard]},
     { path: 'add-user', component: AddUserComponent, canActivate: [AuthGuard, AdminGuard]},
-    { path: 'view-all-users', component: ViewUserComponent, canActivate: [AuthGuard, AdminGuard]},    
+    { path: 'view-all-users', component: ViewUserComponent, canActivate: [AuthGuard, AdminGuard]},
+    { path: 'offsets', component: OffsetMonitorComponent },
+    { path: 'offsets/user/:username', component: OffsetMonitorByUserComponent }    
   ]},
   { path: '', component: UserDashboardComponent, children: [
     { path: '', component: TimeloggingPanelComponent, canActivate: [AuthGuard, UserGuard]},
@@ -64,17 +70,8 @@ const appRoutes: Routes = [
     { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard, UserGuard]},    
     
   ]},
-  { path: '', redirectTo: '/', pathMatch: 'full'}
+  { path: '', redirectTo: '/', pathMatch: 'full'},
 
-  // { path: '', component: DashboardComponent,
-  //   children: [ { path: '', component: TimeloggingPanelComponent, canActivate: [AuthGuard]},
-  //               { path: 'timelogs', component: TimelogsComponent, canActivate: [AuthGuard]},
-  //               { path: 'timelogs/user/:username', component: ViewAllTimelogsByUserComponent, canActivate: [AuthGuard]},
-  //               { path: 'network', component: NetworkMonitorComponent, canActivate: [AuthGuard]},
-  //               { path: 'add-user', component: AddUserComponent, canActivate: [AuthGuard]},
-  //               { path: 'view-all-users', component: ViewUserComponent, canActivate: [AuthGuard]},
-  //               { path: 'user', component: TimeloggingPanelComponent, canActivate: [AuthGuard] }]
-  // }
 ];
 
 @NgModule({
@@ -111,7 +108,11 @@ const appRoutes: Routes = [
     MyTimelogsTableComponent,
     ExportComponent,
     UserProfileComponent,
-    ContentLoaderComponent
+    ContentLoaderComponent,
+    OffsetMonitorComponent,
+    OffsetMonitorTableComponent,
+    OffsetMonitorByUserComponent,
+    UserOffsetsTableComponent
   ],
   imports: [
     BrowserModule,

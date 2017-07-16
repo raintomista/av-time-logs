@@ -49,16 +49,17 @@ export class ViewAllTimelogsByUserComponent{
 
 
     this.userService.getUser(this.param).subscribe(user => {
-      console.log(user.data);
       this.name = user.data[0].name;
     });
     
     this.timelogService.getTimelogsByDateRange(this.param, this.datePipe.transform(firstDay, 'MMddyyyy'), this.datePipe.transform(lastDay, 'MMddyyyy')).subscribe(timelogs =>{
-      this.table.setTimelogs(timelogs.data);
+      this.table.setTimelogs(timelogs.data.timelogs);
       this.table.setLoading(false);
-      this.table.setTotal(this.getTotal(timelogs.data));
-      this.exportBtn.data = timelogs.data;
-      this.exportBtn.user = timelogs.user;
+      this.table.setTotal(timelogs.data.totalHrs);
+      this.table.setTotalLate(timelogs.data.totalLateHrs);
+      
+      this.exportBtn.data = timelogs.data.timelogs;
+      this.exportBtn.user = timelogs.data.user;
       this.exportBtn.type = ALL_TIMELOGS_OF_USER;
 
     }); 
@@ -67,11 +68,13 @@ export class ViewAllTimelogsByUserComponent{
       this.table.setLoading(true);
       this.table.setTimelogs([]);
       this.timelogService.getTimelogsByDateRange(this.param, this.formatDate(form.startDate.date), this.formatDate(form.endDate.date)).subscribe(timelogs => {
-        this.table.setTimelogs(timelogs.data);
+        this.table.setTimelogs(timelogs.data.timelogs);
         this.table.setLoading(false);
-        this.table.setTotal(this.getTotal(timelogs.data)); 
-        this.exportBtn.data = timelogs.data;
-        this.exportBtn.user = timelogs.user;
+        this.table.setTotal(timelogs.data.totalHrs);
+        this.table.setTotalLate(timelogs.data.totalLateHrs);
+        
+        this.exportBtn.data = timelogs.data.timelogs;
+        this.exportBtn.user = timelogs.data.user;
         this.exportBtn.type = ALL_TIMELOGS_OF_USER;
       });
     }); 

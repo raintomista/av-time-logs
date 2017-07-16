@@ -41,7 +41,8 @@
             </td>
           </tr>
           <tr *ngIf="total !== null && timelogs.length > 0">
-            <td colspan="4">TOTAL</td>
+            <td colspan="3">TOTAL</td>
+             <td class="center aligned">{{totalLate}}</td>
             <td class="center aligned">{{total}}</td>
           </tr>
         </tbody>

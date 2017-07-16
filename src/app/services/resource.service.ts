@@ -22,6 +22,13 @@ export class ResourceService {
         return JSON.stringify(data);
     }
 
+    public compareStrings(a, b) {
+        // Assuming you want case-insensitive comparison
+        a = a.toLowerCase();
+        b = b.toLowerCase();
+        return (a < b) ? -1 : (a > b) ? 1 : 0;
+    }
+
      getHeaders(){
 		let headers = new Headers();
 		headers.append('x-access-token', this.getResource('x-access-token'));		

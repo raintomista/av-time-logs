@@ -1,3 +1,4 @@
+import { ResourceService } from './../../../../services/resource.service';
 import { TimelogService } from './../../../../services/timelog.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -7,19 +8,19 @@ import { UserService } from '../../../../services/user.service';
   selector: 'view-all-users-table',
   templateUrl: './view-all-users-table.component.html',
   styleUrls: ['./view-all-users-table.component.css'],
-  providers: [UserService, TimelogService]
+  providers: [UserService, TimelogService, ResourceService]
 
 })
 export class ViewAllUsersTableComponent implements OnInit {
   private users: Object[];
   private loading: Boolean;
 
-  constructor(private userService: UserService, private router: Router, private timelogService: TimelogService) { 
+  constructor(private userService: UserService, private router: Router, private timelogService: TimelogService, private resourceService: ResourceService) { 
     this.loading = true;
     this.userService.getUsers().subscribe(users =>{
       if(users.data.length > 0){
         users.data.sort((a, b) =>{
-          return this.compareStrings(a.name, b.name);
+          return this.resourceService.compareStrings(a.name, b.name);
         })
       }
       this.users = users.data;
@@ -56,11 +57,6 @@ export class ViewAllUsersTableComponent implements OnInit {
     }
   }
 
-  compareStrings(a, b) {
-    // Assuming you want case-insensitive comparison
-    a = a.toLowerCase();
-    b = b.toLowerCase();
-    return (a < b) ? -1 : (a > b) ? 1 : 0;
-  }
+
   
 }

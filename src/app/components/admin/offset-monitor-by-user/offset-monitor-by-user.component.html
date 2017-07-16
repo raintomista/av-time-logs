@@ -1,0 +1,18 @@
+<div class="ui grid container" id="content">
+   <div class="ui row" id="breadcrumb-container">
+      <div class="ui column">
+         <div class="ui breadcrumb">
+         <a class="section" routerLink="/admin">Admin Dashboard</a>
+         <div class="divider"> / </div>
+         <a class="section" routerLink="/admin/offsets">Offset Timelogs Monitor</a>
+         <div class="divider"> / </div>
+         <div class="section">{{user}}</div>
+         </div>
+      </div>
+   </div>
+	<div class="ui  stackable row">
+	  <div class="column">
+      <user-offsets-table></user-offsets-table>
+	  </div>
+	</div>
+</div>
