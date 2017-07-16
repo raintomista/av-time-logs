@@ -29,19 +29,16 @@ export class TimelogService{
 	}
 
 	timeIn(username: string){
-		console.log(username);
-		
-		return this.http.post(`${appConfig.apiURL}/time-in`, {username: username}, {headers: this.getHeaders()});
+		return this.http.post(`${appConfig.apiURL}/time-in`, {data: {username: username}}, {headers: this.getHeaders()});
 	}
 
 	timeOut(username: string){
-		console.log(username);
-		return this.http.post(`${appConfig.apiURL}/time-out`, {username: username}, {headers: this.getHeaders()});
+		return this.http.post(`${appConfig.apiURL}/time-out`, {data: {username: username}}, {headers: this.getHeaders()});
 	}
 
 	private getHeaders(){
 		let headers = new Headers();
-		headers.append('x-access-token', this.resource.getResource('x-access-token'));		
+		headers.append('x-access-token', this.resource.getResource('x-access-token'));
 		return headers;
 
 	}

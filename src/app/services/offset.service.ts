@@ -27,17 +27,17 @@ export class OffsetService{
 	}
 
 	setOffsetValid(_id: String){
-		return this.http.put(`${appConfig.apiURL}/offset/${_id}/set_valid`, {headers: this.getHeaders()})
+		return this.http.put(`${appConfig.apiURL}/offset/${_id}/set_valid`, {}, {headers: this.getHeaders()})
 			.map((res:Response) => res.json());
 	}
 	setOffsetInvalid(_id: String){
-		return this.http.put(`${appConfig.apiURL}/offset/${_id}/set_invalid`, {headers: this.getHeaders()})
+		return this.http.put(`${appConfig.apiURL}/offset/${_id}/set_invalid`, {}, {headers: this.getHeaders()})
 			.map((res:Response) => res.json());
 	}
 
 	private getHeaders(){
 		let headers = new Headers();
-		headers.append('x-access-token', this.resource.getResource('x-access-token'));		
+		headers.append('x-access-token', this.resource.getResource('x-access-token'));
 		return headers;
 
 	}

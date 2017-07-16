@@ -12,74 +12,80 @@ export class OffsetMonitorTableComponent implements OnInit {
   private users = [];
   private loading = true;
   constructor(private offsetService: OffsetService,
-              private resourceService: ResourceService) { }
+     private resourceService: ResourceService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  private setLoading(bool){
+  public setLoading(bool) {
      this.loading = bool;
   }
 
-  private getLoading(){
+  public getLoading() {
      return this.loading;
   }
-  public getUsers(){
-    return this.users;
+  public getUsers() {
+     return this.users;
   }
 
-  public setUsers(users){
-    this.users = users;
-    this.loading = false;
+  public setUsers(users) {
+     this.users = users;
+     this.loading = false;
   }
 
-  public setValid(user){
-    this.offsetService.setOffsetValid(user._offset._id)
-      .subscribe(response => {
-        this.update().then((response: any) => {
-            if (response.data.length > 0){
-               response.data.sort((a, b) => this.resourceService.compareStrings(a.lastName, b.lastName));
-            }
-            this.users = response.data;
-            alert('Successfully set to valid.');
-        });
-      });
+  public setValid(user) {
+     if (confirm('Are you sure you want to set this to valid?')) {
+        this.offsetService.setOffsetValid(user._offset._id)
+           .subscribe(response => {
+              this.update().then((response: any) => {
+                 this.users = response.data;
+                 alert('Successfully set to valid.');
+              });
+           });
+     } else {
+        alert('You pressed cancel!');
+     }
   }
 
   public setInvalid(user) {
-     this.offsetService.setOffsetInvalid(user._offset._id)
+     if (confirm('Are you sure you want to set this to invalid?')) {
+        this.offsetService.setOffsetInvalid(user._offset._id)
+           .subscribe(response => {
+              this.update().then((response: any) => {
+                 this.users = response.data;
+                 alert('Successfully set to invalid.');
+              });
+           });
+     } else {
+        alert('You pressed cancel!');
+     }
+  }
+
+
+
+  public update() {
+     return new Promise((resolve, reject) => {
+        this.offsetService.getOffsets().subscribe(response => {
+            if (response.data.length > 0) {
+               response.data.sort((a, b) => this.resourceService.compareStrings(a.lastName, b.lastName));
+               resolve(response);
+            }
+        });
+     });
+  }
+
+  public updateRemarks(event, user) {
+     let data = {
+        _id: user._offset._id,
+        remarks: event.target.value
+     }
+
+     this.offsetService.setRemarks(data)
         .subscribe(response => {
            this.update().then((response: any) => {
-              if (response.data.length > 0){
-               response.data.sort((a, b) => this.resourceService.compareStrings(a.lastName, b.lastName));
-              }
               this.users = response.data;
-              alert('Successfully set to invalid.');
+              alert('Successfully set remarks.');
            });
         });
   }
 
-
-  public update(){
-    return new Promise((resolve, reject ) => {
-      this.offsetService.getOffsets().subscribe(response => {
-        resolve(response);
-      });
-    });
-  }
-
-  public updateRemarks(event, user){
-    let data = {
-      _id: user._offset._id,
-      remarks: event.target.value
-    }
-
-    this.offsetService.setRemarks(data)
-      .subscribe(response => {
-        this.update().then((response: any) => {
-          this.users = response.data;
-          alert('Successfully set remarks.');
-        });
-      });
-  }
 }

@@ -4,15 +4,18 @@
       <table class="ui celled unstackable table" style="overflow-y:scroll;">
         <thead>
           <tr>
-            <th class="center aligned">Time In</th>
-            <th class="center aligned">Time Out</th>
-            <th class="center aligned">Total Hours</th>
+            <th class="center aligned four wide">Time In</th>
+            <th class="center aligned four wide">Time Out</th>
+            <th class="center aligned three wide">Total Hours</th>
             <th class="center aligned three wide">Remarks</th>
             <th class="two wide"></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngIf="offsets.length < 1">
+         <tr class="center aligned" *ngIf="loading">
+            <td colspan="5"><content-loader></content-loader></td>
+          </tr>
+          <tr *ngIf="offsets.length < 1 && !loading">
             <td colspan="5" class="center aligned">No Offset Hours Timelogs Yet</td>
           </tr>
           <tr *ngFor="let offset of offsets" [ngClass]="{ 'warning': !offset.isValid }">
