@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   providers: [OffsetService, ResourceService]
 })
 export class OffsetMonitorTableComponent implements OnInit {
-  private users;
+  private users = [];
   constructor(private offsetService: OffsetService,
               private resourceService: ResourceService) { }
 
@@ -28,23 +28,28 @@ export class OffsetMonitorTableComponent implements OnInit {
     this.offsetService.setOffsetValid(user._offset._id)
       .subscribe(response => {
         this.update().then((response: any) => {
-            response.data.sort((a, b) => this.resourceService.compareStrings(a.name, b.name));
+            if (response.data.length > 0){
+               response.data.sort((a, b) => this.resourceService.compareStrings(a.lastName, b.lastName));
+            }
             this.users = response.data;
             alert('Successfully set to valid.');
         });
       });
   }
 
-  public setInvalid(user){
-    this.offsetService.setOffsetInvalid(user._offset._id)
-      .subscribe(response => {
-        this.update().then((response: any) => {
-            response.data.sort((a, b) => this.resourceService.compareStrings(a.name, b.name));
-            this.users = response.data;
-            alert('Successfully set to invalid.');
+  public setInvalid(user) {
+     this.offsetService.setOffsetInvalid(user._offset._id)
+        .subscribe(response => {
+           this.update().then((response: any) => {
+              if (response.data.length > 0){
+               response.data.sort((a, b) => this.resourceService.compareStrings(a.lastName, b.lastName));
+              }
+              this.users = response.data;
+              alert('Successfully set to invalid.');
+           });
         });
-      });
   }
+
 
   public update(){
     return new Promise((resolve, reject ) => {

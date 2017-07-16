@@ -13,16 +13,18 @@ export class OffsetMonitorComponent implements OnInit {
 
 
   constructor(private offsetService: OffsetService,
-              private resourceService: ResourceService) {
-    this.offsetService.getOffsets()
-      .subscribe(response => {
-
-        response.data.sort((a, b) => this.resourceService.compareStrings(a.name, b.name));
-        this.table.setUsers(response.data);
-      });
+     private resourceService: ResourceService) {
+     this.offsetService.getOffsets()
+        .subscribe(response => {
+           if (response.data.length > 0) {
+              console.log(response.data);
+              response.data.sort((a, b) => this.resourceService.compareStrings(a.lastName, b.lastName));
+           }
+           this.table.setUsers(response.data);
+        });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
 
 }
