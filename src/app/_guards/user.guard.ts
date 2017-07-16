@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
- 
+
 @Injectable()
 export class UserGuard implements CanActivate {
- 
+
     constructor(private router: Router) { }
- 
+
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         let user = localStorage.getItem('currentUser');
-        if (JSON.parse(user).hasOwnProperty('isAdmin') === false) {
+        if (JSON.parse(user).isAdmin === false) {
             return true;
         }
 

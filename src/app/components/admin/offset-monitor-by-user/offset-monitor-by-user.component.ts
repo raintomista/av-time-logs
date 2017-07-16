@@ -11,20 +11,16 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class OffsetMonitorByUserComponent implements OnInit {
  @ViewChild(UserOffsetsTableComponent) table: UserOffsetsTableComponent;
-
   private params: string;
-  private user: string;
 
   constructor(private route: ActivatedRoute,
               private offsetService: OffsetService) {
     this.route.params.subscribe(response => {
       this.params = response.username;
-      this.user = response.username;
     });
 
     this.offsetService.getUserOffsets(this.params)
       .subscribe(response => {
-        this.user = response.data.user.name;
         this.table.setTotal(response.data.totalValidOffsetHrs);
         this.table.setOffsets(response.data.offsets);
         this.table.setUser(response.data.user);

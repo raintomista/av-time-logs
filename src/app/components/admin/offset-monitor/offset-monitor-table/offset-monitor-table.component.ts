@@ -10,18 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OffsetMonitorTableComponent implements OnInit {
   private users = [];
+  private loading = true;
   constructor(private offsetService: OffsetService,
               private resourceService: ResourceService) { }
 
   ngOnInit() {
   }
 
+  private setLoading(bool){
+     this.loading = bool;
+  }
+
+  private getLoading(){
+     return this.loading;
+  }
   public getUsers(){
     return this.users;
   }
 
   public setUsers(users){
     this.users = users;
+    this.loading = false;
   }
 
   public setValid(user){

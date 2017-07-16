@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
          response => {
             let user = response.data.user;
 
-            if(user.isAdmin === undefined){
+            if(!user.isAdmin){
                console.log("Welcome User!");
                this.router.navigate(['/']);
             }

@@ -20,12 +20,12 @@ export class TimelogsComponent implements OnInit {
       this.table.setLoading(false);
       this.exportBtn.data = users.data;
       this.exportBtn.type = ALL_USERS_RECENT;
-    });  
+    });
   }
 
   ngOnInit() {
   }
 
-  
+
 
 }

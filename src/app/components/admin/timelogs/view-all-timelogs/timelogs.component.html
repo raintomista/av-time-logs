@@ -1,20 +1,17 @@
 <div class="ui grid container" id="content">
-	<div class="ui row">
-	  <!--<div class="ui four wide column">
-	    <div class="ui form">
-	      <div class="field">
-	        <input type="text" name="view-by-date" placeholder="View by Date">
-	      </div>
-	    </div>
-	  </div>-->
-	  <div class="ui sixteen wide column" id="header">
-			<h1>Time Logs</h1>
-	    <export></export>
-	  </div>
-	</div>
-	<div class="ui  stackable row">
-	  <div class="column">
-      <admin-timelogs-table></admin-timelogs-table>
-	  </div>
-	</div>
+   <div class="ui row" id="breadcrumb-container">
+      <div class="ui column">
+         <div class="ui breadcrumb">
+            <a class="section" routerLink="/admin">Admin Dashboard</a>
+            <div class="divider"> / </div>
+            <div class="active section">Timelogs Monitor</div>
+         </div>
+         <export></export>
+      </div>
+   </div>
+   <div class="ui  stackable row">
+      <div class="column">
+         <admin-timelogs-table></admin-timelogs-table>
+      </div>
+   </div>
 </div>
