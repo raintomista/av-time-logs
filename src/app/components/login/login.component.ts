@@ -13,8 +13,8 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   model: any = {};
   loading = false;
-  returnUrl: string;  
-  
+  returnUrl: string;
+
   constructor(
     private authenticationService: AuthenticationService,
     private route: ActivatedRoute,
@@ -31,28 +31,28 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.authenticationService.login(this.model.username, this.model.password)
       .subscribe(
-        response => {
-          let user = response.data;
-          this.storeSession(user);
-          if(user.isAdmin === undefined){
-            console.log("Welcome User!");
-            this.router.navigate(['/']);
-          }
-          else{
-            console.log("Hello Admin!");
-            this.router.navigate(['/admin']);            
-          }
-          this.loading = false;
-        },
-        err => {
-          this.alertService.error(err.json().message);
-          this.loading = false;
-        }
+         response => {
+            let user = response.data.user;
+
+            if(user.isAdmin === undefined){
+               console.log("Welcome User!");
+               this.router.navigate(['/']);
+            }
+            else{
+               console.log("Hello Admin!");
+               this.router.navigate(['/admin']);
+            }
+            this.loading = false;
+            this.storeSession(response.data);
+         },
+         err => {
+            this.alertService.error(err.json().message);
+            this.loading = false;
+         }
       );
   }
-  private storeSession(user){
-    console.log(user);
-    localStorage.setItem('currentUser', JSON.stringify(user));
-    localStorage.setItem('x-access-token', user.token);
+  private storeSession(data){
+    localStorage.setItem('currentUser', JSON.stringify(data.user));
+    localStorage.setItem('x-access-token', data.token);
   }
 }
