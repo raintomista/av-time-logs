@@ -1,5 +1,9 @@
 .ui.export.button{
-	background-color: #aa67da;
-	color: white;
+   color: #aa67da;
+	/*background-color: transparent;*/
    margin-left: 8px;
+   font-size: 20px;
+   /*padding: 0px;*/
+   line-height: 17px;
+   margin-top: 5px;
 }

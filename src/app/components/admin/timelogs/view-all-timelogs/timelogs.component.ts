@@ -18,8 +18,8 @@ export class TimelogsComponent implements OnInit {
     this.timelogService.getTimelogs().subscribe(users =>{
       this.table.setUsers(users.data);
       this.table.setLoading(false);
-      // this.exportBtn.data = users.data;
-      // this.exportBtn.type = ALL_USERS_RECENT;
+      this.exportBtn.data = users.data;
+      this.exportBtn.type = ALL_USERS_RECENT;
     });
   }
 
