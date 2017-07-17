@@ -15,48 +15,68 @@ export class ViewAllUsersTableComponent implements OnInit {
   private users: Object[];
   private loading: Boolean;
 
-  constructor(private userService: UserService, private router: Router, private timelogService: TimelogService, private resourceService: ResourceService) { 
+  constructor(private userService: UserService, private router: Router, private timelogService: TimelogService, private resourceService: ResourceService) {
     this.loading = true;
     this.userService.getUsers().subscribe(users =>{
       if(users.data.length > 0){
         users.data.sort((a, b) =>{
-          return this.resourceService.compareStrings(a.name, b.name);
+          return this.resourceService.compareStrings(a.lastName, b.lastName);
         })
       }
       this.users = users.data;
       this.loading = false;
-    }); 
+    });
   }
 
   ngOnInit() {
   }
 
   suspend(user){
-    if (confirm(`Do you want to suspend this ${user.name}`) == true) {
+    if (confirm(`Do you want to suspend ${user.firstName} ${user.lastName}`) == true) {
       this.userService.suspendUser(user.username).subscribe(users =>{
-        this.timelogService.timeOut(user.username).subscribe(response =>{
-          alert(`Successfully suspended ${user.name}`);
-          user.isSuspended = true;
-        });
-      }); 
-    } 
+         if(!user._timelog){
+            alert(`Successfully suspended ${user.firstName} ${user.lastName}`);
+            user.isSuspended = true;
+         }
+         else{
+            if(user._timelog.timeOut === null){
+               this.timelogService.timeOut(user.username).subscribe(response =>{
+                  console.log(response);
+                  alert(`Successfully suspended ${user.firstName} ${user.lastName} and timed out current session.`);
+                  user.isSuspended = true;
+               });
+            }
+            else if(user._offset.timeOut === null){
+               this.timelogService.timeOut(user.username).subscribe(response =>{
+                  console.log(response);
+                  alert(`Successfully suspended ${user.firstName} ${user.lastName} and timed out current offset session.`);
+                  user.isSuspended = true;
+               });
+            }
+            else if(user._offset.timeOut !== null || user._timelog.timeOut !== null){
+               alert(`Successfully suspended ${user.firstName} ${user.lastName}.`);
+               user.isSuspended = true;
+            }
+         }
+      });
+    }
     else {
-      alert('You pressed cancel');      
+      alert('You pressed cancel');
     }
   }
 
   unsuspend(user){
-    if (confirm(`Do you want to unsuspend this ${user.name}`) == true) {
+    if (confirm(`Do you want to unsuspend ${user.firstName} ${user.lastName}`) == true) {
       this.userService.unsuspendUser(user.username).subscribe(users =>{
-        alert(`Successfully unsuspended ${user.name}`);
+        alert(`Successfully unsuspended ${user.firstName} ${user.lastName}`);
         user.isSuspended = false;
-      }); 
-    } 
+      });
+    }
     else {
-      alert('You pressed cancel');      
+      alert('You pressed cancel');
     }
   }
 
 
-  
+
 }

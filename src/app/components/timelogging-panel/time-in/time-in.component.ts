@@ -2,27 +2,28 @@ import { TimelogService } from './../../../services/timelog.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'time-in',
-  templateUrl: './time-in.component.html',
-  styleUrls: ['./time-in.component.css'],
-  providers: [TimelogService]
+   selector: 'time-in',
+   templateUrl: './time-in.component.html',
+   styleUrls: ['./time-in.component.css'],
+   providers: [TimelogService]
 })
 export class TimeInComponent implements OnInit {
+   disabled: Boolean = false;
+   constructor(private timelogService: TimelogService) { }
 
-  constructor(private timelogService: TimelogService) { }
+   ngOnInit() {
+   }
 
-  ngOnInit() {
-  }
-
-   timeIn(){
-    let user = JSON.parse(window.localStorage.getItem('currentUser'));
-    this.timelogService.timeIn(user.username).subscribe();
-    alert("Successfully timed in");
-
-    user.status = 1;
-    window.localStorage.setItem('currentUser', JSON.stringify(user));
-    
-
-  }
+   timeIn() {
+      this.disabled = true;
+      let user = JSON.parse(window.localStorage.getItem('currentUser'));
+      this.timelogService.timeIn(user.username).subscribe((response: any) => {
+         console.log(response);
+         alert(response.message);
+         user.status = 1;
+         window.localStorage.setItem('currentUser', JSON.stringify(user));
+         this.disabled = false;
+      });
+   }
 
 }

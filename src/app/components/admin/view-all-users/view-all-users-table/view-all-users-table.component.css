@@ -57,3 +57,10 @@
 .ui.icon.unsuspend.button{
 	background-color: #aa67da;
 }
+
+/* Link to All User Offset Timelogs*/
+.ui.table tr td a.nameLink{
+    font-weight: bolder;
+    text-decoration: underline;
+    color: black;
+}

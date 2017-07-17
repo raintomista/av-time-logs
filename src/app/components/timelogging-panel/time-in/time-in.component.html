@@ -7,6 +7,7 @@
     </tr>
   </thead>
   <tbody>
-    <div class="ui fluid button" (click)="timeIn()">Time In</div>
+    <div class="ui fluid disabled button" *ngIf="disabled">Time In</div>
+    <div class="ui fluid button" (click)="timeIn()" *ngIf="!disabled">Time In</div>
   </tbody>
 </table>

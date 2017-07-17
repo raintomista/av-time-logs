@@ -1,5 +1,13 @@
 .ui.button{
-    color: #dc354e;  
+    color: #dc354e;
+    background-color: transparent;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.2rem;
+    padding: 20px;
+}
+
+.ui.disabled.button{
+    color: #c44256;
     background-color: transparent;
     font-family: 'Comfortaa', cursive;
     font-size: 1.2rem;

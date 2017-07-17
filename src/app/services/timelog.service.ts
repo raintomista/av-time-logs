@@ -29,11 +29,13 @@ export class TimelogService{
 	}
 
 	timeIn(username: string){
-		return this.http.post(`${appConfig.apiURL}/time-in`, {data: {username: username}}, {headers: this.getHeaders()});
+		return this.http.post(`${appConfig.apiURL}/time-in`, {data: {username: username}}, {headers: this.getHeaders()})
+         .map((res:Response) => res.json());
 	}
 
 	timeOut(username: string){
-		return this.http.post(`${appConfig.apiURL}/time-out`, {data: {username: username}}, {headers: this.getHeaders()});
+		return this.http.post(`${appConfig.apiURL}/time-out`, {data: {username: username}}, {headers: this.getHeaders()})
+         .map((res:Response) => res.json());
 	}
 
 	private getHeaders(){

@@ -1,5 +1,13 @@
 .ui.button{
-    color: #2ec4b6;  
+    color: #2ec4b6;
+    background-color: transparent;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.2rem;
+    padding: 20px;
+}
+
+.ui.disabled.button{
+    color: #69bcb3;
     background-color: transparent;
     font-family: 'Comfortaa', cursive;
     font-size: 1.2rem;
@@ -12,6 +20,13 @@
 	border-width: 2.5px;
 	border-radius: 20px;
 }
+.ui.table#online-user{
+	background-color: transparent;
+	border-color: #2ec4b6;
+	border-width: 2.5px;
+	border-radius: 20px;
+}
+
 
 .ui.table#online-user thead{
 	background-color: #2ec4b6;
