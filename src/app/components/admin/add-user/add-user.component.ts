@@ -5,108 +5,127 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.css'],
-  providers: [UserService, ResourceService]
+   selector: 'app-add-user',
+   templateUrl: './add-user.component.html',
+   styleUrls: ['./add-user.component.css'],
+   providers: [UserService, ResourceService]
 })
 export class AddUserComponent implements OnInit {
-  addUserForm: FormGroup;
-  usernameLabel: string;  
-  fullNameLabel: string;
-  emailLabel: string;
-  passwordLabel: string;
-  uploadParams: FormData;
-  image: any = 'https://semantic-ui.com/images/wireframe/square-image.png';
-  
-  constructor(private userService: UserService, private resourceService: ResourceService, private sanitizer: DomSanitizer) {
-  }
+   addUserForm: FormGroup;
+   usernameLabel: string;
+   firstNameLabel: string;
+   lastNameLabel: string;
+   emailLabel: string;
+   passwordLabel: string;
+   uploadParams: FormData;
+   image: any = 'https://semantic-ui.com/images/wireframe/square-image.png';
 
-  ngOnInit() {
-    this.addUserForm = new FormGroup({
-      username: new FormControl('', [
-        Validators.required,
-      ]),
-      password: new FormControl('', [
-        Validators.minLength(8),
-        Validators.required
-      ]),
-      name: new FormControl('', [
-        Validators.required
-      ]),
-      email: new FormControl('', [
-        Validators.pattern("[^ @]*@[^ @]*"),
-        Validators.required,
-      ]),
-      contactNumber: new FormControl(),
-      totalHours: new FormControl(),
-      status: new FormControl(),
-      imgUrl: new FormControl(),
-      _timelog: new FormControl()
-    });
+   constructor(private userService: UserService, private resourceService: ResourceService, private sanitizer: DomSanitizer) {
+   }
 
-    this.fullNameLabel = 'Full Name';
-    this.emailLabel = 'Email Address';
-    this.usernameLabel = 'Username';
-    this.passwordLabel = 'Password';
-    
+   ngOnInit() {
+      this.addUserForm = new FormGroup({
+         username: new FormControl('', [
+            Validators.required,
+         ]),
+         password: new FormControl('', [
+            Validators.minLength(8),
+            Validators.required
+         ]),
+         firstName: new FormControl('', [
+            Validators.required
+         ]),
+         lastName: new FormControl('', [
+            Validators.required
+         ]),
+         email: new FormControl('', [
+            Validators.pattern("[^ @]*@[^ @]*"),
+            Validators.required,
+         ]),
+         contactNumber: new FormControl(),
+         totalHours: new FormControl(),
+         status: new FormControl(),
+         imgUrl: new FormControl(),
+         _timelog: new FormControl(),
+         isAdmin: new FormControl(false)
+      });
 
-    this.addUserForm.valueChanges.subscribe(form =>{
+      this.firstNameLabel = 'First Name';
+      this.lastNameLabel = 'Last Name';
+      this.emailLabel = 'Email Address';
+      this.usernameLabel = 'Username';
+      this.passwordLabel = 'Password';
 
-      // Username Label
-      if(this.addUserForm.controls.username.valid || !this.addUserForm.controls.username.dirty){
-        this.usernameLabel = 'Username';
-      }else if(this.addUserForm.controls.username.dirty && this.addUserForm.controls.username.errors.required){
-        this.usernameLabel = 'Username is required'
+
+      this.addUserForm.valueChanges.subscribe(form => {
+         console.log(form);
+         // Username Label
+         if (this.addUserForm.controls.username.valid || !this.addUserForm.controls.username.dirty) {
+            this.usernameLabel = 'Username';
+         } else if (this.addUserForm.controls.username.dirty && this.addUserForm.controls.username.errors.required) {
+            this.usernameLabel = 'Username is required'
+         }
+
+         if (this.addUserForm.controls.password.valid || !this.addUserForm.controls.password.dirty) {
+            this.passwordLabel = 'Password';
+         } else if (this.addUserForm.controls.password.errors) {
+            this.passwordLabel = 'Password must be 8 characters long'
+         }
+
+         // First Name Label
+         if (this.addUserForm.controls.firstName.valid || !this.addUserForm.controls.firstName.dirty) {
+            this.firstNameLabel = 'First Name';
+         } else if (this.addUserForm.controls.firstName.dirty && this.addUserForm.controls.firstName.errors.required) {
+            this.firstNameLabel = 'First Name is required'
+         }
+
+         // Last Name Label
+         if (this.addUserForm.controls.lastName.valid || !this.addUserForm.controls.lastName.dirty) {
+            this.lastNameLabel = 'Last Name';
+         } else if (this.addUserForm.controls.lastName.dirty && this.addUserForm.controls.lastName.errors.required) {
+            this.lastNameLabel = 'Last Name is required'
+         }
+
+         // Email Label
+         if (this.addUserForm.controls.email.valid || !this.addUserForm.controls.email.dirty) {
+            this.emailLabel = 'Email Address';
+         } else if (this.addUserForm.controls.email.dirty && this.addUserForm.controls.email.errors.required) {
+            this.emailLabel = 'Email Address is required';
+         } else if (this.addUserForm.controls.email.dirty && this.addUserForm.controls.email.errors.pattern) {
+            this.emailLabel = 'Invalid Email Address';
+         }
+      });
+   }
+
+   addUser() {
+      this.addUserForm.controls.imgUrl.setValue(this.image);
+      console.log(this.addUserForm.valid);
+      if (this.addUserForm.valid) {
+         this.userService.addUser(this.addUserForm.value).subscribe(
+            data => {
+               if(this.addUserForm.controls.isAdmin.value){
+                  alert('Sucessfully Created Admin.');
+               }
+               else{
+                  alert('Sucessfully Created User.');
+               }
+               console.log(data);
+               this.addUserForm.reset();
+               this.image = 'https://semantic-ui.com/images/wireframe/square-image.png';
+            },
+            error => {
+               alert('Error!');
+            });
       }
+   }
 
-      if(this.addUserForm.controls.password.valid || !this.addUserForm.controls.password.dirty){
-        this.passwordLabel = 'Password';
-      }else if(this.addUserForm.controls.password.errors){
-        this.passwordLabel = 'Password must be 8 characters long'
+   fileEvent(event: any) {
+      let reader = new FileReader();
+      reader.addEventListener("load", () => {
+         this.image = reader.result;
+      }, false);
+      if (event.target.files[0]) {
+         reader.readAsDataURL(event.target.files[0]);
       }
-
-      // Full Name Label
-      if(this.addUserForm.controls.name.valid || !this.addUserForm.controls.name.dirty){
-        this.fullNameLabel = 'Full Name';
-      }else if(this.addUserForm.controls.name.dirty && this.addUserForm.controls.name.errors.required){
-        this.fullNameLabel = 'Full Name is required'
-      }
-
-      // Email Label
-      if(this.addUserForm.controls.email.valid || !this.addUserForm.controls.email.dirty){
-        this.emailLabel = 'Email Address';
-      }else if(this.addUserForm.controls.email.dirty && this.addUserForm.controls.email.errors.required){
-        this.emailLabel = 'Email Address is required';
-      }else if(this.addUserForm.controls.email.dirty && this.addUserForm.controls.email.errors.pattern){
-        this.emailLabel = 'Invalid Email Address';
-      }
-    });
-  }
-
-  addUser(){
-    this.addUserForm.controls.imgUrl.setValue(this.image);
-    console.log(this.addUserForm.valid);
-    if(this.addUserForm.valid){
-      this.userService.addUser(this.addUserForm.value).subscribe(
-        data => {
-          alert('Sucessfully Created User');
-          console.log(data);
-          this.addUserForm.reset();
-        },
-        error => {
-          alert('Error!');        
-        });
-    }
-  }
-
-  fileEvent(event: any){
-    let reader = new FileReader();
-    reader.addEventListener("load", () => {
-      this.image = reader.result;
-    }, false);
-    if(event.target.files[0]){
-      reader.readAsDataURL(event.target.files[0]);
-    }
-  }
+   }
 }
