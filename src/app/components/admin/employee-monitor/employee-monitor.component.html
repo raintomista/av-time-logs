@@ -1,18 +1,27 @@
 <div class="ui grid container" id="content">
-  <div class="ui three column stackable row">
-    <!-- Online Users -->
-    <div class="column">
-      <online-users-monitor></online-users-monitor>
-    </div>
+   <div class="ui row" id="breadcrumb-container">
+      <div class="ui column">
+         <div class="ui breadcrumb">
+            <a class="section" routerLink="/admin">Admin Dashboard</a>
+            <div class="divider"> / </div>
+            <div class="active section">Employee Real-time Monitor</div>
+         </div>
+      </div>
+   </div>
+   <div class="ui three column stackable row">
+      <!-- Online Users -->
+      <div class="column">
+         <online-users-monitor></online-users-monitor>
+      </div>
 
-    <!-- Users on Break -->
-    <div class="column">
-      <users-on-break-monitor></users-on-break-monitor>
-    </div>
+      <!-- Users on Break -->
+      <div class="column">
+         <users-on-break-monitor></users-on-break-monitor>
+      </div>
 
-    <!-- Offline Users -->
-    <div class="column">
-      <offline-users-monitor></offline-users-monitor>
-    </div>  
-  </div>
+      <!-- Offline Users -->
+      <div class="column">
+         <offline-users-monitor></offline-users-monitor>
+      </div>
+   </div>
 </div>

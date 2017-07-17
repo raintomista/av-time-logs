@@ -61,7 +61,7 @@ const appRoutes: Routes = [
     { path: 'timelogs', component: TimelogsComponent, canActivate: [AuthGuard, AdminGuard]},
     { path: 'timelogs/user/:username', component: ViewAllTimelogsByUserComponent, canActivate: [AuthGuard, AdminGuard]},
     { path: 'network', component: NetworkMonitorComponent, canActivate: [AuthGuard, AdminGuard]},
-    { path: 'add-user', component: AddUserComponent, canActivate: [AuthGuard, AdminGuard]},
+    { path: 'create-user', component: AddUserComponent, canActivate: [AuthGuard, AdminGuard]},
     { path: 'view-all-users', component: ViewUserComponent, canActivate: [AuthGuard, AdminGuard]},
     { path: 'offsets', component: OffsetMonitorComponent, canActivate: [AuthGuard, AdminGuard] },
     { path: 'offsets/user/:username', component: OffsetMonitorByUserComponent, canActivate: [AuthGuard, AdminGuard] },

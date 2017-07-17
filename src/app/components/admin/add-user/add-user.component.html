@@ -1,9 +1,18 @@
 <div class="ui stackable grid container">
-   <form class="ui centered row form" [formGroup]="addUserForm" (ngSubmit)="addUserForm.valid && addUser()" novalidate>
-      <div class="ui seven wide column">
+   <div class="ui row" id="breadcrumb-container">
+      <div class="ui column">
+         <div class="ui breadcrumb">
+            <a class="section" routerLink="/admin">Admin Dashboard</a>
+            <div class="divider"> / </div>
+            <div class="active section">Create User</div>
+         </div>
+      </div>
+   </div>
+   <form class="ui row form" [formGroup]="addUserForm" (ngSubmit)="addUserForm.valid && addUser()" novalidate>
+      <div class="ui eight wide column">
          <div class="ui segments">
             <div class="ui segment" id="header-segment">
-               <h4>Create User</h4>
+               <h4>Profile Picture</h4>
             </div>
             <div class="ui center aligned padded secondary segment">
                <div class="ui grid">
@@ -42,7 +51,7 @@
             </div>
          </div>
       </div>
-      <div class="ui seven wide column">
+      <div class="ui eight wide column">
          <div class="ui grid">
             <div class="row">
                <div class="column">

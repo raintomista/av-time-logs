@@ -1,12 +1,16 @@
 <div class="ui grid container" id="content">
-  <!--<div class="ui row">
-    <div class="ui three wide column">
-      <div class="ui search icon button"><i class="search icon"></i></div>
-    </div>
-  </div>-->
-  <div class="ui  stackable row">
-    <div class="column">
-        <view-all-users-table></view-all-users-table>
-    </div>
-  </div>
+   <div class="ui row" id="breadcrumb-container">
+      <div class="ui column">
+         <div class="ui breadcrumb">
+            <a class="section" routerLink="/admin">Admin Dashboard</a>
+            <div class="divider"> / </div>
+            <div class="active section">View All Users</div>
+         </div>
+      </div>
+   </div>
+   <div class="ui  stackable row">
+      <div class="column">
+         <view-all-users-table></view-all-users-table>
+      </div>
+   </div>
 </div>
