@@ -10,7 +10,8 @@ export class MyTimelogsTableComponent{
   private param: any;
   private timelogs: Timelog[] = [];
   private loading: Boolean;
-  private total;  
+  private total;
+  private totalLate;
 
   constructor() {
     this.loading = true;
@@ -47,4 +48,12 @@ export class MyTimelogsTableComponent{
     this.total = total;
   }
 
+
+  getLate(){
+    return this.totalLate;
+  }
+
+  setLate(totalLate:any){
+    this.totalLate = totalLate;
+  }
 }

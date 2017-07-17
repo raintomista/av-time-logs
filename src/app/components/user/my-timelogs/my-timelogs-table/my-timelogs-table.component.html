@@ -20,28 +20,29 @@
           </tr>
           <tr *ngFor="let timelog of timelogs">
             <td class="center aligned">
-              <span *ngIf="timelog == null || (timelog != null && timelog.timeIn == null)">--</span>        
+              <span *ngIf="timelog == null || (timelog != null && timelog.timeIn == null)">--</span>
               <span *ngIf="timelog != null && timelog.timeIn != null">{{timelog.timeIn | date }}</span>
             </td>
             <td class="center aligned">
-              <span *ngIf="timelog == null || (timelog != null && timelog.timeIn == null)">--</span>        
+              <span *ngIf="timelog == null || (timelog != null && timelog.timeIn == null)">--</span>
               <span *ngIf="timelog != null && timelog.timeIn != null">{{timelog.timeIn | date:'hh:mm:ss a'}}</span>
             </td>
             <td class="center aligned">
-              <span *ngIf="timelog == null || (timelog != null && timelog.timeOut == null)">--</span>        
+              <span *ngIf="timelog == null || (timelog != null && timelog.timeOut == null)">--</span>
               <span *ngIf="timelog != null && timelog.timeOut != null">{{timelog.timeOut | date:'hh:mm:ss a'}}</span>
             </td>
             <td class="center aligned" [ngClass]="{'warning': timelog != null && timelog.lateHrs != null}">
-              <span *ngIf="timelog == null || (timelog != null && timelog.lateHrs == null)">--</span>        
+              <span *ngIf="timelog == null || (timelog != null && timelog.lateHrs == null)">--</span>
               <span *ngIf="timelog != null && timelog.lateHrs != null">{{timelog.lateHrs}}</span>
             </td>
             <td class="center aligned">
-              <span *ngIf="timelog == null || (timelog != null && timelog.totalHrs == null)">00:00:00</span>        
+              <span *ngIf="timelog == null || (timelog != null && timelog.totalHrs == null)">00:00:00</span>
               <span *ngIf="timelog != null && timelog.totalHrs != null">{{timelog.totalHrs}}</span>
             </td>
           </tr>
           <tr *ngIf="total !== null && timelogs.length > 0">
-            <td colspan="4">TOTAL</td>
+            <td colspan="3">TOTAL</td>
+            <td class="center aligned">{{totalLate}}</td>
             <td class="center aligned">{{total}}</td>
           </tr>
         </tbody>
