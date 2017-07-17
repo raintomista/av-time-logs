@@ -1,3 +1,5 @@
+import { MyOffsetsTableComponent } from './components/user/my-offsets/my-offsets-table/my-offsets-table.component';
+import { MyOffsetsComponent } from './components/user/my-offsets/my-offsets.component';
 import { LoginGuard } from './_guards/login.guard';
 import { AdminGuard } from './_guards/admin.guard';
 import { UserGuard } from './_guards/user.guard';
@@ -52,7 +54,7 @@ import { OffsetMonitorByUserComponent } from './components/admin/offset-monitor-
 import { UserOffsetsTableComponent } from './components/admin/offset-monitor-by-user/user-offsets-table/user-offsets-table.component';
 
 const appRoutes: Routes = [
-  
+
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
   { path: 'admin', component: DashboardComponent, children: [
     { path: '', component: EmployeeMonitorComponent, canActivate: [AuthGuard, AdminGuard]},
@@ -62,20 +64,21 @@ const appRoutes: Routes = [
     { path: 'add-user', component: AddUserComponent, canActivate: [AuthGuard, AdminGuard]},
     { path: 'view-all-users', component: ViewUserComponent, canActivate: [AuthGuard, AdminGuard]},
     { path: 'offsets', component: OffsetMonitorComponent },
-    { path: 'offsets/user/:username', component: OffsetMonitorByUserComponent }    
+    { path: 'offsets/user/:username', component: OffsetMonitorByUserComponent }
   ]},
   { path: '', component: UserDashboardComponent, children: [
     { path: '', component: TimeloggingPanelComponent, canActivate: [AuthGuard, UserGuard]},
-    { path: 'my-timelogs', component: MyTimelogsComponent, canActivate: [AuthGuard, UserGuard]},    
-    { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard, UserGuard]},    
-    
+    { path: 'my-timelogs', component: MyTimelogsComponent, canActivate: [AuthGuard, UserGuard]},
+    { path: 'my-offsets', component: MyOffsetsComponent, canActivate: [AuthGuard, UserGuard]},
+    { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard, UserGuard]},
+
   ]},
   { path: '', redirectTo: '/', pathMatch: 'full'},
 
 ];
 
 @NgModule({
-  declarations: [ 
+  declarations: [
     AppComponent,
     SidebarComponent,
     ServersComponent,
@@ -92,7 +95,7 @@ const appRoutes: Routes = [
     NetworkMonitorComponent,
     NetworkMonitorTableComponent,
     LoginComponent,
-    UserDashboardComponent,    
+    UserDashboardComponent,
     DashboardComponent,
     LoaderComponent,
     AlertComponent,
@@ -112,7 +115,9 @@ const appRoutes: Routes = [
     OffsetMonitorComponent,
     OffsetMonitorTableComponent,
     OffsetMonitorByUserComponent,
-    UserOffsetsTableComponent
+    UserOffsetsTableComponent,
+    MyOffsetsComponent,
+    MyOffsetsTableComponent
   ],
   imports: [
     BrowserModule,

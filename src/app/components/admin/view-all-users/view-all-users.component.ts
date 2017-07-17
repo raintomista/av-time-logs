@@ -9,8 +9,8 @@ import { UserService } from '../../../services/user.service';
 })
 export class ViewUserComponent implements OnInit {
 
-  constructor(private userService: UserService) { 
-   
+  constructor(private userService: UserService) {
+
   }
 
   ngOnInit() {
