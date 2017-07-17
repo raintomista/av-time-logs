@@ -65,7 +65,7 @@
                               <label>{{usernameLabel}}</label>
                               <div class="ui labeled input">
                                  <div class="ui label">
-                                    <i class="user icon"></i>
+                                    <span data-icon="&#xe005;"></span>
                                  </div>
                                  <input type="text" placeholder="Username" value="rftomista" formControlName="username">
                               </div>
@@ -74,7 +74,7 @@
                               <label>{{passwordLabel}}</label>
                               <div class="ui labeled input">
                                  <div class="ui label">
-                                    <i class="lock icon"></i>
+                                    <span data-icon="&#xe08e;"></span>
                                  </div>
                                  <input type="password" placeholder="Password" value="********" formControlName="password">
                               </div>
@@ -82,14 +82,15 @@
                            <div class="sixteen wide field" [ngClass]="{'error': addUserForm.controls.firstName.invalid && !addUserForm.controls.firstName.pristine }">
                               <label>{{firstNameLabel}}</label>
                               <div class="ui labeled input">
-                                 <div class="ui label"><i class="certificate icon"></i></div>
+                                 <div class="ui label"><span data-icon="&#xe028;"></span>
+                                 </div>
                                  <input type="text" placeholder="First Name" value="Rainier Francis" formControlName="firstName">
                               </div>
                            </div>
                            <div class="sixteen wide field" [ngClass]="{'error': addUserForm.controls.lastName.invalid && !addUserForm.controls.lastName.pristine }">
                               <label>{{lastNameLabel}}</label>
                               <div class="ui labeled input">
-                                 <div class="ui label"><i class="certificate icon"></i></div>
+                                 <div class="ui label"><span data-icon="&#xe028;"></span></div>
                                  <input type="text" placeholder="Last Name" value="Tomista" formControlName="lastName">
                               </div>
                            </div>
@@ -97,7 +98,7 @@
                               <label>Contact Number</label>
                               <div class="ui labeled input">
                                  <div class="ui label">
-                                    <i class="phone icon"></i>
+                                    <span data-icon="&#xe047;"></span>
                                  </div>
                                  <input type="text" placeholder="Contact Number" formControlName="contactNumber">
                               </div>
@@ -106,7 +107,7 @@
                               <label>{{emailLabel}}</label>
                               <div class="ui labeled input">
                                  <div class="ui label">
-                                    <i class="mail icon"></i>
+                                    <span data-icon="&#xe086;"></span>
                                  </div>
                                  <input type="email" placeholder="Email Address" value="rftomista@gmail.com" formControlName="email">
                               </div>

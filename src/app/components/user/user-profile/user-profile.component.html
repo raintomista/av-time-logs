@@ -73,11 +73,11 @@
                         <h4>Account Details</h4>
                         <a class="ui right floated edit button" data-tooltip="Click to Unlock" data-inverted="" *ngIf="accountDetailsFormLock == true && accountDetailsForm.pristine && allowEditing"
                            (click)="toggleAccountDetails()">
-              <i class="lock icon"></i>
+              <span class="nav-icon" data-icon="&#xe08e;"></span>
             </a>
                         <a class="ui right floated edit button" data-tooltip="Click to Lock" data-inverted="" *ngIf="accountDetailsFormLock == false && accountDetailsForm.pristine && allowEditing"
                            (click)="toggleAccountDetails()">
-              <i class="unlock icon"></i>
+              <span class="nav-icon" data-icon="&#xe08f;"></span>
             </a>
                      </div>
                      <div class="ui center aligned padded secondary segment">
@@ -86,7 +86,7 @@
                               <div class="eight wide field">
                                  <div class="ui labeled input" [ngClass]="{'disabled': accountDetailsFormLock}">
                                     <div class="ui label">
-                                       <i class="user icon"></i>
+                                       <span data-icon="&#xe005;"></span>
                                     </div>
                                     <input type="text" placeholder="{{getUsername()}}" formControlName="username">
                                  </div>
@@ -94,7 +94,7 @@
                               <div class="eight wide field">
                                  <div class="ui labeled input" [ngClass]="{'disabled': accountDetailsFormLock}">
                                     <div class="ui label">
-                                       <i class="lock icon"></i>
+                                       <span data-icon="&#xe08e;"></span>
                                     </div>
                                     <input type="password" placeholder="********" formControlName="password">
                                  </div>
@@ -133,7 +133,7 @@
                               <div class="eight wide field">
                                  <div class="ui labeled input" [ngClass]="{'disabled': !allowEditing}">
                                     <div class="ui label">
-                                       <i class="phone icon"></i>
+                                       <span data-icon="&#xe047;"></span>
                                     </div>
                                     <input type="text" placeholder="Contact Number" formControlName="contactNumber">
                                  </div>
@@ -141,7 +141,7 @@
                               <div class="eight wide field">
                                  <div class="ui labeled input" [ngClass]="{'disabled': !allowEditing}">
                                     <div class="ui label">
-                                       <i class="mail icon"></i>
+                                       <span data-icon="&#xe086;"></span>
                                     </div>
                                     <input type="email" placeholder="Email Address" formControlName="email">
                                  </div>
