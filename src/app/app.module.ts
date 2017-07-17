@@ -63,8 +63,10 @@ const appRoutes: Routes = [
     { path: 'network', component: NetworkMonitorComponent, canActivate: [AuthGuard, AdminGuard]},
     { path: 'add-user', component: AddUserComponent, canActivate: [AuthGuard, AdminGuard]},
     { path: 'view-all-users', component: ViewUserComponent, canActivate: [AuthGuard, AdminGuard]},
-    { path: 'offsets', component: OffsetMonitorComponent },
-    { path: 'offsets/user/:username', component: OffsetMonitorByUserComponent }
+    { path: 'offsets', component: OffsetMonitorComponent, canActivate: [AuthGuard, AdminGuard] },
+    { path: 'offsets/user/:username', component: OffsetMonitorByUserComponent, canActivate: [AuthGuard, AdminGuard] },
+    { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard, AdminGuard]},
+
   ]},
   { path: '', component: UserDashboardComponent, children: [
     { path: '', component: TimeloggingPanelComponent, canActivate: [AuthGuard, UserGuard]},

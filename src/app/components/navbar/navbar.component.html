@@ -14,7 +14,8 @@
         <span id="current-user">Hi, {{user.firstName}}!</span>
         <i class="dropdown icon"></i>
         <div class="menu">
-          <a class="item" routerLink="/profile">Profile</a>
+          <a class="item" routerLink="/profile" *ngIf="!user.isAdmin">Profile</a>
+          <a class="item" routerLink="/admin/profile" *ngIf="user.isAdmin">Admin Profile</a>
           <a class="item" (click)="logOut()">Logout</a>
         </div>
       </div>

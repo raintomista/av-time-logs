@@ -29,7 +29,7 @@
               <div class="column">
                 <h2 class="ui header">
                   <div class="content">
-                    {{userDetailsForm.controls.name.value || getName()}}
+                    {{userDetailsForm.controls.lastName.value || getLastName()}}, {{userDetailsForm.controls.firstName.value || getFirstName()}}
                     <div class="sub header">@{{accountDetailsForm.controls.username.value || getUsername()}}</div>
                   </div>
                 </h2>
@@ -62,11 +62,11 @@
           <div class="ui segments">
           <div class="ui segment" id="header-segment">
             <h4>Account Details</h4>
-            <a class="ui right floated edit button" data-tooltip="Click to Unlock" data-inverted="" 
+            <a class="ui right floated edit button" data-tooltip="Click to Unlock" data-inverted=""
             *ngIf="accountDetailsFormLock == true && accountDetailsForm.pristine && allowEditing" (click)="toggleAccountDetails()">
               <i class="lock icon"></i>
             </a>
-            <a class="ui right floated edit button" data-tooltip="Click to Lock" data-inverted="" 
+            <a class="ui right floated edit button" data-tooltip="Click to Lock" data-inverted=""
             *ngIf="accountDetailsFormLock == false && accountDetailsForm.pristine && allowEditing" (click)="toggleAccountDetails()">
               <i class="unlock icon"></i>
             </a>
@@ -107,9 +107,17 @@
               <div class="sixteen wide field">
                 <div class="ui labeled input" [ngClass]="{'disabled': !allowEditing}">
                   <div class="ui label">
-                    Full Name
+                    First Name
                   </div>
-                  <input type="text" placeholder="Full Name" formControlName="name" >
+                  <input type="text" placeholder="First Name" formControlName="firstName" >
+                </div>
+              </div>
+              <div class="sixteen wide field">
+                <div class="ui labeled input" [ngClass]="{'disabled': !allowEditing}">
+                  <div class="ui label">
+                    Last Name
+                  </div>
+                  <input type="text" placeholder="Last Name" formControlName="lastName" >
                 </div>
               </div>
               <div class="fields">
