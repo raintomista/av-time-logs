@@ -1,46 +1,49 @@
 <div class="ui grid container" id="content">
-  <div class="ui row" id="header-container">
-    <div class="ui sixteen wide computer sixteen wide mobile column" id="header">
-      <h1>My Timelogs</h1>
-      <!--<export></export>-->
-    </div>
-  </div>
-  <div class="ui  stackable row">
-    <div class="column">
-      <form class="ui form stackable grid" [formGroup]="dateRange" novalidate>
-        <div class="ui equal width row" id="date-range-selectors">
-					<div id="start-date" class="ui six wide column">
-            <div class="ui grid">
-              <div class="ui row">
-                <div class="ui eight wide computer eight wide tablet seven wide mobile column">
-                  <div class="ui fluid button mobile only" (click)="sd.toggleCalendar()">Start</div>
-									<div class="ui fluid button mobile hidden" (click)="sd.toggleCalendar()">Start Date</div>
-                </div>
-                <div class="ui eight wide computer eight wide tablet nine wide mobile column">
-                  <input class="form-control" style="float:none" placeholder="{{defaultStart}}" ngx-mydatepicker name="startDate"
-										formControlName="startDate" [options]="myOptions" #sd="ngx-mydatepicker" (click)="sd.toggleCalendar()"/>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="end-date" class="ui six wide column">
-            <div class="ui grid">
-              <div class="ui row">
-                <div class="ui eight wide computer eight wide tablet seven wide mobile column">
-                  <div class="ui fluid button mobile only" (click)="ed.toggleCalendar()">End</div>
-                  <div class="ui fluid button mobile hidden" (click)="ed.toggleCalendar()">End Date</div>
+   <div class="ui row" id="breadcrumb-container">
+      <div class="ui column">
+         <div class="ui breadcrumb">
+            <a class="section" routerLink="/">User Dashboard</a>
+            <div class="divider"> / </div>
+            <div class="active section">My Timelogs</div>
+         </div>
+      </div>
+   </div>
+   <div class="ui  stackable row">
+      <div class="column">
+         <form class="ui form stackable grid" [formGroup]="dateRange" novalidate>
+            <div class="ui equal width row" id="date-range-selectors">
+               <div id="start-date" class="ui six wide column">
+                  <div class="ui grid">
+                     <div class="ui row">
+                        <div class="ui eight wide computer eight wide tablet seven wide mobile column">
+                           <div class="ui fluid button mobile only" (click)="sd.toggleCalendar()">Start</div>
+                           <div class="ui fluid button mobile hidden" (click)="sd.toggleCalendar()">Start Date</div>
+                        </div>
+                        <div class="ui eight wide computer eight wide tablet nine wide mobile column">
+                           <input class="form-control" style="float:none" placeholder="{{defaultStart}}" ngx-mydatepicker name="startDate" formControlName="startDate"
+                              [options]="myOptions" #sd="ngx-mydatepicker" (click)="sd.toggleCalendar()" />
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div id="end-date" class="ui six wide column">
+                  <div class="ui grid">
+                     <div class="ui row">
+                        <div class="ui eight wide computer eight wide tablet seven wide mobile column">
+                           <div class="ui fluid button mobile only" (click)="ed.toggleCalendar()">End</div>
+                           <div class="ui fluid button mobile hidden" (click)="ed.toggleCalendar()">End Date</div>
 
-                </div>
-                <div class="ui eight wide computer eight wide tablet nine wide mobile column">
-                  <input class="form-control" style="float:none" placeholder="{{defaultEnd}}" ngx-mydatepicker name="endDate" formControlName="endDate"
-                    [options]="myOptions" #ed="ngx-mydatepicker" (click)="ed.toggleCalendar()" />
-                </div>
-              </div>
+                        </div>
+                        <div class="ui eight wide computer eight wide tablet nine wide mobile column">
+                           <input class="form-control" style="float:none" placeholder="{{defaultEnd}}" ngx-mydatepicker name="endDate" formControlName="endDate"
+                              [options]="myOptions" #ed="ngx-mydatepicker" (click)="ed.toggleCalendar()" />
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-          </div>
-        </div>
-      </form>
-      <my-timelogs-table></my-timelogs-table>
-    </div>
-  </div>
+         </form>
+         <my-timelogs-table></my-timelogs-table>
+      </div>
+   </div>
 </div>

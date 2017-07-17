@@ -34,9 +34,10 @@ export class SaveNetworkComponent{
         this.description = ''; //Resets description field
       }
       else{ // Save Network to Database
-        this.networkService.saveNetwork(network).subscribe(response =>{ 
+        this.networkService.saveNetwork(network).subscribe(response =>{
           alert(response.message)
           this.description = ''; //Resets description Field
+          window.location.reload();
         });
       }
     });

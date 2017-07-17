@@ -1,14 +1,23 @@
 <div class="ui grid container" id="content">
-  <div class="ui three column stackable row">
-    <!-- Online Users -->
-    <div class="column">
-      <time-in *ngIf="checkStatus() === 0"></time-in>
-      <time-out *ngIf="checkStatus() === 1"></time-out>
-    </div>
+   <div class="ui row" id="breadcrumb-container">
+      <div class="ui column">
+         <div class="ui breadcrumb">
+            <a class="section" routerLink="/">User Dashboard</a>
+            <div class="divider"> / </div>
+            <div class="active section">Home</div>
+         </div>
+      </div>
+   </div>
+   <div class="ui three column stackable row">
+      <!-- Online Users -->
+      <div class="column">
+         <time-in *ngIf="checkStatus() === 0"></time-in>
+         <time-out *ngIf="checkStatus() === 1"></time-out>
+      </div>
 
-    <!-- Users on Break -->
-    <div class="column">
-      
-    </div>
-  </div>
+      <!-- Users on Break -->
+      <div class="column">
+
+      </div>
+   </div>
 </div>
