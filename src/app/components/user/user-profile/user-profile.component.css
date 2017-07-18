@@ -120,3 +120,10 @@
     cursor: pointer;
     cursor: hand;
 }
+
+
+@media only screen and (max-width: 767px) {
+   .ui.grid>.stackable.stackable.row>.column#profile-pic, .ui.stackable.grid>.column.grid>.column#profile-pic, .ui.stackable.grid>.column.row>.column#profile-pic, .ui.stackable.grid>.column:not(.row)#profile-pic, .ui.stackable.grid>.row>.column#profile-pic, .ui.stackable.grid>.row>.wide.column#profile-pic, .ui.stackable.grid>.wide.column#profile-pic{
+      padding-top: 0px !important;
+   }
+}

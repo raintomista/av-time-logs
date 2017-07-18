@@ -9,8 +9,6 @@ import {TimerObservable} from "rxjs/observable/TimerObservable";
       <div class="ui stackable row">
         <div class="ui four wide computer five wide tablet sixteen wide mobile column">
             <span id="time"><time>{{clock | amDateFormat: 'hh:mm:ss A'}}</time></span>
-        </div>
-        <div class="ui five wide computer four wide tablet sixteen wide mobile column">
             <span id="date"><time>{{clock | amDateFormat: 'ddd, D MMM YY'}}</time></span>
         </div>
       </div>
@@ -37,7 +35,7 @@ export class ClockComponent implements OnInit, OnDestroy {
   }
 
   updateClock() {
-    let currentTime = new Date(); 
+    let currentTime = new Date();
     let currentHours = currentTime.getHours();
     let currentMinutes: any = currentTime.getMinutes();
     let currentSeconds: any = currentTime.getSeconds();
@@ -65,5 +63,5 @@ export class ClockComponent implements OnInit, OnDestroy {
   }
 }
 
-  
+
 

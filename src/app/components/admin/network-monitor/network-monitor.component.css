@@ -5,3 +5,12 @@
         padding-top: 1.5rem !important;
     }
 }
+
+@media only screen and (max-width: 767px) {
+   .ui.four.wide.computer.five.wide.tablet.sixteen.wide.mobile.column{
+      padding: 0px !important;
+   }
+   .ui.six.wide.computer.sixteen.wide.tablet.sixteen.wide.mobile.column{
+      padding-top: 0px !important;
+   }
+}

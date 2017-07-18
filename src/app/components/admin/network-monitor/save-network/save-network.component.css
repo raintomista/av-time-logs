@@ -48,7 +48,13 @@
 #ip-address{
 	color: #aa67da;
 	font-weight: bold;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+}
 
+#ip-address span{
+   text-overflow: ellipsis;
 }
 
 #ip-address .ui.horizontal.label{
@@ -83,5 +89,7 @@
   color: #2ec4b6;
   opacity: 1;
 }
+
+
 
 
