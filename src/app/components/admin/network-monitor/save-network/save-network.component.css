@@ -30,13 +30,19 @@
 #hostname{
 	color: #dc354e;
 	font-weight: bold;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+}
+
+#hostname .rdns {
+   text-overflow: ellipsis;
 }
 
 #hostname .ui.horizontal.label{
 	background-color: #dc354e;
 	color: white;
 	font-family: 'Comfortaa', cursive;
-
 }
 
 #ip-address{
@@ -77,3 +83,5 @@
   color: #2ec4b6;
   opacity: 1;
 }
+
+

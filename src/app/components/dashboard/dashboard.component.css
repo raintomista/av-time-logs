@@ -7,7 +7,8 @@ user-sidebar.ui.fixed.left.vertical.inverted.labeled.borderless.menu.tablet.or.l
 .content{
     padding: 30px 18px;
     background-color: #d9d9d9;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
 }
 
 

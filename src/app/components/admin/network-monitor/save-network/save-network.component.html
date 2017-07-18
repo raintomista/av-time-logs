@@ -8,9 +8,9 @@
         <div class="ui column">
           <div class="ui divided selection list">
             <a class="item" id="hostname">
-              <div class="ui horizontal label" >Host Name</div>
-              {{client.rdns}}
-              <span *ngIf="loading === true">Fetching host name...</span>
+              <span class="ui horizontal label" >Host Name</span>
+              <span *ngIf="!loading" class="rdns">{{client.rdns}}</span>
+              <span *ngIf="loading === true" class="rdns">Fetching host name...</span>
             </a>
             <a class="item" id="ip-address">
               <div class="ui purple horizontal label">IP Address</div>

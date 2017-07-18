@@ -1,12 +1,3 @@
 .ui.row#breadcrumb-container{
    padding-bottom: 0px;
 }
-
-.ui.breadcrumb{
-   font-family: 'Comfortaa', cursive;
-   font-size: 1.2em;
-}
-
-.ui.breadcrumb .active{
-   font-weight: bolder;
-}

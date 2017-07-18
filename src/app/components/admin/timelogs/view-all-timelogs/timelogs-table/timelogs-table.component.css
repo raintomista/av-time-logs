@@ -37,25 +37,6 @@
 	font-weight: 600;
 }
 
-/* Inherit Default font for Remarks Tooltip*/
-.ui.table td.remarks.field{
-    font-family: inherit;
-}
-
-/* Remarks Field */
-.ui.table td.remarks.field input{
-	font-family: 'Comfortaa', cursive;
-	font-weight: 600;
-}
-
-/* Highlighting for Invalid Offset*/
-.ui.table tr.warning {
-   background-color: transparent !important;
-}
-.ui.table tr.warning td{
-    background-color: lightcoral !important;
-}
-
 /* Set Radius of Last Column of Table */
 .ui.table tr:last-child td:first-child{
     border-radius: 0px 0px 0px 17px;
@@ -72,23 +53,11 @@
     color: black;
 }
 
-/* Remarks Field */
-.ui.table tr td.remarks.field input{
-    background-color: transparent;
-    text-align: center;
-    border: 0px;
-}
-
 /* Late Hours Highlighting */
 .ui.table tr td.center.aligned.warning {
    background-color: transparent !important;
    color: #dc354e !important;
    font-weight: 900;
-}
-
-/* Validate Icon */
-.ui.validate.icon.button{
-    background-color: #aa67da;
 }
 
 
