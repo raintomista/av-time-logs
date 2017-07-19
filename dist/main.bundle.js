@@ -3055,7 +3055,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#current-user {\r\n   margin-left: 5px;\r\n   font-weight: 600;\r\n}\r\n\r\n.ui.inverted.top.borderless.fluid.menu {\r\n   border-radius: 0px;\r\n}\r\n\r\n.hamburger.item {\r\n   padding: 0px;\r\n}\r\n\r\n.hamburger.item>a {\r\n   height: 100%;\r\n   padding: 20px;\r\n}\r\n\r\n.right.item {\r\n   padding: 0px;\r\n}\r\n", ""]);
+exports.push([module.i, "#current-user {\r\n   margin-left: 5px;\r\n   font-weight: 600;\r\n}\r\n\r\n.ui.inverted.top.borderless.fluid.fixed.menu {\r\n   margin-left: 260px;\r\n   border-radius: 0px;\r\n   width: calc(100% - 260px) !important;\r\n}\r\n\r\n@media only screen and (max-width: 991px) {\r\n   .ui.inverted.top.borderless.fluid.fixed.menu {\r\n      margin-left: 0px;\r\n      width: 100% !important;\r\n   }\r\n}\r\n\r\n.hamburger.item {\r\n   padding: 0px;\r\n}\r\n\r\n.hamburger.item>a {\r\n   height: 100%;\r\n   padding: 20px;\r\n}\r\n\r\n.right.item {\r\n   padding: 0px;\r\n}\r\n", ""]);
 
 // exports
 
