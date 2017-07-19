@@ -14,7 +14,6 @@ import { MomentModule } from 'angular2-moment/moment.module';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { ServersComponent } from './components/servers/servers.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { Routes, RouterModule } from '@angular/router';
@@ -85,7 +84,6 @@ const appRoutes: Routes = [
    declarations: [
       AppComponent,
       SidebarComponent,
-      ServersComponent,
       NavbarComponent,
       TimelogsComponent,
       AddUserComponent,
