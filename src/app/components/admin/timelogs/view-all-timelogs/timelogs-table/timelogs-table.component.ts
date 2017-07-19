@@ -31,7 +31,6 @@ export class TimelogsTableComponent implements OnInit {
 
    setUsers(users: any[]) {
       if (users.length > 0) {
-         console.log(users);
          users.sort((a, b) => {
             return this.compareStrings(a.lastName, b.lastName);
          })

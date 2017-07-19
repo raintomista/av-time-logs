@@ -19,7 +19,6 @@ export class TimeOutComponent implements OnInit {
       if (confirm('Are you sure you want to time out?') == true) {
          let user = JSON.parse(window.localStorage.getItem('currentUser'));
          this.timelogService.timeOut(user.username).subscribe((response: any) => {
-            console.log(response);
             alert(response.message);
             user.status = 0;
             window.localStorage.setItem('currentUser', JSON.stringify(user));

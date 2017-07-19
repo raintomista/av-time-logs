@@ -42,8 +42,6 @@ export class ExportComponent implements OnInit {
       mm = (minutes % 60) + Math.floor(seconds / 60);
       hh = hours + Math.floor(minutes / 60);
 
-      console.log(`${hours}:${minutes}:${seconds}`)
-      console.log(`${hh}:${mm}:${ss}`)
       return `${this.padValue(hh)}:${this.padValue(mm)}:${this.padValue(ss)}`
    }
 
@@ -83,7 +81,6 @@ export class ExportComponent implements OnInit {
                   this.setTitle(doc, `All Users' Recent Timelog Activity as of ${date}`, 0, 70, 14, '');
                }
                let rowData = this.createAllUsersRecentRow(element);
-               console.log(rowData);
                this.createRow(doc, dataHeaders, rowData, (this.WIDTH - row_width) / 2, y, row_width);
                y += 20;
             });
@@ -113,7 +110,6 @@ export class ExportComponent implements OnInit {
                let rowData = this.createTimelogRow(element);
                this.createRow(doc, dataHeaders, rowData, (this.WIDTH - row_width) / 2, y, row_width);
                y += 20;
-               console.log(y);
             });
 
             if (y === 710) {

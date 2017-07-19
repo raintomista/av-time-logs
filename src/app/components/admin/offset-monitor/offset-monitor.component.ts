@@ -17,7 +17,6 @@ export class OffsetMonitorComponent implements OnInit {
       this.offsetService.getOffsets()
          .subscribe(response => {
             if (response.data.length > 0) {
-               console.log(response.data);
                response.data.sort((a, b) => this.resourceService.compareStrings(a.lastName, b.lastName));
             }
             this.table.setUsers(response.data);

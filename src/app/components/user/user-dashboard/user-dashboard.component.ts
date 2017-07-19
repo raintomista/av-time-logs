@@ -50,7 +50,6 @@ export class UserDashboardComponent implements OnInit {
       let currentUser = JSON.parse(localStorage.getItem('currentUser'));
       this.userService.getUser(currentUser.username).subscribe(response => {
          localStorage.setItem('currentUser', JSON.stringify(response.data[0]));
-         console.log(currentUser);
          if (currentUser.isSuspended) {
             alert("This account is suspended. Please contact administrator.");
             this.authService.logout();

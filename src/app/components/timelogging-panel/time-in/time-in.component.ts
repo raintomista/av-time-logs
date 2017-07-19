@@ -18,7 +18,6 @@ export class TimeInComponent implements OnInit {
       this.disabled = true;
       let user = JSON.parse(window.localStorage.getItem('currentUser'));
       this.timelogService.timeIn(user.username).subscribe((response: any) => {
-         console.log(response);
          alert(response.message);
          user.status = 1;
          window.localStorage.setItem('currentUser', JSON.stringify(user));

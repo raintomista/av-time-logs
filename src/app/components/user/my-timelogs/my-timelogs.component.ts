@@ -80,8 +80,6 @@ export class MyTimelogsComponent {
       mm = (minutes % 60) + Math.floor(seconds / 60);
       hh = hours + Math.floor(minutes / 60);
 
-      console.log(`${hours}:${minutes}:${seconds}`)
-      console.log(`${hh}:${mm}:${ss}`)
       return `${this.padValue(hh)}:${this.padValue(mm)}:${this.padValue(ss)}`
    }
 

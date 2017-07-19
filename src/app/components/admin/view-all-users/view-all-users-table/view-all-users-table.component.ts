@@ -41,14 +41,12 @@ export class ViewAllUsersTableComponent implements OnInit {
          else{
             if(user._timelog.timeOut === null){
                this.timelogService.timeOut(user.username).subscribe(response =>{
-                  console.log(response);
                   alert(`Successfully suspended ${user.firstName} ${user.lastName} and timed out current session.`);
                   user.isSuspended = true;
                });
             }
             else if(user._offset.timeOut === null){
                this.timelogService.timeOut(user.username).subscribe(response =>{
-                  console.log(response);
                   alert(`Successfully suspended ${user.firstName} ${user.lastName} and timed out current offset session.`);
                   user.isSuspended = true;
                });

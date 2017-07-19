@@ -15,10 +15,8 @@ export class UserService {
    }
 
    addUser(user: Object) {
-      console.log(JSON.stringify(user));
       return this.http.post(`${appConfig.apiURL}/users/create`, { data: user }, { headers: this.getHeaders() })
          .map((response: Response) => {
-            console.log(response);
          });
    }
 
