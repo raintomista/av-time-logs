@@ -1,52 +1,54 @@
 <div class="ui grid" style="overflow-y:auto;">
-  <div class="ui one column row">
-    <div class="column">
-      <table class="ui celled unstackable fluid single line table" id="time-logs">
-        <thead>
-          <tr>
-            <th class="center aligned four wide">Full Name</th>
-            <th class="center aligned">Username</th>
-            <th class="center aligned">Contact #</th>
-            <th class="center aligned">Email Address</th>
-            <th class="center aligned two wide">Status</th>
-            <th class="two wide"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="center aligned" *ngIf="loading">
-            <td colspan="6"><content-loader></content-loader></td>
-          </tr>
-          <tr *ngIf="users?.length < 1 && !loading">
-            <td class="center aligned" colspan="6" id="no-data">No Users</td>
-          </tr>
-          <tr *ngFor="let user of users">
-            <td>
-              <img class="ui avatar image" src="{{user.imgUrl}}">
-               <a [routerLink]="['/admin/timelogs/user', user.username]" class="nameLink">{{user.lastName}}, {{user.firstName}}</a>
-            </td>
-            <td class="center aligned">{{user.username}}</td>
-            <td class="center aligned">
-              <span *ngIf="user.contactNumber === null">--</span>
-              <span *ngIf="user.contactNumber !== null">{{user.contactNumber}}</span>
-            </td>
-            <td class="center aligned">{{user.email}}</td>
-            <td class="center aligned">
-              <span *ngIf="user.status === 0 && !user.isSuspended">Offline</span>
-              <span *ngIf="user.status === 1 && !user.isSuspended">Online</span>
-              <span *ngIf="user.status === 2 && !user.isSuspended">On Break</span>
-              <span *ngIf="user.isSuspended">Suspended</span>
-            </td>
-            <td class="center aligned options">
-              <div class="ui icon suspend button" data-tooltip="Suspend User" data-inverted="" *ngIf="!user.isSuspended">
-                <i class="remove icon" (click)="suspend(user)"></i>
-              </div>
-              <div class="ui icon unsuspend button" data-tooltip="Unsuspend User" data-inverted="" *ngIf="user.isSuspended">
-                <i class="check icon" (click)="unsuspend(user)"></i>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+   <div class="ui one column row">
+      <div class="column">
+         <table class="ui celled unstackable fluid single line table" id="time-logs">
+            <thead>
+               <tr>
+                  <th class="center aligned four wide">Full Name</th>
+                  <th class="center aligned">Username</th>
+                  <th class="center aligned">Contact #</th>
+                  <th class="center aligned">Email Address</th>
+                  <th class="center aligned two wide">Status</th>
+                  <th class="two wide"></th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr class="center aligned" *ngIf="loading">
+                  <td colspan="6">
+                     <content-loader></content-loader>
+                  </td>
+               </tr>
+               <tr *ngIf="users?.length < 1 && !loading">
+                  <td class="center aligned" colspan="6" id="no-data">No Users</td>
+               </tr>
+               <tr *ngFor="let user of users">
+                  <td>
+                     <img class="ui avatar image" src="{{user.imgUrl}}">
+                     <a [routerLink]="['/admin/timelogs/user', user.username]" class="nameLink">{{user.lastName}}, {{user.firstName}}</a>
+                  </td>
+                  <td class="center aligned">{{user.username}}</td>
+                  <td class="center aligned">
+                     <span *ngIf="user.contactNumber === null">--</span>
+                     <span *ngIf="user.contactNumber !== null">{{user.contactNumber}}</span>
+                  </td>
+                  <td class="center aligned">{{user.email}}</td>
+                  <td class="center aligned">
+                     <span *ngIf="user.status === 0 && !user.isSuspended">Offline</span>
+                     <span *ngIf="user.status === 1 && !user.isSuspended">Online</span>
+                     <span *ngIf="user.status === 2 && !user.isSuspended">On Break</span>
+                     <span *ngIf="user.isSuspended">Suspended</span>
+                  </td>
+                  <td class="center aligned options">
+                     <div class="ui icon suspend button" data-tooltip="Suspend User" data-inverted="" *ngIf="!user.isSuspended">
+                        <i class="remove icon" (click)="suspend(user)"></i>
+                     </div>
+                     <div class="ui icon unsuspend button" data-tooltip="Unsuspend User" data-inverted="" *ngIf="user.isSuspended">
+                        <i class="check icon" (click)="unsuspend(user)"></i>
+                     </div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
 </div>

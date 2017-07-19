@@ -4,29 +4,29 @@ import { Component } from '@angular/core';
 declare var $: any;
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
-  providers: [NetworkService, AuthenticationService]
+   selector: 'app-dashboard',
+   templateUrl: './dashboard.component.html',
+   styleUrls: ['./dashboard.component.css'],
+   providers: [NetworkService, AuthenticationService]
 })
-export class DashboardComponent{
+export class DashboardComponent {
 
-  constructor(private networkService: NetworkService, private authService: AuthenticationService) { }
+   constructor(private networkService: NetworkService, private authService: AuthenticationService) { }
 
-  ngAfterViewInit(){
-    this.checkNetwork();
-    $('.ui.dropdown').dropdown();
-     $('a.sidebar-toggle').click(function () {
-       $('#sidebar').sidebar('toggle')
-     })
-     $('#sidebar a.item.link').click(function () {
-       $('#sidebar').sidebar('toggle')
-     })
-  }
+   ngAfterViewInit() {
+      this.checkNetwork();
+      $('.ui.dropdown').dropdown();
+      $('a.sidebar-toggle').click(function () {
+         $('#sidebar').sidebar('toggle')
+      })
+      $('#sidebar a.item.link').click(function () {
+         $('#sidebar').sidebar('toggle')
+      })
+   }
 
-  checkNetwork(){
-    this.networkService.getIPAddress().subscribe(network => {
-      localStorage.setItem('currentIP', network.ip); //Get Current IP Address
-    });
-  }
+   checkNetwork() {
+      this.networkService.getIPAddress().subscribe(network => {
+         localStorage.setItem('currentIP', network.ip); //Get Current IP Address
+      });
+   }
 }

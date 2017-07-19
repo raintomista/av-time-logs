@@ -5,66 +5,64 @@ import { ActivatedRoute } from '@angular/router';
 import { TimelogService } from './../../../../../services/timelog.service';
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import {INgxMyDpOptions} from 'ngx-mydatepicker';
+import { INgxMyDpOptions } from 'ngx-mydatepicker';
 
 @Component({
-  selector: 'timelogs-by-user-table',
-  templateUrl: './timelogs-by-user-table.component.html',
-  styleUrls: ['./timelogs-by-user-table.component.css'],
-  providers: [TimelogService, DatePipe]
+   selector: 'timelogs-by-user-table',
+   templateUrl: './timelogs-by-user-table.component.html',
+   styleUrls: ['./timelogs-by-user-table.component.css'],
+   providers: [TimelogService, DatePipe]
 })
 export class TimelogsByUserTableComponent implements OnInit {
-  private param: any;
-  private timelogs: Timelog[] = [];
-  private loading: Boolean;
-  private total: String;  
-  private totalLate: String;
+   private param: any;
+   private timelogs: Timelog[] = [];
+   private loading: Boolean;
+   private total: String;
+   private totalLate: String;
 
-  constructor(private timelogService: TimelogService, private route: ActivatedRoute, private datePipe: DatePipe) {
-    this.loading = true;
-  }
+   constructor(private timelogService: TimelogService, private route: ActivatedRoute, private datePipe: DatePipe) {
+      this.loading = true;
+   }
 
-  ngOnInit() {
-  }
+   ngOnInit() {
+   }
 
-  getParam(){
-    return this.param;
-  }
-  setParam(param:any){
-    this.param = param;
-  }
+   getParam() {
+      return this.param;
+   }
+   setParam(param: any) {
+      this.param = param;
+   }
 
-  getTimelogs(){
-    return this.timelogs;
-  }
+   getTimelogs() {
+      return this.timelogs;
+   }
 
-  setTimelogs(timelogs:Timelog[]){
-    this.timelogs = timelogs;
-  }
+   setTimelogs(timelogs: Timelog[]) {
+      this.timelogs = timelogs;
+   }
 
-  getLoading(){
-    return this.loading;
-  }
+   getLoading() {
+      return this.loading;
+   }
 
-  setLoading(bool: Boolean){
-    this.loading = bool;
-  }
+   setLoading(bool: Boolean) {
+      this.loading = bool;
+   }
 
-  getTotal(){
-    return this.total;
-  }
+   getTotal() {
+      return this.total;
+   }
 
-  setTotal(total: String){
-    this.total = total;
-  }
+   setTotal(total: String) {
+      this.total = total;
+   }
 
-  getTotalLate(){
-    return this.totalLate;
-  }
+   getTotalLate() {
+      return this.totalLate;
+   }
 
-  setTotalLate(totalLate: String){
-    this.totalLate = totalLate;
-  }
-
-
+   setTotalLate(totalLate: String) {
+      this.totalLate = totalLate;
+   }
 }

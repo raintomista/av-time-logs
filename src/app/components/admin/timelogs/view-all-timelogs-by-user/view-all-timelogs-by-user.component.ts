@@ -8,9 +8,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { INgxMyDpOptions } from 'ngx-mydatepicker';
 import { FormGroup, FormControl } from '@angular/forms';
 
-
 const ALL_TIMELOGS_OF_USER: Number = 1;
-
 
 @Component({
    selector: 'app-view-all-timelogs-by-user',

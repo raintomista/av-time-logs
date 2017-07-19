@@ -1,86 +1,97 @@
-.ui.table{
-	background-color: transparent;
-	border-color: #2ec4b6;
-	border-width: 2.5px;
-	border-radius: 20px;
+.ui.table {
+   background-color: transparent;
+   border-color: #2ec4b6;
+   border-width: 2.5px;
+   border-radius: 20px;
 }
 
 /* Table Headers */
-.ui.table thead{
-	background-color: #2ec4b6;
-}
-.ui.table thead tr th{
-	background-color: #2ec4b6;
-	color: white;
-	font-family: 'Comfortaa', cursive;
-	letter-spacing: 0.3px;
-	padding: 14px 20px;
 
-}
-.ui.table thead tr th:first-child{
-	border-radius: 17px 0px 0px 0px;
+.ui.table thead {
+   background-color: #2ec4b6;
 }
 
-.ui.table thead tr th:last-child{
-	border-radius: 0px 17px 0px 0px;
+.ui.table thead tr th {
+   background-color: #2ec4b6;
+   color: white;
+   font-family: 'Comfortaa', cursive;
+   letter-spacing: 0.3px;
+   padding: 14px 20px;
 }
 
-.ui.table tbody tr td{
-	border-color: #2ec4b6;
-	border-width: 2.5px;
+.ui.table thead tr th:first-child {
+   border-radius: 17px 0px 0px 0px;
 }
 
-.ui.table td{
-	color: #38383b;
-	padding: 14px 20px;
-	font-family: 'Comfortaa', cursive;
-	font-weight: 600;
+.ui.table thead tr th:last-child {
+   border-radius: 0px 17px 0px 0px;
 }
+
+.ui.table tbody tr td {
+   border-color: #2ec4b6;
+   border-width: 2.5px;
+}
+
+.ui.table td {
+   color: #38383b;
+   padding: 14px 20px;
+   font-family: 'Comfortaa', cursive;
+   font-weight: 600;
+}
+
 
 /* Inherit Default font for Remarks Tooltip*/
-.ui.table td.remarks.field{
-    font-family: inherit;
+
+.ui.table td.remarks.field {
+   font-family: inherit;
 }
 
+
 /* Remarks Field */
-.ui.table td.remarks.field input{
-	font-family: 'Comfortaa', cursive;
-	font-weight: 600;
+
+.ui.table td.remarks.field input {
+   font-family: 'Comfortaa', cursive;
+   font-weight: 600;
 }
 
 /* Highlighting for Invalid Offset*/
+
 .ui.table tr.warning {
    background-color: transparent !important;
 }
-.ui.table tr.warning td{
-    background-color: lightcoral !important;
+
+.ui.table tr.warning td {
+   background-color: lightcoral !important;
 }
 
 /* Set Radius of Last Column of Table */
-.ui.table tr:last-child td:first-child{
-    border-radius: 0px 0px 0px 17px;
+
+.ui.table tr:last-child td:first-child {
+   border-radius: 0px 0px 0px 17px;
 }
 
-.ui.table tr:last-child td:last-child{
-    border-radius: 0px 0px 17px 0px;
+.ui.table tr:last-child td:last-child {
+   border-radius: 0px 0px 17px 0px;
 }
 
 /* Link to All User Offset Timelogs*/
-.ui.table tr td a.nameLink{
-    font-weight: bolder;
-    text-decoration: underline;
-    color: black;
+
+.ui.table tr td a.nameLink {
+   font-weight: bolder;
+   text-decoration: underline;
+   color: black;
 }
 
 /* Remarks Field */
-.ui.table tr td.remarks.field input{
-    background-color: transparent;
-    text-align: center;
-    border: 0px;
+
+.ui.table tr td.remarks.field input {
+   background-color: transparent;
+   text-align: center;
+   border: 0px;
 }
 
 /* Validate Icon */
-.ui.validate.icon.button{
-    background-color: #aa67da;
-}
 
+.ui.validate.icon.button {
+   background-color: #aa67da;
+}

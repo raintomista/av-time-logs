@@ -1,25 +1,24 @@
 <div class="ui inverted top borderless fluid fixed menu">
-  <div class="ui container">
-    <div class="hamburger item">
-      <a class="launch icon item sidebar-toggle screen tablet only" >
+   <div class="ui container">
+      <div class="hamburger item">
+         <a class="launch icon item sidebar-toggle screen tablet only">
         <i class="sidebar icon"></i>
       </a>
-      <a class="launch icon item sidebar-toggle screen mobile only" >
+         <a class="launch icon item sidebar-toggle screen mobile only">
         <i class="sidebar icon"></i>
       </a>
-    </div>
-    <div class="right item">
-      <div class="ui dropdown item">
-        <img class="ui avatar image" src="{{user.imgUrl}}">
-        <span id="current-user">Hi, {{user.firstName}}!</span>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <a class="item" routerLink="/profile" *ngIf="!user.isAdmin">Profile</a>
-          <a class="item" routerLink="/admin/profile" *ngIf="user.isAdmin">Admin Profile</a>
-          <a class="item" (click)="logOut()">Logout</a>
-        </div>
       </div>
-    </div>
-  </div>
+      <div class="right item">
+         <div class="ui dropdown item">
+            <img class="ui avatar image" src="{{user.imgUrl}}">
+            <span id="current-user">Hi, {{user.firstName}}!</span>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+               <a class="item" routerLink="/profile" *ngIf="!user.isAdmin">Profile</a>
+               <a class="item" routerLink="/admin/profile" *ngIf="user.isAdmin">Admin Profile</a>
+               <a class="item" (click)="logOut()">Logout</a>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>
-

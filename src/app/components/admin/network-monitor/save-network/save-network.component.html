@@ -1,32 +1,32 @@
 <div class="ui segments">
-  <div class="ui segment" id="header-segment">
-    <h4>Current Network</h4>
-  </div>
-  <div class="ui secondary blurring segment">
-    <div class="ui grid">
-      <div class="ui one column row">
-        <div class="ui column">
-          <div class="ui divided selection list">
-            <a class="item" id="hostname">
+   <div class="ui segment" id="header-segment">
+      <h4>Current Network</h4>
+   </div>
+   <div class="ui secondary blurring segment">
+      <div class="ui grid">
+         <div class="ui one column row">
+            <div class="ui column">
+               <div class="ui divided selection list">
+                  <a class="item" id="hostname">
               <span class="ui horizontal label" >Host Name</span>
               <span *ngIf="!loading" class="rdns">{{client.rdns}}</span>
               <span *ngIf="loading === true" class="rdns">Fetching host name...</span>
             </a>
-            <a class="item" id="ip-address">
-              <div class="ui purple horizontal label">IP Address</div>
-              <span>{{client.ip}}</span>
-            </a>
-            <a class="item ui form" id="description">
-              <div class="field">
-                  <input type="text" name="first-name" placeholder="Description" [(ngModel)]="description">
-                </div>
-            </a>
-          </div>
-        </div>
-        <div class="ui center aligned column">
-          <button class="ui button" [disabled]="loading" (click)="saveNetwork()">Save to Database</button>
-        </div>
+                  <a class="item" id="ip-address">
+                     <div class="ui purple horizontal label">IP Address</div>
+                     <span>{{client.ip}}</span>
+                  </a>
+                  <a class="item ui form" id="description">
+                     <div class="field">
+                        <input type="text" name="first-name" placeholder="Description" [(ngModel)]="description">
+                     </div>
+                  </a>
+               </div>
+            </div>
+            <div class="ui center aligned column">
+               <button class="ui button" [disabled]="loading" (click)="saveNetwork()">Save to Database</button>
+            </div>
+         </div>
       </div>
-    </div>
-  </div>
+   </div>
 </div>

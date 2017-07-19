@@ -1,43 +1,45 @@
 <div class="ui grid">
-  <div class="ui row">
-    <div class="ui column"  style="overflow-y:auto;">
-      <table class="ui celled unstackable single line table">
-        <thead>
-          <tr>
-            <th class="center aligned four wide">Time In</th>
-            <th class="center aligned four wide">Time Out</th>
-            <th class="center aligned three wide">Total Hours</th>
-            <th class="center aligned three wide">Remarks</th>
-          </tr>
-        </thead>
-        <tbody>
-         <tr class="center aligned" *ngIf="loading">
-            <td colspan="5" id="no-data"><content-loader></content-loader></td>
-          </tr>
-          <tr *ngIf="offsets.length < 1 && !loading">
-            <td colspan="5" class="center aligned" id="no-data">No Offset Hours Timelogs Yet</td>
-          </tr>
-          <tr *ngFor="let offset of offsets" [ngClass]="{ 'warning': !offset.isValid }">
-            <td class="center aligned">{{offset.timeIn | date: 'MMM dd, hh:mm:ss a'}}</td>
-            <td class="center aligned">
-              <span *ngIf="!offset.timeOut">--</span>
-              <span *ngIf="offset.timeOut">{{offset.timeOut | date: 'MMM dd, hh:mm:ss a'}}</span>
-            </td>
-            <td class="center aligned">{{offset.totalHrs}}</td>
-            <td class="center aligned remarks field">
-              <span data-tooltip="Click to Set Remarks" data-inverted="" >
+   <div class="ui row">
+      <div class="ui column" style="overflow-y:auto;">
+         <table class="ui celled unstackable single line table">
+            <thead>
+               <tr>
+                  <th class="center aligned four wide">Time In</th>
+                  <th class="center aligned four wide">Time Out</th>
+                  <th class="center aligned three wide">Total Hours</th>
+                  <th class="center aligned three wide">Remarks</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr class="center aligned" *ngIf="loading">
+                  <td colspan="5" id="no-data">
+                     <content-loader></content-loader>
+                  </td>
+               </tr>
+               <tr *ngIf="offsets.length < 1 && !loading">
+                  <td colspan="5" class="center aligned" id="no-data">No Offset Hours Timelogs Yet</td>
+               </tr>
+               <tr *ngFor="let offset of offsets" [ngClass]="{ 'warning': !offset.isValid }">
+                  <td class="center aligned">{{offset.timeIn | date: 'MMM dd, hh:mm:ss a'}}</td>
+                  <td class="center aligned">
+                     <span *ngIf="!offset.timeOut">--</span>
+                     <span *ngIf="offset.timeOut">{{offset.timeOut | date: 'MMM dd, hh:mm:ss a'}}</span>
+                  </td>
+                  <td class="center aligned">{{offset.totalHrs}}</td>
+                  <td class="center aligned remarks field">
+                     <span data-tooltip="Click to Set Remarks" data-inverted="">
                 <input type="text" *ngIf="offset.remarks" value="{{offset.remarks}}" maxlength="18" (blur)="updateRemarks($event, offset._id)" >
                 <input type="text" *ngIf="!offset.remarks" placeholder="n/a" maxlength="18" (blur)="updateRemarks($event, offset._id)">
               </span>
-            </td>
-          </tr>
-          <tr *ngIf="offsets.length > 0">
-            <td colspan="2" class="center aligned">Total Valid Offsets</td>
-            <td class="center aligned">{{total}}</td>
-            <td colspan="2"></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+                  </td>
+               </tr>
+               <tr *ngIf="offsets.length > 0">
+                  <td colspan="2" class="center aligned">Total Valid Offsets</td>
+                  <td class="center aligned">{{total}}</td>
+                  <td colspan="2"></td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
 </div>

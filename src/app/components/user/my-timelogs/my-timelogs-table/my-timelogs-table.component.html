@@ -1,66 +1,54 @@
 <div class="ui grid noMargin" style="overflow-y:auto;white-space:nowrap;">
-  <div class="ui one column row">
-    <div class="column"  style="overflow-y:auto;">
-      <table class="ui celled unstackable fluid single line table" id="time-logs">
-        <thead>
-          <tr>
-            <th class="center aligned four wide">Date</th>
-            <th class="center aligned three wide">Time In</th>
-            <th class="center aligned three wide">Time Out</th>
-            <th class="center aligned three wide">Late Hours</th>
-            <th class="center aligned three wide">Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="center aligned" *ngIf="loading">
-            <td colspan="6"><content-loader></content-loader></td>
-          </tr>
-          <tr *ngIf="timelogs?.length < 1 && !loading">
-            <td class="center aligned" colspan="6" id="no-data">No Timelogs yet</td>
-          </tr>
-          <tr *ngFor="let timelog of timelogs">
-            <td class="center aligned">
-              <span *ngIf="timelog == null || (timelog != null && timelog.timeIn == null)">--</span>
-              <span *ngIf="timelog != null && timelog.timeIn != null">{{timelog.timeIn | date }}</span>
-            </td>
-            <td class="center aligned">
-              <span *ngIf="timelog == null || (timelog != null && timelog.timeIn == null)">--</span>
-              <span *ngIf="timelog != null && timelog.timeIn != null">{{timelog.timeIn | date:'hh:mm:ss a'}}</span>
-            </td>
-            <td class="center aligned">
-              <span *ngIf="timelog == null || (timelog != null && timelog.timeOut == null)">--</span>
-              <span *ngIf="timelog != null && timelog.timeOut != null">{{timelog.timeOut | date:'hh:mm:ss a'}}</span>
-            </td>
-            <td class="center aligned" [ngClass]="{'warning': timelog != null && timelog.lateHrs != null}">
-              <span *ngIf="timelog == null || (timelog != null && timelog.lateHrs == null)">--</span>
-              <span *ngIf="timelog != null && timelog.lateHrs != null">{{timelog.lateHrs}}</span>
-            </td>
-            <td class="center aligned">
-              <span *ngIf="timelog == null || (timelog != null && timelog.totalHrs == null)">00:00:00</span>
-              <span *ngIf="timelog != null && timelog.totalHrs != null">{{timelog.totalHrs}}</span>
-            </td>
-          </tr>
-          <tr *ngIf="total !== null && timelogs.length > 0">
-            <td colspan="3">TOTAL</td>
-            <td class="center aligned">{{totalLate}}</td>
-            <td class="center aligned">{{total}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+   <div class="ui one column row">
+      <div class="column" style="overflow-y:auto;">
+         <table class="ui celled unstackable fluid single line table" id="time-logs">
+            <thead>
+               <tr>
+                  <th class="center aligned four wide">Date</th>
+                  <th class="center aligned three wide">Time In</th>
+                  <th class="center aligned three wide">Time Out</th>
+                  <th class="center aligned three wide">Late Hours</th>
+                  <th class="center aligned three wide">Total</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr class="center aligned" *ngIf="loading">
+                  <td colspan="6">
+                     <content-loader></content-loader>
+                  </td>
+               </tr>
+               <tr *ngIf="timelogs?.length < 1 && !loading">
+                  <td class="center aligned" colspan="6" id="no-data">No Timelogs yet</td>
+               </tr>
+               <tr *ngFor="let timelog of timelogs">
+                  <td class="center aligned">
+                     <span *ngIf="timelog == null || (timelog != null && timelog.timeIn == null)">--</span>
+                     <span *ngIf="timelog != null && timelog.timeIn != null">{{timelog.timeIn | date }}</span>
+                  </td>
+                  <td class="center aligned">
+                     <span *ngIf="timelog == null || (timelog != null && timelog.timeIn == null)">--</span>
+                     <span *ngIf="timelog != null && timelog.timeIn != null">{{timelog.timeIn | date:'hh:mm:ss a'}}</span>
+                  </td>
+                  <td class="center aligned">
+                     <span *ngIf="timelog == null || (timelog != null && timelog.timeOut == null)">--</span>
+                     <span *ngIf="timelog != null && timelog.timeOut != null">{{timelog.timeOut | date:'hh:mm:ss a'}}</span>
+                  </td>
+                  <td class="center aligned" [ngClass]="{'warning': timelog != null && timelog.lateHrs != null}">
+                     <span *ngIf="timelog == null || (timelog != null && timelog.lateHrs == null)">--</span>
+                     <span *ngIf="timelog != null && timelog.lateHrs != null">{{timelog.lateHrs}}</span>
+                  </td>
+                  <td class="center aligned">
+                     <span *ngIf="timelog == null || (timelog != null && timelog.totalHrs == null)">00:00:00</span>
+                     <span *ngIf="timelog != null && timelog.totalHrs != null">{{timelog.totalHrs}}</span>
+                  </td>
+               </tr>
+               <tr *ngIf="total !== null && timelogs.length > 0">
+                  <td colspan="3">TOTAL</td>
+                  <td class="center aligned">{{totalLate}}</td>
+                  <td class="center aligned">{{total}}</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
 </div>
-
-<script>
-var timepicker = new Pikaday({
-    field: document.getElementById('datetimepicker'),
-    firstDay: 1,
-    minDate: new Date(2016, 0, 1),
-    maxDate: new Date(2100, 12, 31),
-    yearRange: [2016,2100],
-    showTime: true,
-    autoClose: false,
-    use24hour: false,
-    format: 'MMM Do YYYY, h:mm a'
-});
-</script>

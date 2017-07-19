@@ -41,9 +41,5 @@ export class SaveNetworkComponent{
         });
       }
     });
-
-
   }
-
-
 }

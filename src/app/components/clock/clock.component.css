@@ -15,26 +15,15 @@
    margin-left: 5px;
 }
 
-
-/*.ui.four.wide.tablet.column{
-    padding: 0px;
-}
-
-.ui.five.wide.tablet.sixteen.wide.mobile.column{
-    padding-right: 0px;
-}*/
-
 @media only screen and (max-width: 767px) {
    .ui.four.wide.computer.five.wide.tablet.sixteen.wide.mobile.column {
       white-space: normal;
    }
-
-   .ui.four.wide.computer.five.wide.tablet.sixteen.wide.mobile.column *{
+   .ui.four.wide.computer.five.wide.tablet.sixteen.wide.mobile.column * {
       display: block;
       padding: 1.5px 0px;
    }
-
-   #date{
+   #date {
       margin-left: 0px;
    }
    .ui.stackable.row>div.ui.four.wide.computer.five.wide.tablet.sixteen.wide.mobile.column {

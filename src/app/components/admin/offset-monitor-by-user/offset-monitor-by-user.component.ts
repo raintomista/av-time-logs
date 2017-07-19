@@ -4,30 +4,30 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-offset-monitor-by-user',
-  templateUrl: './offset-monitor-by-user.component.html',
-  styleUrls: ['./offset-monitor-by-user.component.css'],
-  providers: [OffsetService]
+   selector: 'app-offset-monitor-by-user',
+   templateUrl: './offset-monitor-by-user.component.html',
+   styleUrls: ['./offset-monitor-by-user.component.css'],
+   providers: [OffsetService]
 })
 export class OffsetMonitorByUserComponent implements OnInit {
- @ViewChild(UserOffsetsTableComponent) table: UserOffsetsTableComponent;
-  private params: string;
+   @ViewChild(UserOffsetsTableComponent) table: UserOffsetsTableComponent;
+   private params: string;
 
-  constructor(private route: ActivatedRoute,
-              private offsetService: OffsetService) {
-    this.route.params.subscribe(response => {
-      this.params = response.username;
-    });
-
-    this.offsetService.getUserOffsets(this.params)
-      .subscribe(response => {
-        this.table.setTotal(response.data.totalValidOffsetHrs);
-        this.table.setOffsets(response.data.offsets);
-        this.table.setUser(response.data.user);
+   constructor(private route: ActivatedRoute,
+      private offsetService: OffsetService) {
+      this.route.params.subscribe(response => {
+         this.params = response.username;
       });
-  }
 
-  ngOnInit() {
-  }
+      this.offsetService.getUserOffsets(this.params)
+         .subscribe(response => {
+            this.table.setTotal(response.data.totalValidOffsetHrs);
+            this.table.setOffsets(response.data.offsets);
+            this.table.setUser(response.data.user);
+         });
+   }
+
+   ngOnInit() {
+   }
 
 }

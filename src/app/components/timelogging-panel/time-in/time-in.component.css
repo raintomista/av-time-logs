@@ -1,65 +1,64 @@
-.ui.button{
-    color: #2ec4b6;
-    background-color: transparent;
-    font-family: 'Comfortaa', cursive;
-    font-size: 1.2rem;
-    padding: 20px;
+.ui.button {
+   color: #2ec4b6;
+   background-color: transparent;
+   font-family: 'Comfortaa', cursive;
+   font-size: 1.2rem;
+   padding: 20px;
 }
 
-.ui.disabled.button{
-    color: #69bcb3;
-    background-color: transparent;
-    font-family: 'Comfortaa', cursive;
-    font-size: 1.2rem;
-    padding: 20px;
+.ui.disabled.button {
+   color: #69bcb3;
+   background-color: transparent;
+   font-family: 'Comfortaa', cursive;
+   font-size: 1.2rem;
+   padding: 20px;
 }
 
-.ui.table#online-user{
-	background-color: transparent;
-	border-color: #2ec4b6;
-	border-width: 2.5px;
-	border-radius: 20px;
-}
-.ui.table#online-user{
-	background-color: transparent;
-	border-color: #2ec4b6;
-	border-width: 2.5px;
-	border-radius: 20px;
+.ui.table#online-user {
+   background-color: transparent;
+   border-color: #2ec4b6;
+   border-width: 2.5px;
+   border-radius: 20px;
 }
 
-
-.ui.table#online-user thead{
-	background-color: #2ec4b6;
-	border-radius: 17px 17px 0px 0px;
-
-}
-.ui.table#online-user thead tr th{
-	background-color: #2ec4b6;
-	color: white;
-	font-family: 'Comfortaa', cursive;
-	font-size: 1.07142857rem;
-	letter-spacing: 0.3px;
-	padding: 14px 20px;
+.ui.table#online-user {
+   background-color: transparent;
+   border-color: #2ec4b6;
+   border-width: 2.5px;
+   border-radius: 20px;
 }
 
-.ui.table#online-user thead tr:first-child>th:only-child{
-	border-radius: 16px 16px 0px 0px;
+.ui.table#online-user thead {
+   background-color: #2ec4b6;
+   border-radius: 17px 17px 0px 0px;
 }
 
-.ui.table#online-user tbody tr td{
-	border-color: #2ec4b6;
-	border-width: 2.5px;
+.ui.table#online-user thead tr th {
+   background-color: #2ec4b6;
+   color: white;
+   font-family: 'Comfortaa', cursive;
+   font-size: 1.07142857rem;
+   letter-spacing: 0.3px;
+   padding: 14px 20px;
 }
 
-.ui.table#online-user td{
-	color: #38383b;
-	padding: 14px 20px;
-	font-family: 'Comfortaa', cursive;
-	font-size: 1.07142857rem;
-	font-weight: 600;
+.ui.table#online-user thead tr:first-child>th:only-child {
+   border-radius: 16px 16px 0px 0px;
 }
 
+.ui.table#online-user tbody tr td {
+   border-color: #2ec4b6;
+   border-width: 2.5px;
+}
 
-.ui.table#online-user tbody:last-child > td{
-	padding: 0px;
+.ui.table#online-user td {
+   color: #38383b;
+   padding: 14px 20px;
+   font-family: 'Comfortaa', cursive;
+   font-size: 1.07142857rem;
+   font-weight: 600;
+}
+
+.ui.table#online-user tbody:last-child>td {
+   padding: 0px;
 }

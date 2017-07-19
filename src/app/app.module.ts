@@ -10,7 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MomentModule} from 'angular2-moment/moment.module';
+import { MomentModule } from 'angular2-moment/moment.module';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -18,7 +18,6 @@ import { ServersComponent } from './components/servers/servers.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { Routes, RouterModule } from '@angular/router';
-// import { TimelogsComponent } from './components/timelogs/timelogs.component';
 import { AddUserComponent } from './components/admin/add-user/add-user.component';
 import { ViewUserComponent } from './components/admin/view-all-users/view-all-users.component';
 import { EmployeeMonitorComponent } from './components/admin/employee-monitor/employee-monitor.component';
@@ -54,84 +53,87 @@ import { OffsetMonitorByUserComponent } from './components/admin/offset-monitor-
 import { UserOffsetsTableComponent } from './components/admin/offset-monitor-by-user/user-offsets-table/user-offsets-table.component';
 
 const appRoutes: Routes = [
+   { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
+   {
+      path: 'admin', component: DashboardComponent, children: [
+         { path: '', component: EmployeeMonitorComponent, canActivate: [AuthGuard, AdminGuard] },
+         { path: 'timelogs', component: TimelogsComponent, canActivate: [AuthGuard, AdminGuard] },
+         { path: 'timelogs/user/:username', component: ViewAllTimelogsByUserComponent, canActivate: [AuthGuard, AdminGuard] },
+         { path: 'network', component: NetworkMonitorComponent, canActivate: [AuthGuard, AdminGuard] },
+         { path: 'create-user', component: AddUserComponent, canActivate: [AuthGuard, AdminGuard] },
+         { path: 'view-all-users', component: ViewUserComponent, canActivate: [AuthGuard, AdminGuard] },
+         { path: 'offsets', component: OffsetMonitorComponent, canActivate: [AuthGuard, AdminGuard] },
+         { path: 'offsets/user/:username', component: OffsetMonitorByUserComponent, canActivate: [AuthGuard, AdminGuard] },
+         { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard, AdminGuard] },
 
-  { path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
-  { path: 'admin', component: DashboardComponent, children: [
-    { path: '', component: EmployeeMonitorComponent, canActivate: [AuthGuard, AdminGuard]},
-    { path: 'timelogs', component: TimelogsComponent, canActivate: [AuthGuard, AdminGuard]},
-    { path: 'timelogs/user/:username', component: ViewAllTimelogsByUserComponent, canActivate: [AuthGuard, AdminGuard]},
-    { path: 'network', component: NetworkMonitorComponent, canActivate: [AuthGuard, AdminGuard]},
-    { path: 'create-user', component: AddUserComponent, canActivate: [AuthGuard, AdminGuard]},
-    { path: 'view-all-users', component: ViewUserComponent, canActivate: [AuthGuard, AdminGuard]},
-    { path: 'offsets', component: OffsetMonitorComponent, canActivate: [AuthGuard, AdminGuard] },
-    { path: 'offsets/user/:username', component: OffsetMonitorByUserComponent, canActivate: [AuthGuard, AdminGuard] },
-    { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard, AdminGuard]},
+      ]
+   },
+   {
+      path: '', component: UserDashboardComponent, children: [
+         { path: '', component: TimeloggingPanelComponent, canActivate: [AuthGuard, UserGuard] },
+         { path: 'my-timelogs', component: MyTimelogsComponent, canActivate: [AuthGuard, UserGuard] },
+         { path: 'my-offsets', component: MyOffsetsComponent, canActivate: [AuthGuard, UserGuard] },
+         { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard, UserGuard] },
 
-  ]},
-  { path: '', component: UserDashboardComponent, children: [
-    { path: '', component: TimeloggingPanelComponent, canActivate: [AuthGuard, UserGuard]},
-    { path: 'my-timelogs', component: MyTimelogsComponent, canActivate: [AuthGuard, UserGuard]},
-    { path: 'my-offsets', component: MyOffsetsComponent, canActivate: [AuthGuard, UserGuard]},
-    { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard, UserGuard]},
-
-  ]},
-  { path: '', redirectTo: '/', pathMatch: 'full'},
+      ]
+   },
+   { path: '', redirectTo: '/', pathMatch: 'full' },
 
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SidebarComponent,
-    ServersComponent,
-    NavbarComponent,
-    TimelogsComponent,
-    AddUserComponent,
-    ViewUserComponent,
-    EmployeeMonitorComponent,
-    OnlineUsersMonitorComponent,
-    OfflineUsersMonitorComponent,
-    UsersOnBreakMonitorComponent,
-    ViewAllUsersTableComponent,
-    TimelogsTableComponent,
-    NetworkMonitorComponent,
-    NetworkMonitorTableComponent,
-    LoginComponent,
-    UserDashboardComponent,
-    DashboardComponent,
-    LoaderComponent,
-    AlertComponent,
-    TimeloggingPanelComponent,
-    TimeInComponent,
-    TimeOutComponent,
-    ClockComponent,
-    ViewAllTimelogsByUserComponent,
-    TimelogsByUserTableComponent,
-    SaveNetworkComponent,
-    UserSidebarComponent,
-    MyTimelogsComponent,
-    MyTimelogsTableComponent,
-    ExportComponent,
-    UserProfileComponent,
-    ContentLoaderComponent,
-    OffsetMonitorComponent,
-    OffsetMonitorTableComponent,
-    OffsetMonitorByUserComponent,
-    UserOffsetsTableComponent,
-    MyOffsetsComponent,
-    MyOffsetsTableComponent
-  ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(appRoutes),
-    HttpModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MomentModule,
-    NgxMyDatePickerModule,
-    JsonpModule
-  ],
-  providers: [ResourceService, AuthGuard, UserGuard, AdminGuard, LoginGuard],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      SidebarComponent,
+      ServersComponent,
+      NavbarComponent,
+      TimelogsComponent,
+      AddUserComponent,
+      ViewUserComponent,
+      EmployeeMonitorComponent,
+      OnlineUsersMonitorComponent,
+      OfflineUsersMonitorComponent,
+      UsersOnBreakMonitorComponent,
+      ViewAllUsersTableComponent,
+      TimelogsTableComponent,
+      NetworkMonitorComponent,
+      NetworkMonitorTableComponent,
+      LoginComponent,
+      UserDashboardComponent,
+      DashboardComponent,
+      LoaderComponent,
+      AlertComponent,
+      TimeloggingPanelComponent,
+      TimeInComponent,
+      TimeOutComponent,
+      ClockComponent,
+      ViewAllTimelogsByUserComponent,
+      TimelogsByUserTableComponent,
+      SaveNetworkComponent,
+      UserSidebarComponent,
+      MyTimelogsComponent,
+      MyTimelogsTableComponent,
+      ExportComponent,
+      UserProfileComponent,
+      ContentLoaderComponent,
+      OffsetMonitorComponent,
+      OffsetMonitorTableComponent,
+      OffsetMonitorByUserComponent,
+      UserOffsetsTableComponent,
+      MyOffsetsComponent,
+      MyOffsetsTableComponent
+   ],
+   imports: [
+      BrowserModule,
+      RouterModule.forRoot(appRoutes),
+      HttpModule,
+      FormsModule,
+      ReactiveFormsModule,
+      MomentModule,
+      NgxMyDatePickerModule,
+      JsonpModule
+   ],
+   providers: [ResourceService, AuthGuard, UserGuard, AdminGuard, LoginGuard],
+   bootstrap: [AppComponent]
 })
 export class AppModule { }

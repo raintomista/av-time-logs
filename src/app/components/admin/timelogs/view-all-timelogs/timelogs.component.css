@@ -1,13 +1,13 @@
-.ui.export.button{
-	background-color: #aa67da;
-	color: white;
+.ui.export.button {
+   background-color: #aa67da;
+   color: white;
 }
 
-#header > *{
-	display: inline;
-	vertical-align: middle;
+#header>* {
+   display: inline;
+   vertical-align: middle;
 }
 
-#header > export{
-	margin-left: 5px;
+#header>export {
+   margin-left: 5px;
 }

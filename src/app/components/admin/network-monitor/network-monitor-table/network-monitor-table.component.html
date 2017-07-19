@@ -1,40 +1,42 @@
-<div class="ui grid" >
-  <div class="ui row">
-    <div class="ui column" style="overflow-y:auto;">
-      <table class="ui celled unstackable table" id="time-logs">
-        <thead>
-          <tr>
-            <th class="center aligned fixed six wide">Hostname</th>
-            <th class="center aligned three wide">Description</th>
-            <th class="center aligned three wide">Status</th>
-            <th class="two wide"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="center aligned" *ngIf="loading">
-            <td colspan="4"><content-loader></content-loader></td>
-          </tr>
-          <tr *ngIf="networks?.length < 1 && !loading">
-            <td class="center aligned" colspan="4">No Networks Listed</td>
-          </tr>
-          <tr *ngFor="let network of networks">
-            <td class="center aligned">{{network.hostname}}</td>
-            <td class="center aligned">{{network.description}}</td>
-            <td class="center aligned">
-              <span *ngIf="network.status == 1">Whitelisted</span>
-              <span *ngIf="network.status == 0">Blacklisted</span>
-            </td>
-            <td class="center aligned">
-              <div class="ui massive icon button" *ngIf="network.status == 1" data-tooltip="Set as blacklisted" data-inverted="">
-                <i class="toggle on icon" (click)="blacklist(network)"></i>
-              </div>
-              <div class="ui massive icon button" *ngIf="network.status == 0" data-tooltip="Set as whitelisted" data-inverted="">
-                <i class="toggle off icon" (click)="whitelist(network)"></i>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<div class="ui grid">
+   <div class="ui row">
+      <div class="ui column" style="overflow-y:auto;">
+         <table class="ui celled unstackable table" id="time-logs">
+            <thead>
+               <tr>
+                  <th class="center aligned fixed six wide">Hostname</th>
+                  <th class="center aligned three wide">Description</th>
+                  <th class="center aligned three wide">Status</th>
+                  <th class="two wide"></th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr class="center aligned" *ngIf="loading">
+                  <td colspan="4">
+                     <content-loader></content-loader>
+                  </td>
+               </tr>
+               <tr *ngIf="networks?.length < 1 && !loading">
+                  <td class="center aligned" colspan="4">No Networks Listed</td>
+               </tr>
+               <tr *ngFor="let network of networks">
+                  <td class="center aligned">{{network.hostname}}</td>
+                  <td class="center aligned">{{network.description}}</td>
+                  <td class="center aligned">
+                     <span *ngIf="network.status == 1">Whitelisted</span>
+                     <span *ngIf="network.status == 0">Blacklisted</span>
+                  </td>
+                  <td class="center aligned">
+                     <div class="ui massive icon button" *ngIf="network.status == 1" data-tooltip="Set as blacklisted" data-inverted="">
+                        <i class="toggle on icon" (click)="blacklist(network)"></i>
+                     </div>
+                     <div class="ui massive icon button" *ngIf="network.status == 0" data-tooltip="Set as whitelisted" data-inverted="">
+                        <i class="toggle off icon" (click)="whitelist(network)"></i>
+                     </div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
 </div>

@@ -3,32 +3,24 @@ import { Component, OnInit } from '@angular/core';
 declare var $: any;
 
 @Component({
-  selector: 'navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: [
-  	'./navbar.component.css',
-  ],
-  providers: [AuthenticationService]
+   selector: 'navbar',
+   templateUrl: './navbar.component.html',
+   styleUrls: [
+      './navbar.component.css',
+   ],
+   providers: [AuthenticationService]
 })
 export class NavbarComponent implements OnInit {
-  user = {}
-  constructor(private authenticationService: AuthenticationService) { 
-    this.user = JSON.parse(window.localStorage.getItem('currentUser'));
-  }
+   user = {}
+   constructor(private authenticationService: AuthenticationService) {
+      this.user = JSON.parse(window.localStorage.getItem('currentUser'));
+   }
 
-  ngOnInit() {
-  }
-  
-  ngAfterViewInit(){
-     
-  }
+   ngOnInit() {}
 
-  logOut(){
-    this.authenticationService.logout();
-  }
+   ngAfterViewInit() {}
 
-  settings(){
-    
-  }
-
+   logOut() {
+      this.authenticationService.logout();
+   }
 }

@@ -1,57 +1,61 @@
 <div class="ui grid">
-  <div class="ui row">
-    <div class="ui column" style="overflow-y:auto;">
-      <table class="ui celled unstackable single line table">
-        <thead>
-          <tr>
-            <th class="center aligned four wide">Online Users</th>
-            <th class="center aligned">Recent Time In</th>
-            <th class="center aligned">Recent Time Out</th>
-            <th class="center aligned three wide">Remarks</th>
-            <th class="two wide"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="center aligned" *ngIf="loading">
-            <td colspan="6" id="no-data"><content-loader></content-loader></td>
-          </tr>
-          <tr *ngIf="users?.length < 1 && !loading">
-            <td class="center aligned" colspan="6" id="no-data">No Timelogs for the Day</td>
-          </tr>
-          <tr *ngFor="let user of users" [ngClass]="{'warning': user._offset && !user._offset.isValid}">
-            <td>
-              <img class="ui avatar image" src="{{user.imgUrl}}">
-              <a [routerLink]="['/admin/offsets/user', user.username]" class="nameLink">{{user.lastName}}, {{user.firstName}}</a>
-            </td>
-            <td class="center aligned">
-              <span *ngIf="!user._offset || !user._offset.timeIn">--</span>
-              <span *ngIf="user._offset && user._offset.timeIn">{{user._offset.timeIn | date:'MMM dd, hh:mm:ss a'}}</span>
-            </td>
-            <td class="center aligned">
-              <span *ngIf="!user._offset || !user._offset.timeOut">--</span>
-              <span *ngIf="user._offset && user._offset.timeOut">{{user._offset.timeOut | date:'MMM dd, hh:mm:ss a'}}</span>
-            </td>
-            <td class="center aligned remarks field">
-              <input type="text" placeholder="n/a" [disabled]="!user._offset" *ngIf="!user._offset">
-              <span data-tooltip="Click to Set Remarks" data-inverted="" >
+   <div class="ui row">
+      <div class="ui column" style="overflow-y:auto;">
+         <table class="ui celled unstackable single line table">
+            <thead>
+               <tr>
+                  <th class="center aligned four wide">Online Users</th>
+                  <th class="center aligned">Recent Time In</th>
+                  <th class="center aligned">Recent Time Out</th>
+                  <th class="center aligned three wide">Remarks</th>
+                  <th class="two wide"></th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr class="center aligned" *ngIf="loading">
+                  <td colspan="6" id="no-data">
+                     <content-loader></content-loader>
+                  </td>
+               </tr>
+               <tr *ngIf="users?.length < 1 && !loading">
+                  <td class="center aligned" colspan="6" id="no-data">No Timelogs for the Day</td>
+               </tr>
+               <tr *ngFor="let user of users" [ngClass]="{'warning': user._offset && !user._offset.isValid}">
+                  <td>
+                     <img class="ui avatar image" src="{{user.imgUrl}}">
+                     <a [routerLink]="['/admin/offsets/user', user.username]" class="nameLink">{{user.lastName}}, {{user.firstName}}</a>
+                  </td>
+                  <td class="center aligned">
+                     <span *ngIf="!user._offset || !user._offset.timeIn">--</span>
+                     <span *ngIf="user._offset && user._offset.timeIn">{{user._offset.timeIn | date:'MMM dd, hh:mm:ss a'}}</span>
+                  </td>
+                  <td class="center aligned">
+                     <span *ngIf="!user._offset || !user._offset.timeOut">--</span>
+                     <span *ngIf="user._offset && user._offset.timeOut">{{user._offset.timeOut | date:'MMM dd, hh:mm:ss a'}}</span>
+                  </td>
+                  <td class="center aligned remarks field">
+                     <input type="text" placeholder="n/a" [disabled]="!user._offset" *ngIf="!user._offset">
+                     <span data-tooltip="Click to Set Remarks" data-inverted="">
                 <input type="text" *ngIf="user._offset && user._offset.remarks" value="{{user._offset.remarks}}" maxlength="18" (blur)="updateRemarks($event, user)" >
                 <input type="text" *ngIf="user._offset && !user._offset.remarks" placeholder="n/a" maxlength="18" (blur)="updateRemarks($event, user)">
               </span>
-            </td>
-            <td class="center aligned">
-              <button class="ui validate icon button" data-inverted="" *ngIf="!user._offset" [disabled]="!user._offset">
+                  </td>
+                  <td class="center aligned">
+                     <button class="ui validate icon button" data-inverted="" *ngIf="!user._offset" [disabled]="!user._offset">
                 <i class="add icon"></i>
               </button>
-              <div class="ui validate icon button" data-tooltip="Set to Valid" data-inverted="" *ngIf="user._offset && !user._offset.isValid"  (click)="setValid(user)">
-                <i class="add icon"></i>
-              </div>
-              <div class="ui invalidate icon button" data-tooltip="Set to Invalid" data-inverted="" *ngIf="user._offset && user._offset.isValid" (click)="setInvalid(user)">
-                <i class="minus icon"></i>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+                     <div class="ui validate icon button" data-tooltip="Set to Valid" data-inverted="" *ngIf="user._offset && !user._offset.isValid"
+                        (click)="setValid(user)">
+                        <i class="add icon"></i>
+                     </div>
+                     <div class="ui invalidate icon button" data-tooltip="Set to Invalid" data-inverted="" *ngIf="user._offset && user._offset.isValid"
+                        (click)="setInvalid(user)">
+                        <i class="minus icon"></i>
+                     </div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
 </div>

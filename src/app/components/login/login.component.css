@@ -1,98 +1,106 @@
-.ui.button#login-btn{
-	background-color: #a566db;
-	color: white;
-	font-family: 'Comfortaa', cursive;
+.ui.button#login-btn {
+   background-color: #a566db;
+   color: white;
+   font-family: 'Comfortaa', cursive;
 }
 
-/*body{
-	background-color: #212025;
-	background-image: url("../../../assets/images/lauren-mancke-60627.jpg");
-	background-size: cover;
-}*/
-
-#login-container{
-	position: relative;
-    background: #212025;
-    overflow: hidden;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-  	flex-direction: column;
-  	justify-content: center;
+#login-container {
+   position: relative;
+   background: #212025;
+   overflow: hidden;
+   height: 100vh;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
 }
 
-#login-container:before{
-	content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0.1;
-    background-image: url("../../../assets/images/lauren-mancke-60627.jpg");
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    -ms-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-size: cover;
+#login-container:before {
+   content: ' ';
+   display: block;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 1;
+   opacity: 0.1;
+   background-image: url("../../../assets/images/lauren-mancke-60627.jpg");
+   background-repeat: no-repeat;
+   background-position: 50% 0;
+   -ms-background-size: cover;
+   -o-background-size: cover;
+   -moz-background-size: cover;
+   -webkit-background-size: cover;
+   background-size: cover;
 }
 
-.ui.form .field > input[type=text], .ui.form .field > input[type=password]{
-	background: rgba(225, 225, 225, 0.7);
-	border-radius: 20px;
-	font-family: 'Comfortaa', cursive;
+.ui.form .field>input[type=text],
+.ui.form .field>input[type=password] {
+   background: rgba(225, 225, 225, 0.7);
+   border-radius: 20px;
+   font-family: 'Comfortaa', cursive;
 }
 
-.ui.form .field.error > input[type=text], .ui.form .field.error > input[type=password]{
-  background: rgba(255, 154, 154, 0.7);
-  border-color: #f43636;
-}
-.ui.form input[type=text]:focus, .ui.form input[type=password]:focus{
-	background: rgba(225, 225, 225, 0.7);
-	border-radius: 20px;
-	font-family: 'Comfortaa', cursive;
+.ui.form .field.error>input[type=text],
+.ui.form .field.error>input[type=password] {
+   background: rgba(255, 154, 154, 0.7);
+   border-color: #f43636;
 }
 
-.ui.form input::placeholder{
-	color: #514b4c;
-	font-weight: 700;
+.ui.form input[type=text]:focus,
+.ui.form input[type=password]:focus {
+   background: rgba(225, 225, 225, 0.7);
+   border-radius: 20px;
+   font-family: 'Comfortaa', cursive;
 }
 
-::-webkit-input-placeholder { /* Chrome */
-  color: #514b4c;
-}
-:-ms-input-placeholder { /* IE 10+ */
-  color: #514b4c;
-}
-::-moz-placeholder { /* Firefox 19+ */
-  color: red;
-  opacity: 1;
-}
-:-moz-placeholder { /* Firefox 4 - 18 */
-  color: red;
-  opacity: 1;
+.ui.form input::placeholder {
+   color: #514b4c;
+   font-weight: 700;
 }
 
-.ui.centered.grid{
-	z-index: 2;
-    position: relative;
+::-webkit-input-placeholder {
+   /* Chrome */
+   color: #514b4c;
 }
 
-.ui.image.field{
-	margin-bottom: 30px;
+:-ms-input-placeholder {
+   /* IE 10+ */
+   color: #514b4c;
 }
 
-
-.spinner {  
-  animation: rotate 600ms infinite linear;
-  transform:translateZ(0px);
+::-moz-placeholder {
+   /* Firefox 19+ */
+   color: red;
+   opacity: 1;
 }
 
-@keyframes rotate {  
-  0% {transform:rotate(0deg);}
-  100% {transform:rotate(360deg);} 
+:-moz-placeholder {
+   /* Firefox 4 - 18 */
+   color: red;
+   opacity: 1;
+}
+
+.ui.centered.grid {
+   z-index: 2;
+   position: relative;
+}
+
+.ui.image.field {
+   margin-bottom: 30px;
+}
+
+.spinner {
+   animation: rotate 600ms infinite linear;
+   transform: translateZ(0px);
+}
+
+@keyframes rotate {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
 }

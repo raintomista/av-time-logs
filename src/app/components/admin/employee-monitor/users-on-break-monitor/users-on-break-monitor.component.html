@@ -1,28 +1,29 @@
 <table class="ui celled single line fixed table" id="users-break">
-  <thead>
-    <tr>
-      <th>
-         Users On Break
-         <div class="ui horizontal label">
-            {{usersOnBreak.length}}
-         </div>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="center aligned" *ngIf="loading">
-      <td><content-loader></content-loader></td>
-    </tr>
-    <tr *ngIf="usersOnBreak?.length < 1 && !loading">
-      <td>
-        No Users On Break
-      </td>
-    </tr>
-    <tr *ngFor="let user of usersOnBreak">
-      <td>
-        <img class="ui avatar image" src="{{user.imgUrl}}">
-        {{user.lastName}}, {{user.firstName}}
-      </td>
-    </tr>
-  </tbody>
+   <thead>
+      <tr>
+         <th>
+            Users On Break
+            <div class="ui horizontal label">
+               {{usersOnBreak.length}}
+            </div>
+         </th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr class="center aligned" *ngIf="loading">
+         <td>
+            <content-loader></content-loader>
+         </td>
+      </tr>
+      <tr *ngIf="usersOnBreak?.length < 1 && !loading">
+         <td>
+            No Users On Break
+         </td>
+      </tr>
+      <tr *ngFor="let user of usersOnBreak">
+         <td>
+            <img class="ui avatar image" src="{{user.imgUrl}}"> {{user.lastName}}, {{user.firstName}}
+         </td>
+      </tr>
+   </tbody>
 </table>

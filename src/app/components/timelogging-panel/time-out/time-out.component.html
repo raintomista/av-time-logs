@@ -1,13 +1,13 @@
 <table class="ui celled table" id="offline-user">
-  <thead>
-    <tr>
-      <th>
-        Offline Users
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-     <div class="ui fluid disabled button" *ngIf="disabled">Time Out</div>
-    <div class="ui fluid button" (click)="timeOut()" *ngIf="!disabled">Time Out</div>
-  </tbody>
+   <thead>
+      <tr>
+         <th>
+            Offline Users
+         </th>
+      </tr>
+   </thead>
+   <tbody>
+      <div class="ui fluid disabled button" *ngIf="disabled">Time Out</div>
+      <div class="ui fluid button" (click)="timeOut()" *ngIf="!disabled">Time Out</div>
+   </tbody>
 </table>
