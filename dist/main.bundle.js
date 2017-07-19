@@ -3175,7 +3175,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/timelogging-panel/time-in/time-in.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<table class=\"ui celled table\" id=\"online-user\">\n   <thead>\n      <tr>\n         <th>\n            Online Users\n         </th>\n      </tr>\n   </thead>\n   <tbody>\n      <div class=\"ui fluid disabled button\" *ngIf=\"disabled\">Time In</div>\n      <div class=\"ui fluid button\" (click)=\"timeIn()\" *ngIf=\"!disabled\">Time In</div>\n   </tbody>\n</table>\n<table class=\"ui celled table\" id=\"online-user\">\n   <thead>\n      <tr>\n         <th>\n            Online Users\n         </th>\n      </tr>\n   </thead>\n   <tbody>\n      <div class=\"ui fluid disabled button\" *ngIf=\"disabled\">Time In</div>\n      <div class=\"ui fluid button\" (click)=\"timeIn()\" *ngIf=\"!disabled\">Time In</div>\n   </tbody>\n</table>\n"
+module.exports = "<table class=\"ui celled table\" id=\"online-user\">\n   <thead>\n      <tr>\n         <th>\n            Online Users\n         </th>\n      </tr>\n   </thead>\n   <tbody>\n      <div class=\"ui fluid disabled button\" *ngIf=\"disabled\">Time In</div>\n      <div class=\"ui fluid button\" (click)=\"timeIn()\" *ngIf=\"!disabled\">Time In</div>\n   </tbody>\n</table>\n"
 
 /***/ }),
 
