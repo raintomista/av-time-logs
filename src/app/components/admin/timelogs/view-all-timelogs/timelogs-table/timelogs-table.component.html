@@ -38,7 +38,7 @@
                      <span *ngIf="user._timelog == null || (user._timelog != null && user._timelog.timeOut == null)">--</span>
                      <span *ngIf="user._timelog != null && user._timelog.timeOut != null">{{user._timelog.timeOut | date:'hh:mm:ss a'}}</span>
                   </td>
-                  <td class="center aligned" [ngClass]="{'warning': user._timelog != null && user._timelog.lateHrs != null}">
+                  <td class="center aligned" [ngClass]="{'warning': user._timelog != null && user._timelog.lateHrs != '00:00:00'}">
                      <span *ngIf="user._timelog == null || (user._timelog != null && user._timelog.lateHrs == null)">--</span>
                      <span *ngIf="user._timelog != null && user._timelog.lateHrs != null">{{user._timelog.lateHrs}}</span>
                   </td>
