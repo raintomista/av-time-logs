@@ -17,6 +17,7 @@ export class UserService {
    addUser(user: Object) {
       return this.http.post(`${appConfig.apiURL}/users/create`, { data: user }, { headers: this.getHeaders() })
          .map((response: Response) => {
+            return response.json();
          });
    }
 
